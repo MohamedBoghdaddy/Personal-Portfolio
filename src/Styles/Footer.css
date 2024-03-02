@@ -1,0 +1,111 @@
+/* Footer + Work experience section CSS */
+
+body {
+  background: #FCE588 ;
+  font-family: "Montserrat", sans-serif; /* Set default font family */
+}
+
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height:250px;
+  background-color: rgba(27, 10, 1, 0.9);
+  color: rgba(255, 250, 200, 0.9);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-footer .content {
+  max-width: 600px;
+  margin-top: auto;
+}
+
+.app-footer ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+}
+
+.app-footer li {
+  margin-right: 20px;
+}
+
+.app-footer a {
+  color: #fdd37d;
+  text-decoration: none;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  color: #fffac8;
+  margin: 0 10px;
+}
+
+.social-icons i {
+  font-size: 30px;
+}
+
+.WorkExperienceSection {
+  border-radius: 30px;
+  color: #b7106c;
+  max-width: 650px;
+
+}
+
+.WorkExperienceSection h1 {
+  color: #163060;
+}
+
+.internship-rectangle {
+  background-color: #ba9c26;
+  padding: 10px;
+  border-radius: 30px;
+  flex-grow: 1;
+  max-height: 350px;
+  max-width: 650px;
+}
+
+.internship-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.internship-label-text {
+  font-weight: bold;
+}
+
+.internship-date {
+  color: #030000;
+}
+
+.curved-button {
+  border-radius: 20px;
+  color: #030301;
+  background-color: #244686;
+}
+
+.footerContainer {
+  background: #FCE588 ;
+  color: #FFFFFF;
+  padding: 40px 20px;
+  height: 100%;
+}
+
+footer h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.footer--items ul li:hover {
+  color: #b48c3c;
+}

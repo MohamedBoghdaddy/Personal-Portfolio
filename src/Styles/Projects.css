@@ -1,0 +1,282 @@
+
+
+.projects-Container.expanded .project:not(.selected) {
+  opacity: 0;
+}
+
+.projects-Container2.expanded .project:not(.selected) {
+  opacity: 0;
+}
+
+.projects-Container3.expanded .project:not(.selected) {
+  opacity: 0;
+}
+
+.projects-Container4.expanded .project:not(.selected) {
+  opacity: 0;
+}
+
+.project.selected {
+  transition: transform 0.5s ease; /* Apply transition for animation */
+  transform: translateX(0); /* Move selected project to center */
+}
+
+
+
+.projects-Container.expanded .project{
+  transform: translate(50%, 0);
+}
+
+
+.projects-Container2.expanded .project{
+  transform: translate(-100%, 0%);
+}
+
+
+.projects-Container3.expanded .project{
+  transform: translate(50%, -80%);
+}
+
+
+.projects-Container4.expanded .project{
+  transform: translate(-100%, -80%);
+}
+
+.project-details p {
+  display: none; /* Hide paragraph by default */
+}
+.project.selected p {
+  display: flex; /* Show paragraph for selected project */
+  max-height: 200px; /* Limit paragraph height */
+  opacity: 1; /* Hide paragraph initially */
+  animation: fadeInWords 2s ease forwards; /* Apply fade-in animation */
+}
+
+
+@keyframes fadeInWords {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
+.buttons-container Button {
+  background-color: #FDD37D;
+  color: #000000;
+  margin: 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttons-container Button:hover {
+  background-color: #be8c28;
+}
+
+
+.main-projects-container  {
+  display: flex; /* Make the project container a flex container */
+  flex-direction:row;
+  border-width: 3px;
+  border-style: solid;
+  width: 100%; /* Adjust the width to fit three projects per row */
+  height: 100%;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+
+.projects-Container{
+  width: 100px;
+  height: 100px;
+  padding-right: 100px;
+  border-width: 3px;
+  border-style: solid;
+
+}
+
+
+.projects-Container p{
+  width: 100px;
+  height: 100px;
+  padding-right: 100px;
+  border-width: 3px;
+  border-style: solid;
+
+}
+
+
+
+.projects-Container2{
+  width: 100px;
+  height: 100px;
+  padding-right: 100px;
+  border-width: 3px;
+  border-style: solid;
+}
+
+
+.projects-Container2 p{
+  width: 100px;
+  height: 100px;
+  padding-right: 100px;
+  border-width: 3px;
+  border-style: solid;
+
+}
+
+
+.projects-Container3{
+  width: 100px;
+  height: 100px;
+  border-width: 3px;
+  border-style: solid;
+
+}
+
+
+.projects-Container3 p{
+  width:fit-content; /* Set the maximum height */
+  height:fit-content; /* Set the maximum height */
+  padding-right: 100px;
+  border-width: 3px;
+  border-style: solid;
+
+}
+
+.projects-Container4{
+  width: 100px;
+  height: 100px;
+
+  border-width: 3px;
+  border-style: solid;
+}
+
+
+
+.projects-Container4 p{
+  width:fit-content; /* Set the maximum height */
+  height:fit-content; /* Set the maximum height */
+  padding-right: 100px;
+  border-width: 3px;
+  border-style: solid;
+
+}
+
+.project-details{
+  display: flex;
+  flex-direction:row;
+  height:fit-content; /* Set the maximum height */
+  width: 1514px;
+  justify-content: space-between;
+  padding-bottom: 100px;
+
+
+}
+
+.project{
+  display: flex;
+  border-width: 10px;
+  border-style: solid;
+
+
+}
+
+.project p {
+  width: 200px; /* Set the maximum width */
+  height:fit-content; /* Set the maximum height */
+  
+}
+
+
+
+.project-details img {
+  width: 250px;
+  height:fit-content;
+  margin-right: 10px; /* Add margin to separate the image and button */
+}
+
+
+h1 {
+  margin: 0; /* Remove default margin */
+}
+
+
+.Row1{
+  margin-right:660px;
+  position: absolute;
+  margin-top:30px; 
+   left: 0;
+  height:200px;
+  width:1000px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #ff0000;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items:center;
+  /* background-color: lightgreen; */
+}
+
+.Row2{
+  margin-top:330px;
+  margin-right:530px;
+  position: absolute;
+  left: 0;
+  height:200px;
+  width:1000px;
+  border-width: 3px;
+  border-style: solid;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items:center;
+  border-color: #3700ff;
+  /* background-color: lightcoral; */
+}
+
+
+.buttons-container2 {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  align-items:center;
+  margin-right: 50px;
+  margin-top:330px;
+  margin-right:530px;
+}
+
+.buttons-container2 .btn {
+  /* Add custom button styles */
+  background-color: #0a0b0d; /* Blue background color */
+  color: white; /* White text color */
+  padding: 10px 40px; /* Padding for the button */
+  border: none; /* Remove button border */
+  border-radius: 10px; /* Rounded button corners */
+  cursor: pointer; /* Add pointer cursor on hover */
+}
+
+.buttons-container2 .btn:hover {
+  background-color: #0056b3; /* Darker blue background color on hover */
+}
+
+.icons-container{
+  margin-right:660px;
+
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  border: none; /* Remove button border */
+  border-radius: 10px; 
+}

@@ -1,0 +1,54 @@
+/* NavBar*/
+
+/* Montserrat Font */
+.montserrat-myuniqueclass {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Replace with your desired font weight */
+  font-style: normal;
+}
+
+/* Roboto Font - Regular */
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Roboto Font - Medium */
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Roboto Font - Bold */
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+/* Existing styles */
+
+/* Add Figma styles */
+.custom-navbar {
+  background-color: #100D16 !important;
+}
+
+.custom-navbar .navbar-brand {
+  color: #FFFFFF !important;
+  font-size: 2rem !important;
+}
+
+.nav-link {
+  color: #FFFFFF !important;
+  font-size: 1.5rem !important;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #E74C5A !important;
+}
+
+/* Existing styles continued... */
