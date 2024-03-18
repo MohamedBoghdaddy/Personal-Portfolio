@@ -22,10 +22,10 @@ function Footer() {
     setShowDescription(true); // Show description when a category is selected
   };
 
-  const resetWorkExperience = () => {
-    setShowDescription(false);
-    setSelectedCategory("");
-  };
+  // const resetWorkExperience = () => {
+  //   setShowDescription(false);
+  //   setSelectedCategory("");
+  // };
 
 
   return (
