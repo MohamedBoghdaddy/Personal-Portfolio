@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/Personal-Portfolio/static/css/main.8df8d51a.css",
+    "main.js": "/Personal-Portfolio/static/js/main.e6f44e1e.js",
+    "static/js/453.56a23f5d.chunk.js": "/Personal-Portfolio/static/js/453.56a23f5d.chunk.js",
+    "static/media/Petzone.png": "/Personal-Portfolio/static/media/Petzone.2631e5da67be836f0b52.png",
+    "static/media/High.png": "/Personal-Portfolio/static/media/High.a6d8869b28d48df04309.png",
+    "static/media/OZLOT.jpg": "/Personal-Portfolio/static/media/OZLOT.ccfc578ed111acd80408.jpg",
+    "static/media/prodigypage.png": "/Personal-Portfolio/static/media/prodigypage.0b9cccd4e54b66dd18e8.png",
+    "static/media/Me2.jpg": "/Personal-Portfolio/static/media/Me2.c3fbfe7017089045e413.jpg",
+    "static/media/ColorMasking.png": "/Personal-Portfolio/static/media/ColorMasking.f1d9ab872fe67755d255.png",
+    "static/media/Stat.png": "/Personal-Portfolio/static/media/Stat.5f20cdf7787b506b9c51.png",
+    "static/media/MusicTrends.png": "/Personal-Portfolio/static/media/MusicTrends.6984dda8c0a4930729d1.png",
+    "static/media/stopwatch.png": "/Personal-Portfolio/static/media/stopwatch.f85b35c3b15760f36ae2.png",
+    "static/media/Restaurant.png": "/Personal-Portfolio/static/media/Restaurant.08a910d2541784b9aaf6.png",
+    "static/media/Recommendation.png": "/Personal-Portfolio/static/media/Recommendation.993799db2625fdc9c7bc.png",
+    "static/media/FlappyBird.png": "/Personal-Portfolio/static/media/FlappyBird.f65e6c3d792bd69245e8.png",
+    "static/media/XO.png": "/Personal-Portfolio/static/media/XO.fe8cd091df8f9794181c.png",
+    "static/media/Temp2.png": "/Personal-Portfolio/static/media/Temp2.f9ecadbc568406b4d826.png",
+    "static/media/Temp3.png": "/Personal-Portfolio/static/media/Temp3.c5b80c2baf320d6f5371.png",
+    "static/media/Temp1.png": "/Personal-Portfolio/static/media/Temp1.6e1b4f17b5e0a4508da7.png",
+    "static/media/Snake.png": "/Personal-Portfolio/static/media/Snake.c0c0f1701cad1fd6ca1f.png",
+    "static/media/logos_react.svg": "/Personal-Portfolio/static/media/logos_react.ea8d7c26d9ce7bc5a6882779aa8cacdc.svg",
+    "static/media/vscode-icons_file-type-js-official.svg": "/Personal-Portfolio/static/media/vscode-icons_file-type-js-official.f9d6615f624fd4d0da65fbf4ae5edf5c.svg",
+    "index.html": "/Personal-Portfolio/index.html",
+    "static/media/akar-icons_github-fill.svg": "/Personal-Portfolio/static/media/akar-icons_github-fill.36dc0fbc093986dc6624f3ad8a37ab2a.svg",
+    "static/media/vscode-icons_file-type-css.svg": "/Personal-Portfolio/static/media/vscode-icons_file-type-css.1dc1ff133b346eb946ede2b781ce69f8.svg",
+    "static/media/vscode-icons_file-type-html.svg": "/Personal-Portfolio/static/media/vscode-icons_file-type-html.b4f276884d6135db3f45c375dcc50b01.svg",
+    "main.8df8d51a.css.map": "/Personal-Portfolio/static/css/main.8df8d51a.css.map",
+    "main.e6f44e1e.js.map": "/Personal-Portfolio/static/js/main.e6f44e1e.js.map",
+    "453.56a23f5d.chunk.js.map": "/Personal-Portfolio/static/js/453.56a23f5d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8df8d51a.css",
+    "static/js/main.e6f44e1e.js"
+  ]
+}
