@@ -3,27 +3,27 @@ import "../Styles/Contact.css";
 import "../App.css";
 
 export default function ContactMe() {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData(e.target);
 
-    // Example: Send form data to a backend endpoint for email processing
-    try {
-      const response = await fetch("/send-email", {
-        method: "POST",
-        body: formData,
-      });
+  //   // Example: Send form data to a backend endpoint for email processing
+  //   try {
+  //     const response = await fetch("/send-email", {
+  //       method: "POST",
+  //       body: formData,
+  //     });
 
-      if (response.ok) {
-        alert("Message sent successfully!");
-      } else {
-        alert("Failed to send message. Please try again later.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Failed to send message. Please try again later.");
-    }
-  };
+  //     if (response.ok) {
+  //       alert("Message sent successfully!");
+  //     } else {
+  //       alert("Failed to send message. Please try again later.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     alert("Failed to send message. Please try again later.");
+  //   }
+  // };
   return (
     <section id="contact" className="contact--section">
       <div>
