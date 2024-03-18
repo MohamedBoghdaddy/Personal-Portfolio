@@ -1,41 +1,40 @@
 import React, { useEffect, useRef } from "react";
-import Fullpage, { FullPageSections, FullpageSection } from "@ap.cx/react-fullpage";
-import AboutMeSection from './AboutMeSection';
-import SkillsSection from './SkillsSection';
-import ProjectsSection from './ProjectsSection';
-import ContactSection from './ContactSection';
+import Fullpage, {
+  FullPageSections,
+  FullpageSection,
+} from "@ap.cx/react-fullpage";
+import AboutMeSection from "./AboutMeSection";
+import SkillsSection from "./SkillsSection";
+import ProjectsSection from "./ProjectsSection";
+import ContactSection from "./ContactSection";
 import FooterSection from "./FooterSection";
 import NavBarSection from "./NavBarSection";
-import '../Styles/styles.css'; // Import the CSS file
-import '../App.css';
+import "../Styles/styles.css"; // Import the CSS file
+import "../App.css";
 const FullPageScroll = () => {
-  
   return (
-<Fullpage>    
-
-  
+    <Fullpage>
       <FullPageSections>
-        <FullpageSection id="AboutMeSection">
-          <NavBarSection/>
+        <FullpageSection>
+          <NavBarSection />
           <AboutMeSection />
         </FullpageSection>
 
-        <FullpageSection id="SkillsSection">
+        <FullpageSection>
           <SkillsSection />
         </FullpageSection>
 
-        <FullpageSection id="ProjectsSection">
+        <FullpageSection>
           <ProjectsSection />
         </FullpageSection>
-        <FullpageSection id="contact">
+        <FullpageSection>
           <ContactSection />
         </FullpageSection>
 
-        <FullpageSection id="FooterSection">
-          <FooterSection/>
+        <FullpageSection>
+          <FooterSection />
         </FullpageSection>
       </FullPageSections>
-
     </Fullpage>
   );
 };
