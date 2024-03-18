@@ -26,22 +26,7 @@ function Footer() {
     setShowDescription(false);
     setSelectedCategory("");
   };
-  const slide1Ref = useRef(null);
-  // const slide2Ref = useRef(null);
-  // const slide3Ref = useRef(null);
 
-  const scrollToSlide = (ref) => {
-    console.log("Ref:", ref);
-    if (ref && ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    } else {
-      console.log("Ref is null or not assigned properly");
-    }
-  };
-
-  const scrollToTop = () => {
-    scroll.scrollToTop();
-  };
 
   return (
     <div className="Work">
