@@ -26,6 +26,9 @@
   font-size: 50px;
   max-width: 1000px;
   align-items: center;
+    position: relative;
+
+    margin-left: 200px;
 }
 
 .skill {
@@ -84,6 +87,9 @@
 
   .skills {
     font-size: 30px; /* Decrease font size for smaller screens */
+     position: relative;
+    margin: 0;
+    left: 0px;
   }
 
   .skill {
