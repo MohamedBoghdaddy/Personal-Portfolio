@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../Styles/AboutMe.css";
 import aboutMeImage from "../assets/images/Me2.jpg";
 
