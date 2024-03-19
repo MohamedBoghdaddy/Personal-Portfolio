@@ -79,10 +79,8 @@
     height: min-content;
     padding: 80px 20px; /* Adjust padding */
     margin-top: 100px; /* Adjust margin-top */
+right:13%;
 
-    margin-top: 0;
-    padding: 0;
-    margin: 0;
   }
 
   .skills {
