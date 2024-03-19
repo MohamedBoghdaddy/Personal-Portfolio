@@ -36,7 +36,7 @@
   justify-content: center;
   position: relative;
   top: 200px;
-  right: 300px;
+  right: 80%;
 }
 
 .projects-Container13,
@@ -73,7 +73,7 @@
   align-items: center;
   position: relative;
   max-height: 200px;
-  left: 400px;
+  left: 20%;
   top:50px;
 }
 
@@ -136,10 +136,10 @@
 }
 
 @media (max-width: 768px) {
-  .Row1,
+   .Row1,
   .Row2 {
     align-items: center; /* Center projects vertically */
-    right: 430px;
+    right: 50%;
   }
 
   .projects-Container,
@@ -149,8 +149,13 @@
     width: 100%; /* Each project occupies full width on smaller screens */
     margin-bottom: 20px; /* Add margin between projects */
   }
-  .icons-container {
-    left: 250px;
-    top: 50px;
+   svg {
+    width: 90px;
+    height: 70px;
   }
+  .SectionTitle {
+ 
+  left: 800px;
+  font-size: 3rem; /* Increase the font size as needed */
+}
 }
