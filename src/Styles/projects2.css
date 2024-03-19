@@ -136,12 +136,16 @@
 }
 
 @media (max-width: 768px) {
-   .Row1,
-  .Row2 {
-    align-items: center; /* Center projects vertically */
-    right: 50%;
+  .main-projects-container {
+    height: 300vh;
   }
-
+  .Row1,
+  .Row2 {
+    flex-direction: column;
+    align-items: center; /* Center projects vertically */
+    right: 80%;
+  }
+ 
   .projects-Container,
   .projects-Container21,
   .projects-Container22,
