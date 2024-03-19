@@ -1,25 +1,26 @@
 import React from "react";
 import "../Styles/AboutMe.css";
 import aboutMeImage from "../assets/images/Me2.jpg";
+import pdf from "../assets/cv/Mohamed-Resume.pdf";
 
-const pdf =
-  "https://boghdaddys-portfolio.netlify.app/assets/cv/Mohamed-Resume.pdf";
 const AboutMeSection = () => {
-  const download = (url) => {
-    fetch(url)
+  const downloadPdf = () => {
+    fetch(pdf)
       .then((response) => response.blob())
       .then((blob) => {
-        const blobURL = window.URL.createObjectURL(new Blob([blob]));
-        const fileName = url.split("/").pop();
-        const aTag = document.createElement("a");
-        aTag.href = blobURL;
-
-        aTag.setAttribute("download", fileName);
-        document.body.appendChild(aTag);
-        aTag.click();
-        aTag.remove();
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "Mohamed-Resume.pdf");
+        document.body.appendChild(link);
+        link.click();
+        link.parentNode.removeChild(link);
+      })
+      .catch((error) => {
+        console.error("Error downloading PDF:", error);
       });
   };
+
   return (
     <div className="aboutMeContainer" id="AboutMeSection">
       <h1 className="aboutMeTitle">About me</h1>
@@ -32,7 +33,7 @@ const AboutMeSection = () => {
         <h1>Let's Build Something Amazing Together</h1>
 
         <div className="btn-container">
-          <button className="btn btn-color-2" onClick={() => download(pdf)}>
+          <button className="btn btn-color-2" onClick={downloadPdf}>
             Download CV
           </button>
         </div>
