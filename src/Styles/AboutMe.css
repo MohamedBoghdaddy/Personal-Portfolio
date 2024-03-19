@@ -1,15 +1,5 @@
 /* AboutMe.css */
 
-body {
-  background: #fce588;
-  font-family: "Montserrat", sans-serif; /* Set default font family */
-  margin: 0;
-  height: 100vh; /* Keep height of container */
-  width: 100%; /* Keep width of container */
-  display: flex; /* Use flexbox for layout */
-  flex-direction: column; /* Arrange children in a column */
-}
-
 .aboutMeTitle {
   font-size: 4rem; /* Increase font size */
 }
@@ -19,8 +9,9 @@ body {
   font-weight: bold;
 }
 
-/* Center the image in the middle of the page */
-
+.aboutMeContainer {
+  background-color: #fce588;
+}
 .aboutMeContent {
   display: flex;
   flex-direction: column;
@@ -33,7 +24,6 @@ body {
   height: 80vh;
   width: 100%;
   font-weight: 400;
-
 }
 
 .section-container {

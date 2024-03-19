@@ -27,7 +27,6 @@ function Footer() {
   //   setSelectedCategory("");
   // };
 
-
   return (
     <div className="Work">
       <div className="WorkExperienceSection" id="WorkExperienceSection">

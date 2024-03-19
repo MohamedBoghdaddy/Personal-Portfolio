@@ -1,12 +1,8 @@
 /*Footer.css*/
 
 body {
-  background: #fce588;
-  font-family: "Montserrat", sans-serif; /* Set default font family */
-  height: 90vh; /* Keep height of container */
-  width: 100%; /* Keep width of container */
+  background-color: #fce588;
 }
-
 .app-footer {
   width: 100%;
   height: 39vh;
@@ -55,10 +51,12 @@ h2 {
 
 .WorkExperienceSection {
   border-radius: 30px;
-  color: #b7106c;
+  color: #b7106c; 
+  position: relative;
+  top: 250px;
   width: 100%;
-  height: 100vh;
-  bottom: 200px;
+  height: 90vh;
+ 
 }
 
 .WorkExperienceSection h1 {

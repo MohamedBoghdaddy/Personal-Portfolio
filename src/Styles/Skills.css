@@ -1,19 +1,14 @@
 /* SkillsSection.css */
-body{
-  height: 100vh; /* Keep height of container */
-  width: 100%; /* Keep width of container */
-}
+
 .skillsContainer {
   background-color: #fce588;
   padding: 60px 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   position: relative;
-  margin-top: 50px;
+  margin-left: 100px;
+  margin-bottom: 200px;
   border-radius: 10px;
-  width: 100%;
 }
 
 .skillsContainer h1 {
@@ -31,7 +26,6 @@ body{
   font-size: 50px;
   max-width: 1000px;
   align-items: center;
-
 }
 
 .skill {
@@ -73,10 +67,9 @@ body{
 
 /* Media queries for responsiveness */
 @media only screen and (max-width: 768px) {
-   body {
+  body {
     padding: 0;
     margin: 0;
-  
   }
   .skillsContainer {
     width: 100%; /* Adjust width for smaller screens */
@@ -85,7 +78,7 @@ body{
     margin-top: 100px; /* Adjust margin-top */
 
     margin-top: 0;
-     padding: 0;
+    padding: 0;
     margin: 0;
   }
 

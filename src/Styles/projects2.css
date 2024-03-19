@@ -1,113 +1,84 @@
+/* Projects.css */
+
 .main-projects-container {
   display: flex;
   justify-content: center;
-  align-content: center;
   height: 150vh;
-  margin-left: 0;
 }
 
 .project img {
   max-width: 100%; /* Ensure the image doesn't exceed the container's width */
   max-height: 100%; /* Ensure the image doesn't exceed the container's height */
 }
-
 .project {
-  border-radius: 2rem;
-  border: 0.1rem solid rgb(163, 163, 163);
-  text-align: center;
-  margin: auto;
-}
-#ozlot {
-  width: 60%;
-}
-
-.projects-Container2,
-.projects-Container11,
-.projects-Container12,
-.projects-Container21,
-.projects-Container22,
-.projects-Container {
-  width: 100%;
-  max-width: 400px;
-  margin: auto;
-}
-
-.project {
-  width: 100%;
+  width: calc(100% - 20px);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
   padding: 1rem;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: auto;
+  margin: 10px;
+  flex-grow: 1;
+}
+.project {
+  border-radius: 2rem;
+  border: 0.1rem solid rgb(163, 163, 163);
+  text-align: center;
+  margin: 20px; /* Add margin to create space between projects */
+  max-width: 400px; /* Limit the maximum width of each project */
+}
+
+.Row1,
+.Row2 {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 200px;
+  right: 300px;
+}
+
+.projects-Container13,
+.projects-Container21,
+.projects-Container22,
+.projects-Container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .projects-details {
-  display: grid;
-  grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
-  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
-  grid-auto-rows: 100px;
+  display: flex; /* Display the container as flex */
+  flex-direction: column;
 }
 
-.Row1 {
-  grid-row: 2/3;
-  grid-column: 3/10;
-}
-.Row2 {
-  grid-row: 2/3;
-  grid-column: 3/10;
+.projects-details .project {
+  width: calc(
+    100% - 20px
+  ); /* Set the width of each project to occupy half of the container */
+  margin: 10px; /* Adjust margin between projects */
 }
 
-.Row3 {
-  grid-row: 2/3;
-  grid-column: 3/10;
-}
-
-.first {
-  grid-row: 8/10;
-  grid-column: 3/9;
-}
-.buttons-container2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-  width: 700px;
-}
-.buttons-container2.active.move-down {
-  transform: translateY(550px); /* Move the container down by 100px */
-  transition: transform 0.3s; /* Add transition for smooth animation */
-}
-.buttons-container2 .btn {
-  background-color: #0a0b0d;
-  color: white;
-  padding: 10px 150px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.buttons-container2 .btn:hover {
-  background-color: #b30051;
+.project img {
+  max-width: 100%; /* Ensure images don't exceed their container */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .icons-container {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   position: relative;
-  bottom: 100px;
-  margin: auto;
+  max-height: 200px;
+  left: 400px;
+  top:50px;
 }
 
 /* Ensure consistency in button styling */
-.buttons-container button {
+.buttons-container Button {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   border: none;
@@ -122,7 +93,7 @@
 }
 
 /* Hover effect for buttons */
-.buttons-container button:hover {
+.buttons-container Button:hover {
   background-color: #ddd;
 }
 
@@ -152,36 +123,34 @@
 }
 
 .projects-Container.expanded .project:not(.selected),
-.projects-Container2.expanded .project:not(.selected),
-.projects-Container12.expanded .project:not(.selected),
 .projects-Container13.expanded .project:not(.selected),
 .projects-Container21.expanded .project:not(.selected),
 .projects-Container22.expanded .project:not(.selected) {
   opacity: 0;
 }
 .SectionTitle {
-  margin-top: 100px; /* Adjust the top margin as needed */
-  margin-left: 300px;
-  font-size: 62px; /* Increase the font size as needed */
+  position: relative;
+  margin-top: 0px; /* Adjust the top margin as needed */
+  left: 700px;
+  font-size: 3rem; /* Increase the font size as needed */
 }
 
-.projects-Container.expanded .project {
-  transform: translate(50%, 80%);
-} /* 
-.projects-Container2.expanded .project {
-  transform: translate(-50%, 100%);
-}
+@media (max-width: 768px) {
+  .Row1,
+  .Row2 {
+    align-items: center; /* Center projects vertically */
+    right: 430px;
+  }
 
-.projects-Container12.expanded .project {
-  transform: translate(0%, 0%);
+  .projects-Container,
+  .projects-Container21,
+  .projects-Container22,
+  .projects-Container13 {
+    width: 100%; /* Each project occupies full width on smaller screens */
+    margin-bottom: 20px; /* Add margin between projects */
+  }
+  .icons-container {
+    left: 250px;
+    top: 50px;
+  }
 }
-.projects-Container13.expanded .project {
-  transform: translate(30%, -80%);
-}
-
-.projects-Container21.expanded .project {
-  transform: translate(50%, 30%);
-}
-.projects-Container22.expanded .project {
-  transform: translate(-10%, -80%);
-} */

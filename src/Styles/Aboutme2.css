@@ -1,14 +1,5 @@
 /* AboutMe.css */
 
-body {
-  background: #fce588;
-  font-family: "Montserrat", sans-serif; /* Set default font family */
-  margin: 0;
-  height: 100vh; /* Keep height of container */
-  width: 100%; /* Keep width of container */
-  display: flex; /* Use flexbox for layout */
-  flex-direction: column; /* Arrange children in a column */
-}
 
 /* Center the image in the middle of the page */
 
@@ -19,6 +10,8 @@ body {
   flex-direction: column;
   height: 100%; /* Adjusted to 100% */
   margin-bottom: 200px;
+    background-color: #fce588;
+
 }
 
 .section__pic-container {

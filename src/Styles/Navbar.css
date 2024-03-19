@@ -1,13 +1,6 @@
 /* NavBar*/
 
-body {
-  background: #fce588;
-  font-family: "Montserrat", sans-serif; /* Set default font family */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  height: 100vh; /* Keep height of container */
-  width: 100%; /* Keep width of container */
-}
+
 /* Montserrat Font */
 .montserrat-myuniqueclass {
   font-family: "Montserrat", sans-serif;
