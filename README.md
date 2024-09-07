@@ -1,7 +1,3 @@
-Here’s an updated version of your **Personal-Portfolio** README with added icons and emojis for better readability and aesthetics:
-
----
-
 # 🌐 Personal Portfolio
 
 ## 🚀 Overview
