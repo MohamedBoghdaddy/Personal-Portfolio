@@ -28,101 +28,136 @@ function Footer() {
   // };
 
   return (
-    <div className="Work">
-      <div className="WorkExperienceSection" id="WorkExperienceSection">
-        <h1>Work Experience:</h1>
-        <div className="Experience">
-          <div className="category-buttons">
-            <button
-              className="curved-button"
-              onClick={() => handleCategorySelect("Machine-Learning")}
+<div className="Work">
+  <div className="WorkExperienceSection" id="WorkExperienceSection">
+    <h1>Work Experience:</h1>
+    <div className="Experience">
+      <div className="category-buttons">
+        <button
+          className="curved-button"
+          onClick={() => handleCategorySelect("Full-Stack MERN")}
+        >
+          Full-Stack MERN
+        </button>
+        <button
+          className="curved-button"
+          onClick={() => handleCategorySelect("Machine-Learning")}
+        >
+          Machine-Learning
+        </button>
+        <button
+          className="curved-button"
+          onClick={() => handleCategorySelect("Web Development")}
+        >
+          Web Development
+        </button>
+      </div>
+
+      {/* Full-Stack MERN Section */}
+      {selectedCategory === "Full-Stack MERN" && (
+        <>
+          <h2>Full-Stack MERN Development:</h2>
+          <div className="internship-label">
+            <h4>ATOS Internship:</h4>
+            <div
+              className="Description"
+              style={{
+                display: showDescription ? "block" : "none",
+                opacity: showDescription ? 1 : 0,
+                transition: "opacity 0.5s",
+              }}
             >
-              Machine-Learning
-            </button>
-            <button
-              className="curved-button"
-              onClick={() => handleCategorySelect("Web Development")}
-            >
-              Web Development
+              <p>
+                As a Full-Stack MERN intern at ATOS from July 2024 to October
+                2024, I worked on a Document Management System (DMS) using both
+                MERN and PERN stacks. I gained experience in building and
+                exposing APIs and microservices architecture.
+              </p>
+            </div>
+            <button className="curved-button" onClick={toggleDescription}>
+              {showDescription ? "Read Less" : "Read More"}
             </button>
           </div>
-          {selectedCategory === "Web Development" && (
-            <>
-              <h2>Web Development:</h2>
-              <div className="internship-label">
-                <h4>Prodigy Info Tech: </h4>
-                <div
-                  className="Description"
-                  style={{
-                    display: showDescription ? "block" : "none",
-                    opacity: showDescription ? 1 : 0,
-                    transition: "opacity 0.5s",
-                  }}
-                >
-                  <p>
-                    During my one-month internship at Prodigy Info Tech, I
-                    gained valuable experience in web development. Task 1
-                    involved creating a responsive landing web page using HTML,
-                    CSS, and responsive design principles. In Task 2, I built an
-                    interactive stopwatch web application with start, pause, and
-                    reset functionalities using HTML, CSS, and JavaScript. Task
-                    3 focused on developing a dynamic tic-tac-toe web
-                    application with user click handling and game state
-                    tracking. This internship enhanced my web development skills
-                    significantly.
-                  </p>
-                </div>
-                <button className="curved-button" onClick={toggleDescription}>
-                  {showDescription ? "Read Less" : "Read More"}
-                </button>
-              </div>
+          <div className="internship-rectangle">
+            <div className="internship-details">
+              <span className="internship-label-text">Internship</span>
+              <span className="internship-date">July 2024 - October 2024</span>
+            </div>
+          </div>
+        </>
+      )}
 
-              <div className="internship-rectangle">
-                <div className="internship-details">
-                  <span className="internship-label-text">Internship</span>
-                  <span className="internship-date">Jan 2024 - Feb 2024</span>
-                </div>
-              </div>
-            </>
-          )}
-          {selectedCategory === "Machine-Learning" && (
-            <>
-              <h2>Machine-Learning:</h2>
-              <div className="internship-label">
-                <h4>Code Alpha </h4>
-                <div
-                  className="Description"
-                  style={{
-                    display: showDescription ? "block" : "none",
-                    opacity: showDescription ? 1 : 0,
-                    transition: "opacity 0.5s",
-                  }}
-                >
-                  <p>
-                    The machine learning internship offers hands-on experience
-                    in applying advanced algorithms to real-world problems.
-                    Interns collaborate with seasoned data scientists, gaining
-                    insights into data preprocessing, model development, and
-                    evaluation techniques. Projects may include predictive
-                    analytics, natural language processing, or computer vision,
-                    providing valuable skills for future career pursuits in AI.
-                  </p>
-                </div>
-                <button className="curved-button" onClick={toggleDescription}>
-                  {showDescription ? "Read Less" : "Read More"}
-                </button>
-              </div>
+      {/* Machine Learning Section */}
+      {selectedCategory === "Machine-Learning" && (
+        <>
+          <h2>Machine Learning:</h2>
+          <div className="internship-label">
+            <h4>Code Alpha Internship:</h4>
+            <div
+              className="Description"
+              style={{
+                display: showDescription ? "block" : "none",
+                opacity: showDescription ? 1 : 0,
+                transition: "opacity 0.5s",
+              }}
+            >
+              <p>
+                I interned at Code Alpha from February 2024 to May 2024, working
+                on multiple machine learning projects, including Music
+                Recommendation Systems, Stock Market Prediction, and Titanic
+                Survival Prediction. I gained hands-on experience with
+                algorithms, data preprocessing, and predictive modeling.
+              </p>
+            </div>
+            <button className="curved-button" onClick={toggleDescription}>
+              {showDescription ? "Read Less" : "Read More"}
+            </button>
+          </div>
+          <div className="internship-rectangle">
+            <div className="internship-details">
+              <span className="internship-label-text">Internship</span>
+              <span className="internship-date">February 2024 - May 2024</span>
+            </div>
+          </div>
+        </>
+      )}
 
-              <div className="internship-rectangle">
-                <div className="internship-details">
-                  <span className="internship-label-text">Internship</span>
-                  <span className="internship-date">Feb 2024 - May 2024</span>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
+      {/* Web Development Section */}
+      {selectedCategory === "Web Development" && (
+        <>
+          <h2>Web Development:</h2>
+          <div className="internship-label">
+            <h4>Prodigy Info Tech:</h4>
+            <div
+              className="Description"
+              style={{
+                display: showDescription ? "block" : "none",
+                opacity: showDescription ? 1 : 0,
+                transition: "opacity 0.5s",
+              }}
+            >
+              <p>
+                During my one-month internship at Prodigy Info Tech (January
+                2024 - February 2024), I developed a responsive landing page,
+                built a stopwatch web application, and worked on my personal
+                portfolio website using HTML, CSS, JavaScript, and responsive
+                design principles.
+              </p>
+            </div>
+            <button className="curved-button" onClick={toggleDescription}>
+              {showDescription ? "Read Less" : "Read More"}
+            </button>
+          </div>
+          <div className="internship-rectangle">
+            <div className="internship-details">
+              <span className="internship-label-text">Internship</span>
+              <span className="internship-date">January 2024 - February 2024</span>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  </div>
       <div className="app-footer">
         <h2>Cool Developer</h2>
         <div className="content">
