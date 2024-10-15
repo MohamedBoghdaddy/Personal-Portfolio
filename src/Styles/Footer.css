@@ -1,8 +1,10 @@
-/*Footer.css*/
+/* Footer.css */
 
 body {
   background-color: #fce588;
 }
+
+/* Footer Styling */
 .app-footer {
   width: 100%;
   height: 39vh;
@@ -13,9 +15,12 @@ body {
   flex-direction: column;
   align-items: center;
 }
-h2 {
+
+.app-footer h2 {
   color: #d0b57f;
 }
+
+/* Content Styling */
 .app-footer .content p {
   display: flex;
   flex-direction: column;
@@ -24,39 +29,51 @@ h2 {
   margin-top: auto;
   color: #d0b57f;
 }
+
+/* Footer List and Links */
 .app-footer ul {
   list-style-type: none;
   display: flex;
   padding: 0;
 }
+
 .app-footer li {
   margin-right: 20px;
 }
+
 .app-footer a {
   color: #e8a113;
   text-decoration: none;
 }
+
+.app-footer a:hover {
+  color: #b48c3c; /* Added hover state for links */
+}
+
+/* Social Icons */
 .social-icons {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
+
 .social-icons a {
   color: #fffac8;
   margin: 0 10px;
 }
+
 .social-icons i {
   font-size: 30px;
 }
 
+/* Work Experience Section */
 .WorkExperienceSection {
   border-radius: 30px;
-  color: #b7106c; 
+  color: #b7106c;
   position: relative;
   top: 250px;
   width: 100%;
   height: 90vh;
- 
 }
 
 .WorkExperienceSection h1 {
@@ -85,12 +102,19 @@ h2 {
   color: #030000;
 }
 
+/* Button Styling */
 .curved-button {
   border-radius: 20px;
   color: #030301;
   background-color: #244686;
+  transition: background-color 0.3s ease; /* Added smooth transition */
 }
 
+.curved-button:hover {
+  background-color: #1e3a5a; /* Darker hover effect for button */
+}
+
+/* Footer Container */
 .footerContainer {
   background: #fce588;
   color: #ffffff;
@@ -108,23 +132,36 @@ footer h1 {
   color: #b48c3c;
 }
 
+/* Responsive Design */
 @media only screen and (max-width: 1800px) {
-  /* Adjustments for screens up to 1800px in width */
   .app-footer .content p {
     max-width: 60vw;
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  /* Adjustments for screens up to 1200px in width */
   .app-footer .content p {
     max-width: 80vw;
   }
 }
 
 @media only screen and (max-width: 766px) {
-  /* Adjustments for screens up to 766px in width */
   .app-footer .content p {
     max-width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .app-footer h2 {
+    font-size: 1.5rem; /* Reduced title size for smaller screens */
+  }
+
+  .social-icons i {
+    font-size: 25px; /* Reduced icon size for smaller screens */
+  }
+
+  .curved-button {
+    padding: 8px 15px;
+    font-size: 0.9rem; /* Adjust button size for smaller screens */
   }
 }
