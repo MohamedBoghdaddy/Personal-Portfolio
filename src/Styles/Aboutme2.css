@@ -1,93 +1,129 @@
-/* AboutMe.css */
+/* AboutMe2.css */
 
-
-/* Center the image in the middle of the page */
-
+/* Center the image and details in the middle of the page */
 .section-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100%; /* Adjusted to 100% */
-  margin-bottom: 200px;
-    background-color: #fce588;
-
+  height: 100vh; /* Full viewport height for centering */
+  background-color: #fce588; /* Set background color here */
+  padding: 2rem; /* Add padding for better spacing */
+  margin-bottom: 0; /* Reset margin */
 }
 
+/* Picture Container */
 .section__pic-container {
-  margin-bottom: 2rem; /* Added margin */
+  margin-bottom: 2rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: 400px;
   width: 400px;
-  margin:  0;
 }
 
+/* Image Styling */
 .aboutMepic {
-  display: flex;
+  display: block;
   height: 400px;
   width: 400px;
-    margin-bottom: 200px;
-
-  margin: 0;
-
+  margin: 0 auto; /* Center horizontally */
+  border-radius: 50%; /* Make the image circular */
 }
 
+/* Details Container */
 .about-details-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .details-container {
-  text-align: center; /* Center text horizontally */
-  margin: 0 20px; /* Adjust margin as needed */
+  text-align: center; /* Center text */
+  margin: 0 20px;
 }
 
 .text-container {
-  width: 50%; /* Occupy full width */
-  text-align: center; /* Center align text */
-  margin-bottom: 2rem; /* Added margin */
+  width: 60%; /* Occupy 60% of the width */
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.8;
 }
 
-.education {
-  overflow-clip-margin: content-box;
-  overflow: clip;
-  height: 4vh;
-}
-
+/* Education & Experience */
+.education,
 .experience {
-  overflow-clip-margin: content-box;
-  overflow: clip;
   height: 4vh;
+  margin: 10px 0; /* Add margin between elements */
 }
+
+/* Font Classes */
 
 /* Montserrat Font */
-.montserrat-myuniqueclass {
+.montserrat {
   font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400; /* Replace with your desired font weight */
-  font-style: normal;
+  font-weight: 400;
 }
 
-/* Roboto Font - Regular */
+/* Roboto Font */
 .roboto-regular {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  font-style: normal;
 }
 
-/* Roboto Font - Medium */
 .roboto-medium {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  font-style: normal;
 }
 
-/* Roboto Font - Bold */
 .roboto-bold {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  font-style: normal;
+}
+
+.section__pic-container {
+  display: flex;
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* Responsive Design for Smaller Screens */
+@media only screen and (max-width: 1200px) {
+  .aboutMepic {
+    height: 300px;
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .aboutMepic {
+    height: 250px;
+    width: 250px;
+  }
+
+  .text-container {
+    width: 80%; /* Occupy more width on smaller screens */
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .aboutMepic {
+    height: 200px;
+    width: 200px;
+  }
+
+  .text-container {
+    width: 90%;
+    font-size: 1rem;
+  }
 }

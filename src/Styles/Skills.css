@@ -5,10 +5,11 @@
   padding: 60px 20px;
   display: flex;
   flex-direction: column;
-  position: relative;
-  margin-left: 100px;
+  align-items: center;
+  margin: 0 auto; /* Center the container */
   margin-bottom: 200px;
   border-radius: 10px;
+  max-width: 1200px; /* Limit max width for larger screens */
 }
 
 .skillsContainer h1 {
@@ -26,9 +27,6 @@
   font-size: 50px;
   max-width: 1000px;
   align-items: center;
-    position: relative;
-
-    margin-left: 200px;
 }
 
 .skill {
@@ -70,30 +68,20 @@
 
 /* Media queries for responsiveness */
 @media only screen and (max-width: 768px) {
-  body {
-    padding: 0;
-    margin: 0;
-  }
   .skillsContainer {
     width: 100%; /* Adjust width for smaller screens */
-    height: min-content;
-    padding: 80px 20px; /* Adjust padding */
-    margin-top: 100px; /* Adjust margin-top */
-right:13%;
-
+    padding: 40px 20px; /* Adjust padding */
+    margin-top: 50px; /* Adjust margin */
   }
 
   .skills {
     font-size: 30px; /* Decrease font size for smaller screens */
-     position: relative;
-    margin: 0;
-    left: 0px;
   }
 
   .skill {
     flex: 1 0 100%; /* Make skills full width on smaller screens */
     margin: 10px 0; /* Adjust margin */
-    padding: 5px; /* Adjust padding */
+    padding: 10px; /* Adjust padding */
   }
 
   .skill img {
@@ -107,5 +95,33 @@ right:13%;
 
   .skill ul li {
     font-size: 16px; /* Decrease font size for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .skillsContainer h1 {
+    font-size: 2.5rem; /* Adjust title font size for mobile */
+  }
+
+  .skills {
+    font-size: 20px; /* Further decrease font size for very small screens */
+  }
+
+  .skill {
+    margin: 5px 0; /* Further adjust margin */
+    padding: 5px;
+  }
+
+  .skill img {
+    width: 50px; /* Adjust image size for mobile */
+    height: 50px;
+  }
+
+  .skill h2 {
+    font-size: 20px; /* Adjust font size for mobile */
+  }
+
+  .skill ul li {
+    font-size: 14px; /* Further decrease font size for mobile */
   }
 }

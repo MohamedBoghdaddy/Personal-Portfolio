@@ -1,282 +1,213 @@
-
-
-.projects-Container.expanded .project:not(.selected) {
-  opacity: 0;
-}
-
-.projects-Container2.expanded .project:not(.selected) {
-  opacity: 0;
-}
-
-.projects-Container3.expanded .project:not(.selected) {
-  opacity: 0;
-}
-
-.projects-Container4.expanded .project:not(.selected) {
-  opacity: 0;
-}
-
-.project.selected {
-  transition: transform 0.5s ease; /* Apply transition for animation */
-  transform: translateX(0); /* Move selected project to center */
-}
-
-
-
-.projects-Container.expanded .project{
-  transform: translate(50%, 0);
-}
-
-
-.projects-Container2.expanded .project{
-  transform: translate(-100%, 0%);
-}
-
-
-.projects-Container3.expanded .project{
-  transform: translate(50%, -80%);
-}
-
-
-.projects-Container4.expanded .project{
-  transform: translate(-100%, -80%);
-}
-
-.project-details p {
-  display: none; /* Hide paragraph by default */
-}
-.project.selected p {
-  display: flex; /* Show paragraph for selected project */
-  max-height: 200px; /* Limit paragraph height */
-  opacity: 1; /* Hide paragraph initially */
-  animation: fadeInWords 2s ease forwards; /* Apply fade-in animation */
-}
-
-
-@keyframes fadeInWords {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.buttons-container {
+/* General container for projects */
+.main-projects-container {
   display: flex;
   justify-content: center;
-  padding-bottom: 100px;
+  height: 150vh;
+  padding: 50px;
+  text-align: center;
 }
 
-.buttons-container Button {
-  background-color: #FDD37D;
-  color: #000000;
-  margin: 0;
+/* Project card style */
+.custom-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+}
+
+.custom-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Project images */
+.custom-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 0.5rem;
+}
+.projects-Container img {
+  display: block;  /* Ensure the images are not hidden */
+  max-width: 100%; /* Make sure images are responsive */
+  height: auto;    /* Maintain aspect ratio */
+}
+
+/* Section title styling */
+.SectionSubtitle {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+/* Buttons container */
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.buttons-container button {
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   cursor: pointer;
+  background-color: #f0f0f0;
+  color: #333;
 }
 
-.buttons-container Button:hover {
-  background-color: #be8c28;
+.buttons-container button:hover {
+  background-color: #ddd;
 }
 
-
-.main-projects-container  {
-  display: flex; /* Make the project container a flex container */
-  flex-direction:row;
-  border-width: 3px;
-  border-style: solid;
-  width: 100%; /* Adjust the width to fit three projects per row */
-  height: 100%;
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
+/* Slider styling */
+.slider1 {
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 20px;
+  height: 74vh !important;
+  width: 96vw !important;
 }
 
-
-.projects-Container{
-  width: 100px;
-  height: 100px;
-  padding-right: 100px;
-  border-width: 3px;
-  border-style: solid;
-
-}
-
-
-.projects-Container p{
-  width: 100px;
-  height: 100px;
-  padding-right: 100px;
-  border-width: 3px;
-  border-style: solid;
-
-}
-
-
-
-.projects-Container2{
-  width: 100px;
-  height: 100px;
-  padding-right: 100px;
-  border-width: 3px;
-  border-style: solid;
-}
-
-
-.projects-Container2 p{
-  width: 100px;
-  height: 100px;
-  padding-right: 100px;
-  border-width: 3px;
-  border-style: solid;
-
-}
-
-
-.projects-Container3{
-  width: 100px;
-  height: 100px;
-  border-width: 3px;
-  border-style: solid;
-
-}
-
-
-.projects-Container3 p{
-  width:fit-content; /* Set the maximum height */
-  height:fit-content; /* Set the maximum height */
-  padding-right: 100px;
-  border-width: 3px;
-  border-style: solid;
-
-}
-
-.projects-Container4{
-  width: 100px;
-  height: 100px;
-
-  border-width: 3px;
-  border-style: solid;
-}
-
-
-
-.projects-Container4 p{
-  width:fit-content; /* Set the maximum height */
-  height:fit-content; /* Set the maximum height */
-  padding-right: 100px;
-  border-width: 3px;
-  border-style: solid;
-
-}
-
-.project-details{
+.slick-slide {
   display: flex;
-  flex-direction:row;
-  height:fit-content; /* Set the maximum height */
-  width: 1514px;
-  justify-content: space-between;
-  padding-bottom: 100px;
-
-
+  justify-content: center;
+  transform: perspective(1000px) rotateY(15deg);
+  transition: transform 0.3s;
 }
 
-.project{
+.slick-slide:hover {
+  transform: perspective(1000px) rotateY(0);
+}
+
+.slick-track {
   display: flex;
-  border-width: 10px;
-  border-style: solid;
-
-
+  align-items: center;
 }
 
-.project p {
-  width: 200px; /* Set the maximum width */
-  height:fit-content; /* Set the maximum height */
-  
-}
-
-
-
-.project-details img {
-  width: 250px;
-  height:fit-content;
-  margin-right: 10px; /* Add margin to separate the image and button */
-}
-
-
-h1 {
-  margin: 0; /* Remove default margin */
-}
-
-
-.Row1{
-  margin-right:660px;
-  position: absolute;
-  margin-top:30px; 
-   left: 0;
-  height:200px;
-  width:1000px;
-  border-width: 3px;
-  border-style: solid;
-  border-color: #ff0000;
+.Slider .slick-list {
   display: flex;
-  flex-direction:row;
-  justify-content: space-between;
-  align-items:center;
-  /* background-color: lightgreen; */
+  justify-content: space-between !important;
 }
 
-.Row2{
-  margin-top:330px;
-  margin-right:530px;
-  position: absolute;
-  left: 0;
-  height:200px;
-  width:1000px;
-  border-width: 3px;
-  border-style: solid;
+/* Card container */
+.card-container {
+  border: 5px solid #000000; /* Added solid border with color */
+  padding: 10px;
+  border-radius: 10px; /* Optional: Add some rounding to the edges if desired */
+}
+
+/* Section4 styling */
+.Section4 {
+  padding: 20px 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  margin-left: 76px;
+}
+
+.Section4 .row,
+.Section4 .col {
+  padding: 60px 0;
+}
+
+.download-button:hover {
+  background-color: #07558d;
+  color: #f9f9f9;
+}
+
+.main-projects-container {
   display: flex;
-  flex-direction:row;
-  justify-content: space-between;
-  align-items:center;
-  border-color: #3700ff;
-  /* background-color: lightcoral; */
+  justify-content: center;
+  height: 150vh;
+  padding: 50px;
+  text-align: center;
 }
 
-
-.buttons-container2 {
-  display: flex;
-  flex-direction:row;
-  justify-content: space-between;
-  align-items:center;
-  margin-right: 50px;
-  margin-top:330px;
-  margin-right:530px;
+.custom-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
 }
 
-.buttons-container2 .btn {
-  /* Add custom button styles */
-  background-color: #0a0b0d; /* Blue background color */
-  color: white; /* White text color */
-  padding: 10px 40px; /* Padding for the button */
-  border: none; /* Remove button border */
-  border-radius: 10px; /* Rounded button corners */
-  cursor: pointer; /* Add pointer cursor on hover */
+.custom-card:hover {
+  transform: translateY(-10px);
 }
 
-.buttons-container2 .btn:hover {
-  background-color: #0056b3; /* Darker blue background color on hover */
+.custom-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 0.5rem;
 }
 
-.icons-container{
-  margin-right:660px;
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .projects-Container {
+    width: 45%;
+    margin-bottom: 20px;
+  }
 
-  display: flex;
-  flex-direction:row;
-  justify-content: space-between;
-  border: none; /* Remove button border */
-  border-radius: 10px; 
+  .custom-card img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-projects-container {
+    height: auto;
+    padding: 20px;
+  }
+
+  .projects-Container {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .SectionSubtitle {
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+
+  .custom-card img {
+    height: auto;
+    max-height: 150px;
+  }
+
+  .buttons-container button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+  }
+
+  .slick-slide > div {
+    width: 80%;
+  }
+
+  .Section4 {
+    margin-left: 0;
+    padding: 10px 0;
+  }
+
+  .slider1 {
+    width: 100vw !important;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 766px) {
+  .slick-slide {
+    justify-content: space-around;
+  }
 }

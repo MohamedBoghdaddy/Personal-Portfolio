@@ -1,23 +1,21 @@
 /* AboutMe.css */
 
+/* Title Styling */
 .aboutMeTitle {
-  font-size: 4rem; /* Increase font size */
-}
-
-/* Make title bold */
-.aboutMeTitle {
-  font-weight: bold;
+  font-size: 4rem; /* Default font size for larger screens */
+  font-weight: bold; /* Bold text */
 }
 
 .aboutMeContainer {
   background-color: #fce588;
 }
+
 .aboutMeContent {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; /* Add this line to center items horizontally */
-  text-align: center; /* Add this line to center text horizontally */
+  align-items: center; /* Horizontally center items */
+  text-align: center; /* Center text horizontally */
   color: #030000;
   font-size: 2.5rem;
   line-height: 2.5;
@@ -26,123 +24,140 @@
   font-weight: 400;
 }
 
+/* Section Styling */
 .section-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100%; /* Adjusted to 100% */
+  height: 100%;
 }
 
 .section__pic-container {
-  margin-bottom: 2rem; /* Added margin */
+  margin-bottom: 2rem;
   display: flex;
   height: 400px;
   width: 400px;
   margin: auto 0;
 }
 
+/* Image Styling */
 .aboutMepic {
   display: flex;
   height: 400px;
   width: 400px;
   margin: auto 0;
+  border-radius: 50%; /* Rounded image */
 }
 
+/* Details Section */
 .about-details-container {
   display: flex;
   flex-direction: row;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
 .details-container {
-  text-align: center; /* Center text horizontally */
-  margin: 0 20px; /* Adjust margin as needed */
+  text-align: center;
+  margin: 0 20px;
 }
 
 .text-container {
-  width: 50%; /* Occupy full width */
-  text-align: center; /* Center align text */
-  margin-bottom: 2rem; /* Added margin */
+  width: 50%;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-.education {
+/* Specific Image Styling */
+.education, .experience {
   overflow-clip-margin: content-box;
   overflow: clip;
   height: 4vh;
 }
 
-.experience {
-  overflow-clip-margin: content-box;
-  overflow: clip;
-  height: 4vh;
-}
-
+/* About Me Image */
 .aboutMeImage {
-  width: 350px; /* Keep width of image */
-  height: 300px; /* Keep height of image */
+  width: 350px;
+  height: 300px;
   border-radius: 50%;
   margin-bottom: 2rem;
 }
-.aboutMeContent {
-  color: #030000;
-  font-size: 2.5rem; /* Keep font size */
-  line-height: 2.5;
-  height: 80vh; /* Keep height of container */
-  width: 100%; /* Keep width of container */
-  font-weight: 400;
-}
+
 .aboutMeContent h6 {
   max-width: 600px; /* Adjust the max-width as needed */
 }
-/* Montserrat Font */
-.montserrat-myuniqueclass {
+
+/* Font Styling */
+.montserrat-font {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400; /* Replace with your desired font weight */
+  font-weight: 400;
   font-style: normal;
 }
 
-/* Roboto Font - Regular */
 .roboto-regular {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-/* Roboto Font - Medium */
 .roboto-medium {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
-/* Roboto Font - Bold */
 .roboto-bold {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
+
+.section__pic-container {
+  display: flex;
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* Responsive Design */
 @media only screen and (max-width: 1800px) {
-  /* Adjustments for screens up to 1800px in width */
   .aboutMeTitle {
     font-size: 3rem;
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  /* Adjustments for screens up to 1200px in width */
   .aboutMeTitle {
     font-size: 2.5rem;
   }
 }
 
 @media only screen and (max-width: 766px) {
-  /* Adjustments for screens up to 766px in width */
   .aboutMeTitle {
     font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .aboutMeTitle {
+    font-size: 1.8rem; /* For smaller mobile devices */
+  }
+
+  .aboutMeContent {
+    font-size: 1.5rem;
+  }
+
+  .aboutMeImage {
+    width: 250px;
+    height: 250px;
   }
 }

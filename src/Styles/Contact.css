@@ -1,12 +1,13 @@
 /* Contact.css */
-body{
-      background-color: #fce588;
 
+body {
+  background-color: #fce588;
 }
+
 .contact--section {
   padding: 50px;
   margin-top: 20px;
-
+  width:80%;
 }
 
 .sub--title {
@@ -25,10 +26,9 @@ h2 {
   background-color: #edd75a;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-  margin-bottom: 200px;
   width: 100%;
-  margin: 0;
+  margin-bottom: 2rem; /* Adjusted from 200px for responsiveness */
+  padding: 20px; /* Added padding for spacing */
 }
 
 .container {
@@ -39,7 +39,7 @@ h2 {
 }
 
 .contact--label {
-  width: calc(50% - 10px); /* Adjust width as needed */
+  width: calc(50% - 10px); /* Adjust width for form inputs */
   margin-bottom: 20px;
 }
 
@@ -79,6 +79,7 @@ h2 {
   margin-right: 10px;
 }
 
+/* Button Styling */
 .contact--form--btn {
   background-color: #00bfff;
   color: #fff;
@@ -93,27 +94,18 @@ h2 {
   background-color: #009acd;
 }
 
-
+/* Responsive Styling */
 @media (max-width: 768px) {
-  .contact--section {
-    padding: 50px;
-    margin-top: 20px;
-  }
   .contact--form--container {
-    background-color: #edd75a;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-    margin-bottom: 200px;
-    width: 100vw;
-    margin: 0;
+    width: 100vw; /* Full viewport width for mobile */
+    padding: 15px; /* Adjust padding for smaller screens */
   }
 
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 0;
+  .contact--label {
+    width: 100%; /* Full width for input labels on smaller screens */
   }
+  .contact--section {
+
+  margin-left: 0;
 }
-
+}
