@@ -10,7 +10,7 @@ This is my personal portfolio website 🌟 built to showcase my skills, projects
 - ✉️ **Contact Form**: A functional contact form for visitors to reach out directly via EmailJS.
 
 ## 🛠️ Technologies Used
-- 🖥️ **HTML5, CSS3**
+- 🖥️ **MERN**
 - ⚙️ **JavaScript (ES6+)**
 - ⚛️ **React.js**
 - 🖧 **Node.js** (Backend)
