@@ -1,5 +1,4 @@
 import React from "react";
-//import FullPageScroll from "./Components/FullPageScroll";
 import NavBar from "./Components/NavBarSection";
 import AboutMeSection from "./Components/AboutMeSection";
 import AboutMe from "./Components/AboutMe";
