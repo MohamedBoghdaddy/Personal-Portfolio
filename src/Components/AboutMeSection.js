@@ -28,7 +28,7 @@ const AboutMeSection = () => {
         <img className="aboutMeImage" src={aboutMeImage} alt="Me2" />
         <h4>
           Hi!
-          <br /> My name is Mohamed Boghdaddy
+          <br /> I am Mohamed El-Boghdaddy
         </h4>
         <h1>Let's Build Something Amazing Together</h1>
 
