@@ -7,7 +7,7 @@ body {
 /* Footer Styling */
 .app-footer {
   width: 100%;
-  height: 39vh;
+  height: auto; /* Adjust height dynamically */
   background-color: rgba(27, 10, 1, 0.9);
   color: #e8a113;
   padding: 20px;
@@ -71,9 +71,9 @@ body {
   border-radius: 30px;
   color: #b7106c;
   position: relative;
-  top: 250px;
+  top: 0;
   width: 100%;
-  height: 90vh;
+  height: auto; /* Adjust height dynamically */
 }
 
 .WorkExperienceSection h1 {
@@ -114,43 +114,7 @@ body {
   background-color: #1e3a5a; /* Darker hover effect for button */
 }
 
-/* Footer Container */
-.footerContainer {
-  background: #fce588;
-  color: #ffffff;
-  padding: 40px 20px;
-  height: 100%;
-}
-
-footer h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.footer--items ul li:hover {
-  color: #b48c3c;
-}
-
 /* Responsive Design */
-@media only screen and (max-width: 1800px) {
-  .app-footer .content p {
-    max-width: 60vw;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .app-footer .content p {
-    max-width: 80vw;
-  }
-}
-
-@media only screen and (max-width: 766px) {
-  .app-footer .content p {
-    max-width: 90vw;
-  }
-}
-
 @media only screen and (max-width: 600px) {
   .app-footer h2 {
     font-size: 1.5rem; /* Reduced title size for smaller screens */
