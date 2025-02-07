@@ -1,139 +1,21 @@
-/* General container for projects */
-.main-projects-container {
-  display: flex;
-  justify-content: center;
-  height: 150vh;
+.projects-section {
   padding: 50px;
   text-align: center;
 }
 
-/* Project card style */
-.custom-card {
-  background: white;
+.project-card-container {
   padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  transition: transform 0.3s ease-in-out;
-  width: 100%;
-}
-
-.custom-card:hover {
-  transform: translateY(-10px);
-}
-
-/* Project images */
-.custom-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  margin-bottom: 10px;
-  border-radius: 0.5rem;
-}
-.projects-Container img {
-  display: block;  /* Ensure the images are not hidden */
-  max-width: 100%; /* Make sure images are responsive */
-  height: auto;    /* Maintain aspect ratio */
-}
-
-/* Section title styling */
-.SectionSubtitle {
-  font-size: 3rem;
-  margin-bottom: 30px;
-}
-
-/* Buttons container */
-.buttons-container {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 1rem;
-}
-
-.buttons-container button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  background-color: #f0f0f0;
-  color: #333;
-}
-
-.buttons-container button:hover {
-  background-color: #ddd;
-}
-
-/* Slider styling */
-.slider1 {
-  margin-top: 30px;
-  margin-left: 10px;
-  margin-right: 20px;
-  height: 74vh !important;
-  width: 96vw !important;
-}
-
-.slick-slide {
-  display: flex;
-  justify-content: center;
-  transform: perspective(1000px) rotateY(15deg);
-  transition: transform 0.3s;
-}
-
-.slick-slide:hover {
-  transform: perspective(1000px) rotateY(0);
-}
-
-.slick-track {
-  display: flex;
-  align-items: center;
-}
-
-.Slider .slick-list {
-  display: flex;
-  justify-content: space-between !important;
-}
-
-/* Card container */
-.card-container {
-  border: 5px solid #000000; /* Added solid border with color */
-  padding: 10px;
-  border-radius: 10px; /* Optional: Add some rounding to the edges if desired */
-}
-
-/* Section4 styling */
-.Section4 {
-  padding: 20px 0;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #f9f9f9;
-  margin-left: 76px;
-}
-
-.Section4 .row,
-.Section4 .col {
-  padding: 60px 0;
-}
-
-.download-button:hover {
-  background-color: #07558d;
-  color: #f9f9f9;
-}
-
-.main-projects-container {
-  display: flex;
-  justify-content: center;
-  height: 150vh;
-  padding: 50px;
-  text-align: center;
 }
 
 .custom-card {
   background: white;
   padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  width: 100%;
+  width: 300px;
+  height: 420px;
+  overflow: hidden;
 }
 
 .custom-card:hover {
@@ -144,70 +26,26 @@
   width: 100%;
   height: 200px;
   object-fit: cover;
-  margin-bottom: 10px;
-  border-radius: 0.5rem;
+  border-radius: 10px;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .projects-Container {
-    width: 45%;
-    margin-bottom: 20px;
-  }
-
-  .custom-card img {
-    height: 180px;
-  }
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
-  .main-projects-container {
-    height: auto;
+  .projects-section {
     padding: 20px;
   }
 
-  .projects-Container {
-    width: 90%;
-    margin-bottom: 20px;
-  }
-
-  .SectionSubtitle {
-    font-size: 2rem;
-    margin-top: 20px;
-  }
-
-  .custom-card img {
-    height: auto;
-    max-height: 150px;
-  }
-
-  .buttons-container button {
+  .custom-card {
     width: 100%;
-    margin-bottom: 10px;
+    height: auto;
   }
 
-  .buttons-container {
-    flex-direction: column;
-  }
-
-  .slick-slide > div {
-    width: 80%;
-  }
-
-  .Section4 {
-    margin-left: 0;
-    padding: 10px 0;
-  }
-
-  .slider1 {
-    width: 100vw !important;
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-@media only screen and (max-width: 766px) {
-  .slick-slide {
-    justify-content: space-around;
+  .section-title {
+    font-size: 2rem;
   }
 }
