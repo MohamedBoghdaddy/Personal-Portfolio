@@ -7,7 +7,7 @@ import {
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-scroll";
-import "../Styles/Footer.css"; // Import the CSS file
+import "../Styles/Footer.css";
 
 function Footer() {
   const [showDescription, setShowDescription] = useState(true);
