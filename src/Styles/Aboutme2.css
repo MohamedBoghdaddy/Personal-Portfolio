@@ -60,42 +60,6 @@
   margin: 10px 0; /* Add margin between elements */
 }
 
-/* Font Classes */
-
-/* Montserrat Font */
-.montserrat {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-}
-
-/* Roboto Font */
-.roboto-regular {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-}
-
-.roboto-medium {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-}
-
-.roboto-bold {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-}
-
-.section__pic-container {
-  display: flex;
-  height: 400px;
-  width: 400px;
-  margin: auto 0;
-}
-
-.title {
-  font-size: 3rem;
-  text-align: center;
-}
-
 /* Responsive Design for Smaller Screens */
 @media only screen and (max-width: 1200px) {
   .aboutMepic {
