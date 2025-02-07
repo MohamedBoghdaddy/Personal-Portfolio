@@ -1,36 +1,36 @@
 import React from "react";
 import "../Styles/Contact.css";
-import "../App.css";
 
 export default function ContactMe() {
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData(e.target);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
 
-  //   // Example: Send form data to a backend endpoint for email processing
-  //   try {
-  //     const response = await fetch("/send-email", {
-  //       method: "POST",
-  //       body: formData,
-  //     });
+    // Example: Send form data to a backend endpoint for email processing
+    try {
+      const response = await fetch("/send-email", {
+        method: "POST",
+        body: formData,
+      });
 
-  //     if (response.ok) {
-  //       alert("Message sent successfully!");
-  //     } else {
-  //       alert("Failed to send message. Please try again later.");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //     alert("Failed to send message. Please try again later.");
-  //   }
-  // };
+      if (response.ok) {
+        alert("Message sent successfully!");
+      } else {
+        alert("Failed to send message. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to send message. Please try again later.");
+    }
+  };
+
   return (
     <section id="contact" className="contact--section">
       <div>
         <p className="sub--title">Get In Touch</p>
         <h2>Contact Me</h2>
       </div>
-      <form className="contact--form--container">
+      <form className="contact--form--container" onSubmit={handleSubmit}>
         <div className="container">
           <label htmlFor="first-name" className="contact--label">
             <span className="text-md">First Name</span>
@@ -40,6 +40,9 @@ export default function ContactMe() {
               name="first-name"
               id="first-name"
               required
+              minLength="2"
+              pattern="[A-Za-z]+"
+              title="Please enter a valid first name."
             />
           </label>
           <label htmlFor="last-name" className="contact--label">
@@ -50,6 +53,9 @@ export default function ContactMe() {
               name="last-name"
               id="last-name"
               required
+              minLength="2"
+              pattern="[A-Za-z]+"
+              title="Please enter a valid last name."
             />
           </label>
           <label htmlFor="email" className="contact--label">
@@ -63,23 +69,25 @@ export default function ContactMe() {
             />
           </label>
           <label htmlFor="phone-number" className="contact--label">
-            <span className="text-md">phone-number</span>
+            <span className="text-md">Phone Number</span>
             <input
-              type="number"
+              type="tel"
               className="contact--input text-md"
               name="phone-number"
               id="phone-number"
               required
+              pattern="[0-9]{10}"
+              title="Please enter a 10-digit phone number."
             />
           </label>
         </div>
-        <label htmlFor="choode-topic" className="contact--label">
+        <label htmlFor="choose-topic" className="contact--label">
           <span className="text-md">Choose a topic</span>
-          <select id="choose-topic" className="contact--input text-md">
-            <option>Select One...</option>
-            <option>Frontend</option>
-            <option>BackEnd</option>
-            <option>FullStack</option>
+          <select id="choose-topic" className="contact--input text-md" required>
+            <option value="">Select One...</option>
+            <option value="Frontend">Frontend</option>
+            <option value="BackEnd">BackEnd</option>
+            <option value="FullStack">FullStack</option>
           </select>
         </label>
         <label htmlFor="message" className="contact--label">
@@ -87,16 +95,20 @@ export default function ContactMe() {
           <textarea
             className="contact--input text-md"
             id="message"
+            name="message"
             rows="8"
             placeholder="Type your message..."
+            required
           />
         </label>
-        <label htmlFor="checkboc" className="checkbox--label">
+        <label htmlFor="checkbox" className="checkbox--label">
           <input type="checkbox" required name="checkbox" id="checkbox" />
           <span className="text-sm">I accept the terms</span>
         </label>
         <div>
-          <button className="btn btn-primary contact--form--btn">Submit</button>
+          <button type="submit" className="btn btn-primary contact--form--btn">
+            Submit
+          </button>
         </div>
       </form>
     </section>
