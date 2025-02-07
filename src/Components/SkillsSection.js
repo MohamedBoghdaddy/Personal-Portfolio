@@ -11,13 +11,9 @@ library.add(fab, fas);
 const SkillsSection = () => {
   return (
     <div className="skillsContainer" id="SkillsSection">
-      <h1 className="sectionTitle">Skills</h1> {/* Use CSS class directly */}
+      <h1 className="sectionTitle">Skills</h1>
       <div className="skills">
-        {" "}
-        {/* Use CSS class directly */}
         <div className="skill">
-          {" "}
-          {/* Use CSS class directly */}
           <h2>Front-end Development</h2>
           <ul>
             <li>
@@ -25,9 +21,9 @@ const SkillsSection = () => {
             </li>
             <li>
               <i className="fab fa-js fa-lg"></i> JavaScript (
-              <i class="fa-brands fa-react"></i>React.js,
-              <i class="fa-brands fa-angular"></i>AngularJS,
-              <i class="fa-brands fa-vuejs"></i>Vue.js)
+              <i className="fab fa-react fa-lg"></i> React.js,
+              <i className="fab fa-angular fa-lg"></i> AngularJS,
+              <i className="fab fa-vuejs fa-lg"></i> Vue.js)
             </li>
           </ul>
         </div>
