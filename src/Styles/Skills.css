@@ -1,54 +1,76 @@
-/* SkillsSection.css */
-
+/* Skills Container */
 .skillsContainer {
-  background-color: #fce588;
+  background: linear-gradient(to bottom, #1e293b, #334155); /* Dark modern gradient */
   padding: 60px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto; /* Center the container */
-  margin-bottom: 50px; /* Adjust margin */
+  margin: 0 auto;
+  margin-bottom: 50px;
   border-radius: 10px;
-  max-width: 1200px; /* Limit max width for larger screens */
+  max-width: 1200px; /* Limit max width */
+  color: #fff;
 }
 
+/* Skills Title */
 .skillsContainer h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 2rem;
+  color: #22c55e;
+  text-shadow: 2px 2px 10px rgba(34, 197, 94, 0.5);
 }
 
+/* Skills List */
 .skills {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  color: #c0a060;
+  color: #f8fafc;
   font-size: 50px;
   max-width: 1000px;
   align-items: center;
 }
 
+/* Individual Skill Box */
 .skill {
   flex: 1 0 200px;
   margin: 20px;
   padding: 20px;
   border-radius: 10px;
-  background-color: #542002ab;
+  background: rgba(255, 255, 255, 0.1);
   text-align: center;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
+/* Hover effect for Skills */
+.skill:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Skill Icon */
 .skill img {
   width: 80px;
   height: 80px;
   margin-bottom: 1rem;
+  transition: transform 0.3s ease-in-out;
 }
 
+.skill img:hover {
+  transform: scale(1.1);
+}
+
+/* Skill Name */
 .skill h2 {
   font-size: 30px;
   margin-bottom: 10px;
+  color: #f0fdfa;
 }
 
+/* Skill List */
 .skill ul {
   list-style: none;
   padding: 0;
@@ -57,71 +79,97 @@
 .skill ul li {
   margin-bottom: 8px;
   font-size: 20px;
+  color: #e5e7eb;
 }
 
+/* Section Title */
 .sectionTitle {
   font-size: 60px;
   font-weight: 700;
   margin-bottom: 50px;
-  color: #000000;
+  color: #22c55e;
 }
 
-/* Media queries for responsiveness */
-@media only screen and (max-width: 768px) {
-  .skillsContainer {
-    width: 100%; /* Adjust width for smaller screens */
-    padding: 40px 20px; /* Adjust padding */
-    margin-top: 50px; /* Adjust margin */
+/* Responsive Design */
+@media only screen and (max-width: 1024px) {
+  .skillsContainer h1 {
+    font-size: 3rem;
   }
 
   .skills {
-    font-size: 30px; /* Decrease font size for smaller screens */
+    font-size: 40px;
   }
 
   .skill {
-    flex: 1 0 100%; /* Make skills full width on smaller screens */
-    margin: 10px 0; /* Adjust margin */
-    padding: 10px; /* Adjust padding */
+    flex: 1 0 250px;
+    margin: 15px;
+    padding: 15px;
+  }
+
+  .skill h2 {
+    font-size: 26px;
+  }
+
+  .skill ul li {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .skillsContainer {
+    width: 100%;
+    padding: 40px 20px;
+    margin-top: 50px;
+  }
+
+  .skills {
+    font-size: 30px;
+  }
+
+  .skill {
+    flex: 1 0 100%;
+    margin: 10px 0;
+    padding: 10px;
   }
 
   .skill img {
-    width: 60px; /* Decrease image size for smaller screens */
+    width: 60px;
     height: 60px;
   }
 
   .skill h2 {
-    font-size: 24px; /* Decrease font size for smaller screens */
+    font-size: 24px;
   }
 
   .skill ul li {
-    font-size: 16px; /* Decrease font size for smaller screens */
+    font-size: 16px;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .skillsContainer h1 {
-    font-size: 2.5rem; /* Adjust title font size for mobile */
+    font-size: 2.5rem;
   }
 
   .skills {
-    font-size: 20px; /* Further decrease font size for very small screens */
+    font-size: 20px;
   }
 
   .skill {
-    margin: 5px 0; /* Further adjust margin */
+    margin: 5px 0;
     padding: 5px;
   }
 
   .skill img {
-    width: 50px; /* Adjust image size for mobile */
+    width: 50px;
     height: 50px;
   }
 
   .skill h2 {
-    font-size: 20px; /* Adjust font size for mobile */
+    font-size: 20px;
   }
 
   .skill ul li {
-    font-size: 14px; /* Further decrease font size for mobile */
+    font-size: 14px;
   }
 }
