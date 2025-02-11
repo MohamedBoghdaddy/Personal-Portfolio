@@ -1,131 +1,205 @@
-/* Footer.css */
-
-body {
-  background-color: #fce588;
-}
-
-/* Footer Styling */
+/* Footer Container */
 .app-footer {
   width: 100%;
-  height: auto; /* Adjust height dynamically */
-  background-color: rgba(27, 10, 1, 0.9);
+  background: linear-gradient(to bottom, #1e293b, #334155); /* Dark modern footer */
   color: #e8a113;
-  padding: 20px;
+  padding: 40px 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
+/* Footer Title */
 .app-footer h2 {
-  color: #d0b57f;
+  color: #22c55e;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 10px rgba(34, 197, 94, 0.5);
 }
 
-/* Content Styling */
+/* Footer Description */
 .app-footer .content p {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   max-width: 70vw;
-  margin-top: auto;
-  color: #d0b57f;
+  font-size: 1.1rem;
+  color: #f0fdfa;
+  margin: 10px 0;
 }
 
-/* Footer List and Links */
+/* Footer Links */
 .app-footer ul {
-  list-style-type: none;
+  list-style: none;
   display: flex;
+  justify-content: center;
   padding: 0;
+  margin: 15px 0;
+  gap: 20px;
 }
 
 .app-footer li {
-  margin-right: 20px;
+  display: inline-block;
 }
 
 .app-footer a {
   color: #e8a113;
   text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
 }
 
 .app-footer a:hover {
-  color: #b48c3c; /* Added hover state for links */
+  color: #b48c3c;
+  text-decoration: underline;
 }
 
-/* Social Icons */
+/* Social Media Icons */
 .social-icons {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  gap: 15px;
 }
 
 .social-icons a {
   color: #fffac8;
-  margin: 0 10px;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .social-icons i {
   font-size: 30px;
 }
 
+.social-icons a:hover {
+  color: #22c55e;
+  transform: scale(1.2);
+}
+
 /* Work Experience Section */
 .WorkExperienceSection {
-  border-radius: 30px;
-  color: #b7106c;
-  position: relative;
-  top: 0;
   width: 100%;
-  height: auto; /* Adjust height dynamically */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 30px;
+  transition: background 0.3s ease-in-out;
 }
 
-.WorkExperienceSection h1 {
-  color: #163060;
+.WorkExperienceSection:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
+/* Internship Card */
 .internship-rectangle {
   background-color: #ba9c26;
-  padding: 10px;
-  border-radius: 30px;
-  flex-grow: 1;
+  padding: 15px;
+  border-radius: 20px;
   max-height: 350px;
   max-width: 650px;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease-in-out;
 }
 
+.internship-rectangle:hover {
+  transform: scale(1.03);
+}
+
+/* Internship Details */
 .internship-details {
   display: flex;
   justify-content: space-between;
+  font-size: 1rem;
+  color: #030000;
 }
 
+/* Label & Date Styling */
 .internship-label-text {
   font-weight: bold;
 }
 
 .internship-date {
-  color: #030000;
+  font-weight: 500;
+  color: #f8fafc;
 }
 
-/* Button Styling */
+/* Curved Button */
 .curved-button {
   border-radius: 20px;
-  color: #030301;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
   background-color: #244686;
-  transition: background-color 0.3s ease; /* Added smooth transition */
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .curved-button:hover {
-  background-color: #1e3a5a; /* Darker hover effect for button */
+  background-color: #1e3a5a;
+  transform: scale(1.05);
 }
 
 /* Responsive Design */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   .app-footer h2 {
-    font-size: 1.5rem; /* Reduced title size for smaller screens */
+    font-size: 1.8rem;
+  }
+
+  .app-footer .content p {
+    font-size: 1rem;
   }
 
   .social-icons i {
-    font-size: 25px; /* Reduced icon size for smaller screens */
+    font-size: 25px;
   }
 
   .curved-button {
+    font-size: 0.9rem;
     padding: 8px 15px;
-    font-size: 0.9rem; /* Adjust button size for smaller screens */
+  }
+
+  .internship-rectangle {
+    max-width: 90%;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .app-footer h2 {
+    font-size: 1.5rem;
+  }
+
+  .social-icons {
+    gap: 10px;
+  }
+
+  .social-icons i {
+    font-size: 22px;
+  }
+
+  .curved-button {
+    font-size: 0.85rem;
+    padding: 7px 12px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .app-footer h2 {
+    font-size: 1.3rem;
+  }
+
+  .app-footer .content p {
+    font-size: 0.9rem;
+  }
+
+  .social-icons i {
+    font-size: 20px;
+  }
+
+  .curved-button {
+    font-size: 0.8rem;
+    padding: 6px 10px;
   }
 }
