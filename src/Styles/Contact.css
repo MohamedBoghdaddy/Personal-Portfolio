@@ -1,6 +1,4 @@
-/* Contact.css */
-
-/* Global Styling */
+/* Global Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,168 +6,108 @@
 }
 
 body {
-  background: linear-gradient(to bottom, #fce588, #ffeebb); /* Softer gradient */
-  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #1e293b, #334155);
+  font-family: "Poppins", sans-serif;
+  color: #fff;
 }
 
 /* Contact Section */
 .contact--section {
-  padding: 50px;
-  margin-top: 20px;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto; /* Centering the section */
+  padding: 50px 10%;
   text-align: center;
 }
 
-/* Sub Title */
-.sub--title {
-  font-size: 20px;
-  color: #333;
-  margin: 0;
-}
-
-/* Headings */
 h2 {
-  font-size: 32px;
-  color: #333;
-  margin-bottom: 30px;
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
-/* Contact Form Container */
+.sub--title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #22c55e;
+}
+
+/* Contact Form */
 .contact--form--container {
-  background-color: #edd75a;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  max-width: 800px; /* Ensures container does not stretch too much */
-  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
   padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Scoped Flexbox for Form Layout */
-.contact-form-container .form-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 15px;
-  margin-top: 0;
-}
-
-
-/* Form Labels */
+/* Labels & Inputs */
 .contact--label {
-  flex-basis: 48%; /* More flexible than calc(50% - 10px) */
-  max-width: 48%;
   display: flex;
   flex-direction: column;
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+}
+/* Fix for dropdown text visibility */
+.contact--input select {
+  color: #000; /* Ensures text inside dropdown is black */
 }
 
-.contact--label span {
-  margin-bottom: 5px;
+/* Ensure options are also visible */
+.contact--input option {
+  color: #000;
+  background: #fff; /* Light background for contrast */
 }
 
-/* Full Width Inputs for Topic Selection & Message */
-#choose-topic,
-textarea {
-  width: 100%;
-  min-width: 250px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: border-color 0.3s ease;
-  font-size: 16px;
-  resize: vertical;
-}
-
-#choose-topic:focus,
-textarea:focus {
-  outline: none;
-  border-color: #00bfff;
-}
-
-/* Form Inputs */
 .contact--input {
-  width: 100%;
-  min-width: 250px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 5px;
-  transition: border-color 0.3s ease;
   font-size: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.contact--input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .contact--input:focus {
   outline: none;
-  border-color: #00bfff;
+  border: 1px solid #22c55e;
 }
 
-/* Checkbox Label */
+/* Checkbox */
 .checkbox--label {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  cursor: pointer;
+  margin-bottom: 15px;
 }
 
-/* Checkbox Input */
-.checkbox--label input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-}
-
-/* Button Styling */
+/* Submit Button */
 .contact--form--btn {
-  background-color: #00bfff;
-  color: #fff;
-  padding: 12px 20px;
+  width: 100%;
+  padding: 12px;
+  background: #22c55e;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .contact--form--btn:hover {
-  background-color: #009acd;
-  transform: scale(1.05); /* Slight animation */
+  background: #16a34a;
 }
 
-/* Center Submit Button */
-.contact--form--container div {
-  text-align: center;
-  margin-top: 15px;
+/* Error Messages */
+.error-message {
+  color: #f87171;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .contact--form--container {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .contact--section {
-    width: 90%;
-  }
-
-  .container {
-    flex-direction: column;
-  }
-
-  .contact--label {
-    flex-basis: 100%; /* Stack inputs on smaller screens */
-    max-width: 100%;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
+/* Status Message */
+.message-status {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
 }
