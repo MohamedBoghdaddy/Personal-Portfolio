@@ -1,20 +1,19 @@
-/* AboutMe2.css */
-
-/* Center the image and details in the middle of the page */
+/* General Section Styling */
 .section-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh; /* Full viewport height for centering */
-  background-color: #fce588; /* Set background color here */
-  padding: 2rem; /* Add padding for better spacing */
-  margin-bottom: 0; /* Reset margin */
+  height: 120vh; /* Full viewport height */
+  background: linear-gradient(to bottom, #1e293b, #334155); /* Dark modern gradient */
+  padding: 3rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 /* Picture Container */
 .section__pic-container {
-  margin-bottom: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,45 +21,74 @@
   width: 400px;
 }
 
-/* Image Styling */
+/* Profile Image */
 .aboutMepic {
   display: block;
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
   margin: 0 auto; /* Center horizontally */
-  border-radius: 50%; /* Make the image circular */
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Details Container */
+/* Smooth hover effect */
+.aboutMepic:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* About Details */
 .about-details-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
 }
 
-.details-container {
-  text-align: center; /* Center text */
-  margin: 0 20px;
-}
-
+/* Text Container */
 .text-container {
-  width: 60%; /* Occupy 60% of the width */
+  width: 60%;
   text-align: center;
-  margin-bottom: 2rem;
   font-size: 1.5rem;
   line-height: 1.8;
+  font-weight: 400;
+  color: #f0fdfa;
+  padding: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.text-container:hover {
+  transform: scale(1.02);
+}
+
+/* Details Cards */
+.details-container {
+  text-align: center;
+  margin: 0 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.details-container:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 /* Education & Experience */
 .education,
 .experience {
   height: 4vh;
-  margin: 10px 0; /* Add margin between elements */
+  margin: 10px 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #22c55e;
 }
 
-/* Responsive Design for Smaller Screens */
+/* Responsive Design */
 @media only screen and (max-width: 1200px) {
   .aboutMepic {
     height: 300px;
@@ -69,13 +97,19 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .section-container {
+    padding: 40px 5%;
+      height: 100vh; 
+
+  }
+
   .aboutMepic {
     height: 250px;
     width: 250px;
   }
 
   .text-container {
-    width: 80%; /* Occupy more width on smaller screens */
+    width: 80%;
     font-size: 1.2rem;
   }
 }
