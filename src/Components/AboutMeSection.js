@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/AboutMe.css";
 import aboutMeImage from "../assets/images/Me2.jpg";
-import pdf from "../assets/cv/Mohamed-Resume.pdf";
+import pdf from "../assets/cv/Mohamed-Boghdaddy.pdf";
 
 const AboutMeSection = () => {
   const downloadPdf = () => {
