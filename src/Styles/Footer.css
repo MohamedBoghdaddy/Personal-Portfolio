@@ -62,7 +62,7 @@
 }
 
 .social-icons a {
-  color: #0aeb33;
+  color: #000000;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
@@ -122,7 +122,13 @@
   font-weight: 500;
   color: #f8fafc;
 }
+.internship-label{
+  margin-bottom: 10px; /* Optional spacing above buttons */
+}
 
+h2{
+margin-top: 10px;
+}
 /* Curved Button */
 .curved-button {
   border-radius: 20px;
@@ -134,13 +140,20 @@
   border: none;
   cursor: pointer;
   transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  gap: 20px; /* Adjust as needed */
+
 }
 
 .curved-button:hover {
   background-color: #1e3a5a;
   transform: scale(1.05);
 }
-
+.category-buttons {
+  display: flex;
+  gap: 20px; /* Adjust as needed */
+  justify-content: center; /* Centers buttons horizontally */
+  margin-top: 10px; /* Optional spacing above buttons */
+}
 /* Responsive Design */
 @media only screen and (max-width: 900px) {
   .app-footer h2 {
