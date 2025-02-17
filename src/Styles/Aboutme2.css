@@ -1,24 +1,19 @@
-/* General Section Styling */
+/* General Section Styling */ 
 .section-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 120vh; /* Full viewport height */
-  background: linear-gradient(to bottom, #1e293b, #334155); /* Dark modern gradient */
+  background: linear-gradient(
+    to bottom,
+    #1e293b,
+    #334155
+  ); /* Dark modern gradient */
   padding: 3rem;
   color: #fff;
   text-align: center;
   margin-bottom: 0;
-}
-
-/* Picture Container */
-.section__pic-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  width: 400px;
 }
 
 /* Profile Image */
@@ -99,8 +94,7 @@
 @media only screen and (max-width: 768px) {
   .section-container {
     padding: 40px 5%;
-      height: 100vh; 
-
+    height: 100vh;
   }
 
   .aboutMepic {
@@ -116,12 +110,30 @@
 
 @media only screen and (max-width: 500px) {
   .aboutMepic {
+    margin-top: 40px;
     height: 200px;
     width: 200px;
   }
 
   .text-container {
-    width: 90%;
+    width: 85%;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .section-container {
+    padding: 50px 5%;
+    height: 120vh;
+  }
+
+  .aboutMepic {
+    height: 180px;
+    width: 180px;
+  }
+
+  .text-container {
+    width: 95%;
     font-size: 1rem;
   }
 }

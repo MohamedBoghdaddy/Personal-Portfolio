@@ -36,8 +36,8 @@
   margin: auto;
 }
 
-/* Section Container */
-.section-container {
+/* aboutMeContainer */
+.aboutMeContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,97 +111,20 @@
   transform: scale(1.05);
 }
 
-/* Font Styling */
-.montserrat-font {
-  font-family: "Montserrat", sans-serif;
-}
-
-.roboto-regular {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-}
-
-.roboto-medium {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-}
-
-.roboto-bold {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-}
-
 /* Responsive Design */
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 380px) {
   .aboutMeTitle {
-    font-size: 3rem;
+    font-size: 1.6rem;
   }
-}
-
-@media only screen and (max-width: 900px) {
-  .aboutMeTitle {
-    font-size: 2.5rem;
-  }
-
   .aboutMeContent {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
-
-  .aboutMeImage {
-    width: 280px;
-    height: 260px;
-  }
-
-  .section__pic-container {
-    width: 280px;
-    height: 280px;
+  .aboutMeImage, .aboutMeContainer {
+    width: 180px;
+    height: 180px;
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .aboutMeTitle {
-    font-size: 2rem;
-  }
-
-  .aboutMeContent {
-    font-size: 1.5rem;
-    padding: 0 20px;
-  }
-
-  .aboutMeImage {
-    width: 250px;
-    height: 250px;
-  }
-
-  .section__pic-container {
-    width: 250px;
-    height: 250px;
-  }
-
-  .text-container {
-    width: 90%;
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  .aboutMeTitle {
-    font-size: 1.8rem;
-  }
-
-  .aboutMeContent {
-    font-size: 1.4rem;
-  }
-
-  .aboutMeImage {
-    width: 200px;
-    height: 200px;
-  }
-
-  .section__pic-container {
-    width: 200px;
-    height: 200px;
-  }
-}
 /* Button Styling */
 .btn-container {
   margin-top: 20px;
