@@ -43,14 +43,14 @@ const projectCategories = [
         image: MLImage1,
         title: "Multi-Object Detection & Template Matching",
         description:
-          "Rotation and scale-invariant template matching and multi-object detection using OpenCV.",
+          "template matching and multi-object detection using OpenCV.",
         githubLink: "https://github.com/MohamedBoghdaddy/Template-Matching",
       },
       {
         image: MLImage2,
         title: "🏋️‍♂️🏅 Sportify AI: Intelligent Sports Image Classifier",
         description:
-          "Sportify AI is a cutting-edge deep learning project designed to classify sports images into six distinct categories. Leveraging both a custom-built Convolutional Neural Network (CNN) and the power of MobileNetV2 transfer learning,",
+          "AI-powered CNN + MobileNetV2 for lightning-fast sports image classification! ⚡📸",
         githubLink: "https://github.com/MohamedBoghdaddy/Sportify-AI",
       },
       {
@@ -76,14 +76,14 @@ const projectCategories = [
         image: CyberSecurity1,
         title: "ByteGuard - AI-Powered Antivirus",
         description:
-          "ByteGuard is an antivirus program that utilizes machine learning models to detect and prevent malware. It includes models for anomaly detection, malware classification, and natural language processing to analyze potential threats on USB devices and the system.",
+          "Detects and stops malware using machine learning, anomaly detection, and NLP—protecting your system & USB devices in real time! 🚀",
         githubLink: "https://github.com/MohamedBoghdaddy/ByteGuard",
       },
       {
         image: CyberSecurity2,
         title: "AutoAI Suite - Automated ML Toolkit",
         description:
-          "AutoAI-Suite 🛠️ Language: Python 🐍 Description: An automated AI toolkit designed to streamline the machine learning pipeline, from data preprocessing to model selection and evaluation. Ideal for data scientists seeking an efficient, all-in-one solution.",
+          "Your AI Swiss Army knife—automates ML pipelines, classifies files, scrapes & summarizes web data, and even sends emails! 🚀",
         githubLink: "https://github.com/MohamedBoghdaddy/AutoAI-Suite",
       },
     ],
@@ -109,7 +109,7 @@ const projectCategories = [
         image: FinanceAI3,
         title: "Stock Market Prediction",
         description:
-          "This Python code utilizes LSTM neural networks to forecast stock prices for the next 30 days based on historical data from Netflix (NFLX). It preprocesses the dataset, trains the LSTM model, and plots both actual and predicted stock prices, aiding in stock market prediction and analysis.",
+          "This LSTM-powered model forecasts NFLX stock prices 30 days ahead, analyzing historical trends and visualizing predictions—perfect for AI-driven market insights! 📈🔥",
         githubLink: "https://github.com/MohamedBoghdaddy/CODEALPHA-Task4",
       },
     ],
@@ -121,14 +121,14 @@ const projectCategories = [
         image: HealthcareAI1,
         title: "MammoAI - Breast Cancer Detection",
         description:
-          "Deep learning-based diagnostic tool for early-stage breast cancer detection.",
+          "Deep learning diagnostic tool for early-stage cancer detection.",
         githubLink: "https://github.com/MohamedBoghdaddy/MammoAI",
       },
       {
         image: HealthcareAI1,
         title: "MammoAI - Breast Cancer Detection",
         description:
-          "Deep learning-based diagnostic tool for early-stage breast cancer detection.",
+          "Deep learning diagnostic tool for early-stage cancer detection.",
         githubLink: "https://github.com/MohamedBoghdaddy/MammoAI",
       },
     ],
@@ -147,14 +147,14 @@ const projectCategories = [
         image: DesktopAppImage4,
         title: "Spanish Learning App",
         description:
-          "Language Learning Quiz is a sleek, modern quiz app designed for learning Spanish vocabulary. Featuring a minimalist, elegant design with vibrant colors, real-time feedback, and score tracking",
+          "A sleek quiz app for mastering Spanish vocab with real-time feedback & scoring! ⚡",
         githubLink: "https://github.com/MohamedBoghdaddy/language_learning_app",
       },
       {
         image: DesktopAppImage5,
         title: "Vintage Style ChatBot",
         description:
-          "EchoMind 🧠 Language: Python 🐍 Description: An intelligent chatbot featuring a unique personality blend, capable of teaching, coding, and conversational engagement. Utilizes NLP and MongoDB for conversational history and context.",
+          "EchoMind 🧠: An intelligent chatbot featuring a unique personality blend, capable of teaching, coding, and conversational engagement.",
         githubLink: "https://github.com/MohamedBoghdaddy/EchoMind",
       },
       {
@@ -183,6 +183,7 @@ const projectCategories = [
           "Fullstack MERN application for real-time collaboration and document management.",
         githubLink:
           "https://github.com/MohamedBoghdaddy/Atos-Task-document-management-system",
+        websiteLink: "https://atos0dms.netlify.app/",
       },
       {
         image: FullstackImage2,
@@ -190,6 +191,7 @@ const projectCategories = [
         description:
           "Developed a furniture and product design e-commerce browser platform using MERN.",
         githubLink: "https://github.com/MohamedBoghdaddy/Hedj",
+        websiteLink: "https://hedj.netlify.app/",
       },
       {
         image: FullstackImage3,
@@ -197,6 +199,7 @@ const projectCategories = [
         description:
           "AI-powered platform that automates job applications, applying to thousands of roles for users.",
         githubLink: "https://github.com/MohamedBoghdaddy/hkiiapply",
+        websiteLink: "https://boghhki.netlify.app/",
       },
       {
         image: FullstackImage4,
@@ -209,8 +212,9 @@ const projectCategories = [
         image: FullstackImage5,
         title: "Landing Page for Relief Emergency Charity",
         description:
-          "Developed A responsive landing page designed for humanitarian relief efforts. Built with accessibility and user engagement in mind. USED MERN",
+          "Developed A responsive landing page designed for humanitarian relief efforts.",
         githubLink: "https://github.com/MohamedBoghdaddy/ReliefLandingPage",
+        websiteLink: "https://reliefland.netlify.app/",
       },
     ],
   },
@@ -264,13 +268,26 @@ const renderProjects = (projects) =>
         <Card.Body>
           <Card.Title>{project.title}</Card.Title>
           <Card.Text>{project.description}</Card.Text>
-          <Button href={project.githubLink} target="_blank" variant="primary">
-            GitHub
-          </Button>
+          <div className="button-group">
+            <Button href={project.githubLink} target="_blank" variant="primary">
+              GitHub
+            </Button>
+            {project.websiteLink && (
+              <Button
+                href={project.websiteLink}
+                target="_blank"
+                variant="success"
+                className="ml-2"
+              >
+                Visit Website
+              </Button>
+            )}
+          </div>
         </Card.Body>
       </Card>
     </div>
   ));
+
 
 const ProjectsSection = () => (
   <Container className="projects-section" id="ProjectsSection">
