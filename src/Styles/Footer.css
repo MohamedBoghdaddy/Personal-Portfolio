@@ -2,7 +2,7 @@
 .app-footer {
   width: 100%;
   background: linear-gradient(to bottom, #1e293b, #334155); /* Dark modern footer */
-  color: #e8a113;
+  color: #22c55e;
   padding: 40px 10%;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
 
 /* Footer Title */
 .app-footer h2 {
-  color: #22c55e;
+  color: #1cbe57;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 10px;
@@ -42,14 +42,14 @@
 }
 
 .app-footer a {
-  color: #e8a113;
+  color: #22c55e;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease-in-out;
 }
 
 .app-footer a:hover {
-  color: #b48c3c;
+  color: #22c55e;
   text-decoration: underline;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .social-icons a {
-  color: #fffac8;
+  color: #0aeb33;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .social-icons a:hover {
-  color: #22c55e;
+  color: #3ac86e;
   transform: scale(1.2);
 }
 
@@ -87,17 +87,17 @@
 }
 
 .WorkExperienceSection:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* Internship Card */
 .internship-rectangle {
-  background-color: #ba9c26;
+  background-color: #039f3c;
   padding: 15px;
   border-radius: 20px;
   max-height: 350px;
   max-width: 650px;
-  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 4px 10px rgba(6, 122, 10, 0.2);
   transition: transform 0.3s ease-in-out;
 }
 
