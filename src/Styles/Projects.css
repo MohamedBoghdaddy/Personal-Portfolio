@@ -72,3 +72,13 @@
     font-size: 2rem;
   }
 }
+/* ✅ Slider Dots Position */
+.slick-dots {
+    bottom: 10px !important;
+}
+
+@media (max-width: 768px) {
+    .slick-dots {
+        bottom: 15px !important;
+    }
+}
