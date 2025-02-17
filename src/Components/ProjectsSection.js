@@ -7,17 +7,29 @@ import "../Styles/Projects.css";
 
 // Import images
 import MLImage1 from "../assets/images/Temp1.png";
-import MLImage2 from "../assets/images/Temp2.png";
+import MLImage2 from "../assets/images/sportify.png";
 import MLImage3 from "../assets/images/High.png";
 import MLImage4 from "../assets/images/MusicTrends.png";
+import CyberSecurity1 from "../assets/images/ByteGuard.png";
+import CyberSecurity2 from "../assets/images/AutoAI.png";
+
+import FinanceAI1 from "../assets/images/FinanceAI1.jpg";
+import FinanceAI2 from "../assets/images/BankingApp.png";
+import FinanceAI3 from "../assets/images/Stock.png";
+
+import HealthcareAI1 from "../assets/images/MammoAI.png";
 import DesktopAppImage1 from "../assets/images/OZLOT.jpg";
 import DesktopAppImage2 from "../assets/images/FlappyBird.png";
 import DesktopAppImage3 from "../assets/images/Snake.png";
 import DesktopAppImage4 from "../assets/images/language_learning_quiz.png";
+import DesktopAppImage5 from "../assets/images/chatbot.png";
+
 import FullstackImage1 from "../assets/images/workspace.png";
 import FullstackImage2 from "../assets/images/hedj.png";
 import FullstackImage3 from "../assets/images/hki.png";
 import FullstackImage4 from "../assets/images/Petzone.png";
+import FullstackImage5 from "../assets/images/Relief.png";
+
 import WebDevelopment1 from "../assets/images/stopwatch.png";
 import WebDevelopment2 from "../assets/images/XO.png";
 import WebDevelopment3 from "../assets/images/prodigypage.png";
@@ -25,40 +37,104 @@ import WebDevelopment3 from "../assets/images/prodigypage.png";
 // Project Categories
 const projectCategories = [
   {
-    title: "Machine Learning Projects",
+    title: "🔬 Machine Learning & AI Projects",
     projects: [
       {
         image: MLImage1,
         title: "Multi-Object Detection & Template Matching",
         description:
           "Rotation and scale-invariant template matching and multi-object detection using OpenCV.",
-        githubLink: "https://github.com/MohamedBoghdaddy?tab=repositories",
+        githubLink: "https://github.com/MohamedBoghdaddy/Template-Matching",
       },
       {
         image: MLImage2,
-        title: "Music Genre Classification",
+        title: "🏋️‍♂️🏅 Sportify AI: Intelligent Sports Image Classifier",
         description:
-          "Deep learning model using Keras to classify music genres based on audio features.",
-        githubLink: "https://github.com/MohamedBoghdaddy?tab=repositories",
+          "Sportify AI is a cutting-edge deep learning project designed to classify sports images into six distinct categories. Leveraging both a custom-built Convolutional Neural Network (CNN) and the power of MobileNetV2 transfer learning,",
+        githubLink: "https://github.com/MohamedBoghdaddy/Sportify-AI",
       },
       {
         image: MLImage3,
-        title: "High-Performance Computing with Deep Learning",
+        title: "Super Image Resolution",
         description:
-          "Training deep learning models on large datasets using high-performance computing resources.",
-        githubLink: "https://github.com/MohamedBoghdaddy?tab=repositories",
+          "Training AI model to Increase resolution of a Low image to High Image resolution.",
+        githubLink: "https://github.com/MohamedBoghdaddy/SuperImageResolution",
       },
       {
         image: MLImage4,
-        title: "Music Trend Analysis",
+        title: "Music Recommendation app",
         description:
-          "Analyzed global music trends using ML models to predict upcoming popular tracks.",
-        githubLink: "https://github.com/MohamedBoghdaddy?tab=repositories",
+          "Training AI model on a large dataset to recommend Music based on user preferences.",
+        githubLink: "https://github.com/MohamedBoghdaddy/CODEALPHA-Task1",
       },
     ],
   },
   {
-    title: "Desktop Applications",
+    title: "🛡️ Cybersecurity & DevOps Projects",
+    projects: [
+      {
+        image: CyberSecurity1,
+        title: "ByteGuard - AI-Powered Antivirus",
+        description:
+          "ByteGuard is an antivirus program that utilizes machine learning models to detect and prevent malware. It includes models for anomaly detection, malware classification, and natural language processing to analyze potential threats on USB devices and the system.",
+        githubLink: "https://github.com/MohamedBoghdaddy/ByteGuard",
+      },
+      {
+        image: CyberSecurity2,
+        title: "AutoAI Suite - Automated ML Toolkit",
+        description:
+          "AutoAI-Suite 🛠️ Language: Python 🐍 Description: An automated AI toolkit designed to streamline the machine learning pipeline, from data preprocessing to model selection and evaluation. Ideal for data scientists seeking an efficient, all-in-one solution.",
+        githubLink: "https://github.com/MohamedBoghdaddy/AutoAI-Suite",
+      },
+    ],
+  },
+  {
+    title: "🏦 Finance & Business AI",
+    projects: [
+      {
+        image: FinanceAI1,
+        title: "Financial AI Advisor",
+        description:
+          "AI-based financial advisory system analyzing investment trends based on salary and stocks.",
+        githubLink: "https://github.com/MohamedBoghdaddy/FinancialAIAdvisor",
+      },
+      {
+        image: FinanceAI2,
+        title: "Banking Dashboard",
+        description:
+          "Banking and finance management dashboard using Next.js 14.",
+        githubLink: "https://github.com/MohamedBoghdaddy/Banking-App",
+      },
+      {
+        image: FinanceAI3,
+        title: "Stock Market Prediction",
+        description:
+          "This Python code utilizes LSTM neural networks to forecast stock prices for the next 30 days based on historical data from Netflix (NFLX). It preprocesses the dataset, trains the LSTM model, and plots both actual and predicted stock prices, aiding in stock market prediction and analysis.",
+        githubLink: "https://github.com/MohamedBoghdaddy/CODEALPHA-Task4",
+      },
+    ],
+  },
+  {
+    title: "🩺 Healthcare & Medical AI",
+    projects: [
+      {
+        image: HealthcareAI1,
+        title: "MammoAI - Breast Cancer Detection",
+        description:
+          "Deep learning-based diagnostic tool for early-stage breast cancer detection.",
+        githubLink: "https://github.com/MohamedBoghdaddy/MammoAI",
+      },
+      {
+        image: HealthcareAI1,
+        title: "MammoAI - Breast Cancer Detection",
+        description:
+          "Deep learning-based diagnostic tool for early-stage breast cancer detection.",
+        githubLink: "https://github.com/MohamedBoghdaddy/MammoAI",
+      },
+    ],
+  },
+  {
+    title: "💻 Desktop & Mobile Applications",
     projects: [
       {
         image: DesktopAppImage1,
@@ -66,6 +142,20 @@ const projectCategories = [
         description:
           "Desktop-based food ordering system developed with Java and MySQL.",
         githubLink: "https://github.com/MohamedBoghdaddy/Talabat",
+      },
+      {
+        image: DesktopAppImage4,
+        title: "Spanish Learning App",
+        description:
+          "Language Learning Quiz is a sleek, modern quiz app designed for learning Spanish vocabulary. Featuring a minimalist, elegant design with vibrant colors, real-time feedback, and score tracking",
+        githubLink: "https://github.com/MohamedBoghdaddy/language_learning_app",
+      },
+      {
+        image: DesktopAppImage5,
+        title: "Vintage Style ChatBot",
+        description:
+          "EchoMind 🧠 Language: Python 🐍 Description: An intelligent chatbot featuring a unique personality blend, capable of teaching, coding, and conversational engagement. Utilizes NLP and MongoDB for conversational history and context.",
+        githubLink: "https://github.com/MohamedBoghdaddy/EchoMind",
       },
       {
         image: DesktopAppImage2,
@@ -81,21 +171,14 @@ const projectCategories = [
           "Classic Snake game in C++ with movement, food consumption, and score tracking.",
         githubLink: "https://github.com/MohamedBoghdaddy/Snake",
       },
-      {
-        image: DesktopAppImage4,
-        title: "Language Learning Quiz App",
-        description:
-          "Quiz app to help users learn languages, track progress, and get feedback.",
-        githubLink: "https://github.com/MohamedBoghdaddy/language_learning_app",
-      },
     ],
   },
   {
-    title: "Fullstack Projects",
+    title: "🌐 Fullstack Applications",
     projects: [
       {
         image: FullstackImage1,
-        title: "Workspace Collaboration Tool",
+        title: "Document Management System",
         description:
           "Fullstack MERN application for real-time collaboration and document management.",
         githubLink:
@@ -103,49 +186,56 @@ const projectCategories = [
       },
       {
         image: FullstackImage2,
-        title: "Project Management System",
+        title: "Hedj",
         description:
-          "Developed a project management system using the MERN stack with task management features.",
+          "Developed a furniture and product design e-commerce browser platform using MERN.",
         githubLink: "https://github.com/MohamedBoghdaddy/Hedj",
       },
       {
         image: FullstackImage3,
-        title: "AI Job Application System",
+        title: "HKIIAPPLY - AI-Job Search Website",
         description:
-          "Automated job application system integrating AI models for resume matching.",
+          "AI-powered platform that automates job applications, applying to thousands of roles for users.",
         githubLink: "https://github.com/MohamedBoghdaddy/hkiiapply",
       },
       {
         image: FullstackImage4,
-        title: "Petzone Marketplace",
+        title: "PetZone -- Pet Care platform",
         description:
-          "Fullstack e-commerce platform for pet products with user authentication.",
+          "PetZone 🐾 is a web-based pet care platform developed with HTML, CSS, and PHP. It connects pet owners to services, products, and veterinary support.",
         githubLink: "https://github.com/MohamedBoghdaddy/Petzone",
+      },
+      {
+        image: FullstackImage5,
+        title: "Landing Page for Relief Emergency Charity",
+        description:
+          "Developed A responsive landing page designed for humanitarian relief efforts. Built with accessibility and user engagement in mind. USED MERN",
+        githubLink: "https://github.com/MohamedBoghdaddy/ReliefLandingPage",
       },
     ],
   },
   {
-    title: "Web Development Projects",
+    title: "🌐🌐🌐 Web-Development",
     projects: [
       {
         image: WebDevelopment1,
-        title: "Stopwatch Application",
+        title: "Stop Watch",
         description:
-          "Developed a stopwatch application using HTML, CSS, and JavaScript with a sleek UI.",
+          "interactive stopwatch web app using HTML, CSS, and JavaScript.",
         githubLink: "https://github.com/MohamedBoghdaddy/PRODIGY_WD_02",
       },
       {
         image: WebDevelopment2,
-        title: "Tic-Tac-Toe Game",
+        title: "TIC-TAC-TOE",
         description:
-          "Interactive Tic-Tac-Toe game built with HTML, CSS, and JavaScript.",
+          "Tic-Tac-Toe Web Application is a simple yet engaging browser-based game built using HTML, CSS, and JavaScript.",
         githubLink: "https://github.com/MohamedBoghdaddy/PRODIGY_WD_03",
       },
       {
         image: WebDevelopment3,
-        title: "Prodigy Page Clone",
+        title: "Prodigy Landing Page",
         description:
-          "Created a responsive clone of the Prodigy Info Tech landing page.",
+          "Responsive Landing Web page for Prodigy Info Tech Internship",
         githubLink: "https://github.com/MohamedBoghdaddy/PRODIGY_WD_01",
       },
     ],
