@@ -11,14 +11,18 @@
   padding: 60px 10%;
   text-align: center;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 /* Title Styling */
 .aboutMeTitle {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #22c55e; /* Stylish green accent */
+  color: #22c55e;
   text-shadow: 2px 2px 10px rgba(34, 197, 94, 0.5);
 }
 
@@ -28,22 +32,11 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 400;
   line-height: 1.6;
-  width: 100%;
   max-width: 800px;
-  margin: auto;
-}
-
-/* aboutMeContainer */
-.aboutMeContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 30px;
-  padding: 50px 0;
+  width: 100%;
 }
 
 /* Profile Picture */
@@ -51,8 +44,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 350px;
-  width: 350px;
+  width: 300px;
+  height: 300px;
 }
 
 .aboutMepic {
@@ -64,7 +57,7 @@
 }
 
 .aboutMepic:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
+  transform: scale(1.05);
 }
 
 /* About Me Details */
@@ -99,8 +92,8 @@
 
 /* About Me Image */
 .aboutMeImage {
-  width: 320px;
-  height: 280px;
+  width: 280px;
+  height: 260px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
@@ -109,20 +102,6 @@
 
 .aboutMeImage:hover {
   transform: scale(1.05);
-}
-
-/* Responsive Design */
-@media only screen and (max-width: 380px) {
-  .aboutMeTitle {
-    font-size: 1.6rem;
-  }
-  .aboutMeContent {
-    font-size: 1.2rem;
-  }
-  .aboutMeImage, .aboutMeContainer {
-    width: 180px;
-    height: 180px;
-  }
 }
 
 /* Button Styling */
@@ -164,17 +143,95 @@
   transform: scale(0.98);
 }
 
-/* Responsive Design */
+/* -------------------------------- */
+/* Responsive Design Adjustments */
+/* -------------------------------- */
+
+/* Medium Screens (Tablets) */
 @media only screen and (max-width: 768px) {
+  .aboutMeTitle {
+    font-size: 2.5rem;
+  }
+  .aboutMeContent {
+    font-size: 1.5rem;
+  }
+  .section__pic-container {
+    width: 250px;
+    height: 250px;
+  }
+  .aboutMeImage {
+    width: 240px;
+    height: 220px;
+  }
   .btn {
     font-size: 16px;
     padding: 10px 20px;
   }
 }
 
+/* Small Screens (Large Phones) */
 @media only screen and (max-width: 500px) {
+  .aboutMeTitle {
+    font-size: 2rem;
+  }
+  .aboutMeContent {
+    font-size: 1.3rem;
+    padding: 0 10px;
+  }
+  .section__pic-container {
+    width: 200px;
+    height: 200px;
+  }
+  .aboutMeImage {
+    width: 200px;
+    height: 190px;
+  }
   .btn {
     font-size: 14px;
     padding: 8px 16px;
+  }
+}
+
+/* Extra Small Screens (Phones) */
+@media only screen and (max-width: 390px) {
+  .aboutMeTitle {
+    font-size: 1.8rem;
+  }
+  .aboutMeContent {
+    font-size: 1.2rem;
+  }
+  .section__pic-container {
+    width: 180px;
+    height: 180px;
+  }
+  .aboutMeImage {
+    width: 180px;
+    height: 170px;
+  }
+  .btn {
+    font-size: 13px;
+    padding: 7px 14px;
+  }
+}
+
+/* Ultra Small Screens (Compact Phones) */
+@media only screen and (max-width: 360px) {
+  .aboutMeTitle {
+    font-size: 1.6rem;
+  }
+  .aboutMeContent {
+    font-size: 1.1rem;
+  }
+  .section__pic-container {
+    width: 160px;
+    height: 160px;
+  }
+  .aboutMeImage {
+    width: 160px;
+    height: 150px;
+  }
+  .btn {
+    font-size: 12px;
+    padding: 6px 12px;
   }
 }
