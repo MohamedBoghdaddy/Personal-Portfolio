@@ -119,14 +119,14 @@ const projectCategories = [
     projects: [
       {
         image: HealthcareAI1,
-        title: "MammoAI - Breast Cancer Detection",
+        title: "MammoAI - Cancer Detection",
         description:
           "Deep learning diagnostic tool for early-stage cancer detection.",
         githubLink: "https://github.com/MohamedBoghdaddy/MammoAI",
       },
       {
         image: HealthcareAI1,
-        title: "MammoAI - Breast Cancer Detection",
+        title: "MammoAI - Cancer Detection",
         description:
           "Deep learning diagnostic tool for early-stage cancer detection.",
         githubLink: "https://github.com/MohamedBoghdaddy/MammoAI",
