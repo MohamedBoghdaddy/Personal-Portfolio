@@ -10,10 +10,7 @@ const AboutMeSection = () => {
   const [pdfUrl, setPdfUrl] = useState(null);
 
   const handlePreviewPdf = () => {
-    const url = URL.createObjectURL(
-      new Blob([pdf], { type: "application/pdf" })
-    );
-    setPdfUrl(pdf); // using static import
+    setPdfUrl(pdf); // directly use the imported static PDF
     setShowPreviewModal(true);
   };
 
