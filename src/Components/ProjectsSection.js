@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../Styles/Projects.css";
 
-// Import images
+// Import images (existing)
 import MLImage1 from "../assets/images/Temp1.png";
 import MLImage2 from "../assets/images/sportify.png";
 import MLImage3 from "../assets/images/High.png";
@@ -18,21 +18,31 @@ import FinanceAI2 from "../assets/images/BankingApp.png";
 import FinanceAI3 from "../assets/images/Stock.png";
 
 import HealthcareAI1 from "../assets/images/MammoAI.png";
+
 import DesktopAppImage1 from "../assets/images/OZLOT.jpg";
 import DesktopAppImage2 from "../assets/images/FlappyBird.png";
 import DesktopAppImage3 from "../assets/images/Snake.png";
 import DesktopAppImage4 from "../assets/images/language_learning_quiz.png";
 import DesktopAppImage5 from "../assets/images/chatbot.png";
+import DesktopAppImage6 from "../assets/images/foundit.png";
+import DesktopAppImage7 from "../assets/images/StudentGradeGui.png";
+import DesktopAppImage8 from "../assets/images/Thread.png";
 
 import FullstackImage1 from "../assets/images/workspace.png";
 import FullstackImage2 from "../assets/images/hedj.png";
 import FullstackImage3 from "../assets/images/hki.png";
 import FullstackImage4 from "../assets/images/Petzone.png";
 import FullstackImage5 from "../assets/images/Relief.png";
+import FullstackImage6 from "../assets/images/pregen.png";
+import FullstackImage7 from "../assets/images/swarm.png";
 
 import WebDevelopment1 from "../assets/images/stopwatch.png";
 import WebDevelopment2 from "../assets/images/XO.png";
 import WebDevelopment3 from "../assets/images/prodigypage.png";
+
+
+const LoanAcceptanceImage = MLImage3;
+const RagChatbotImage = DesktopAppImage5;
 
 // Project Categories
 const projectCategories = [
@@ -43,29 +53,45 @@ const projectCategories = [
         image: MLImage1,
         title: "Multi-Object Detection & Template Matching",
         description:
-          "template matching and multi-object detection using OpenCV.",
+          "Template matching and multi-object detection using OpenCV.",
         githubLink: "https://github.com/MohamedBoghdaddy/Template-Matching",
       },
       {
         image: MLImage2,
-        title: "🏋️‍♂️🏅 Sportify AI: Intelligent Sports Image Classifier",
+        title: "Sportify AI: Intelligent Sports Image Classifier",
         description:
-          "AI-powered CNN + MobileNetV2 for lightning-fast sports image classification! ⚡📸",
+          "AI-powered CNN + MobileNetV2 for lightning-fast sports image classification.",
         githubLink: "https://github.com/MohamedBoghdaddy/Sportify-AI",
       },
       {
         image: MLImage3,
         title: "Super Image Resolution",
         description:
-          "Training AI model to Increase resolution of a Low image to High Image resolution.",
+          "Training an AI model to increase resolution from low-quality to high-quality images.",
         githubLink: "https://github.com/MohamedBoghdaddy/SuperImageResolution",
       },
       {
         image: MLImage4,
-        title: "Music Recommendation app",
+        title: "Music Recommendation App",
         description:
-          "Training AI model on a large dataset to recommend Music based on user preferences.",
+          "ML-based music recommendation system trained on user preferences.",
         githubLink: "https://github.com/MohamedBoghdaddy/CODEALPHA-Task1",
+      },
+
+      {
+        image: LoanAcceptanceImage,
+        title: "Loan Acceptance Prediction",
+        description:
+          "Machine learning pipeline for loan acceptance prediction with preprocessing, training, and evaluation.",
+        githubLink:
+          "https://github.com/MohamedBoghdaddy/Loan_Acceptance_Prediction",
+      },
+      {
+        image: RagChatbotImage,
+        title: "RAG Chatbot",
+        description:
+          "Retrieval-Augmented Generation chatbot integrating document retrieval with LLM-style responses.",
+        githubLink: "https://github.com/MohamedBoghdaddy/rag-chatbot",
       },
     ],
   },
@@ -76,14 +102,14 @@ const projectCategories = [
         image: CyberSecurity1,
         title: "ByteGuard - AI-Powered Antivirus",
         description:
-          "Detects and stops malware using machine learning, anomaly detection, and NLP—protecting your system & USB devices in real time! 🚀",
+          "Detects and stops malware using machine learning, anomaly detection, and NLP.",
         githubLink: "https://github.com/MohamedBoghdaddy/ByteGuard",
       },
       {
         image: CyberSecurity2,
         title: "AutoAI Suite - Automated ML Toolkit",
         description:
-          "Your AI Swiss Army knife—automates ML pipelines, classifies files, scrapes & summarizes web data, and even sends emails! 🚀",
+          "Automates ML pipelines, classification, scraping/summarization workflows, and more.",
         githubLink: "https://github.com/MohamedBoghdaddy/AutoAI-Suite",
       },
     ],
@@ -109,7 +135,7 @@ const projectCategories = [
         image: FinanceAI3,
         title: "Stock Market Prediction",
         description:
-          "This LSTM-powered model forecasts NFLX stock prices 30 days ahead, analyzing historical trends and visualizing predictions—perfect for AI-driven market insights! 📈🔥",
+          "LSTM-powered model forecasting NFLX stock prices 30 days ahead with visualized predictions.",
         githubLink: "https://github.com/MohamedBoghdaddy/CODEALPHA-Task4",
       },
     ],
@@ -143,18 +169,44 @@ const projectCategories = [
           "Desktop-based food ordering system developed with Java and MySQL.",
         githubLink: "https://github.com/MohamedBoghdaddy/Talabat",
       },
+
+      // ✅ NEW (Mobile)
+      {
+        image: DesktopAppImage6,
+        title: "FoundIt (Flutter Mobile App)",
+        description:
+          "Flutter mobile app for lost and found items. Project focused on a clean UX and modular app structure.",
+        githubLink: "https://github.com/MohamedBoghdaddy/FoundIt",
+      },
+      {
+        image: DesktopAppImage8,
+        title: "ThreadCRM (React Native)",
+        description:
+          "React Native mobile CRM app built with TypeScript; designed for scalable mobile workflows.",
+        githubLink: "https://github.com/MohamedBoghdaddy/ThreadCRM",
+      },
+
+      // ✅ NEW (C++)
+      {
+        image: DesktopAppImage7,
+        title: "Student Grade GUI (C++)",
+        description:
+          "C++ GUI application for managing and displaying student grades.",
+        githubLink: "https://github.com/MohamedBoghdaddy/studentGradeGUI",
+      },
+
       {
         image: DesktopAppImage4,
         title: "Spanish Learning App",
         description:
-          "A sleek quiz app for mastering Spanish vocab with real-time feedback & scoring! ⚡",
+          "A sleek quiz app for mastering Spanish vocab with real-time feedback and scoring.",
         githubLink: "https://github.com/MohamedBoghdaddy/language_learning_app",
       },
       {
         image: DesktopAppImage5,
         title: "Vintage Style ChatBot",
         description:
-          "EchoMind 🧠: An intelligent chatbot featuring a unique personality blend, capable of teaching, coding, and conversational engagement.",
+          "EchoMind: an intelligent chatbot capable of teaching, coding, and conversational engagement.",
         githubLink: "https://github.com/MohamedBoghdaddy/EchoMind",
       },
       {
@@ -177,6 +229,23 @@ const projectCategories = [
     title: "🌐 Fullstack Applications",
     projects: [
       {
+        image: FullstackImage6,
+        title: "PreGen (MERN + Machine Learning)",
+        description:
+          "Full-stack MERN platform integrated with AI/ML features for content generation and automation.",
+        githubLink: "https://github.com/MohamedBoghdaddy/PreGen",
+        websiteLink: "https://preprod-pregen.netlify.app/",
+      },
+      {
+        image: FullstackImage7,
+        title: "Swarm Negotiation (MERN + ML / PSO)",
+        description:
+          "Full-stack MERN project integrating swarm optimization (PSO) .",
+        githubLink:
+          "https://github.com/MohamedBoghdaddy/Swarm_Negotiation_MPSO",
+      },
+
+      {
         image: FullstackImage1,
         title: "Document Management System",
         description:
@@ -188,58 +257,57 @@ const projectCategories = [
       {
         image: FullstackImage2,
         title: "Hedj",
-        description:
-          "Developed a furniture and product design e-commerce browser platform using MERN.",
+        description: "Furniture/product design e-commerce platform using MERN.",
         githubLink: "https://github.com/MohamedBoghdaddy/Hedj",
         websiteLink: "https://hedj.netlify.app/",
       },
       {
         image: FullstackImage3,
-        title: "HKIIAPPLY - AI-Job Search Website",
+        title: "HKIIAPPLY - AI Job Search Website",
         description:
-          "AI-powered platform that automates job applications, applying to thousands of roles for users.",
+          "AI-powered platform that automates job applications and supports AI-driven guidance.",
         githubLink: "https://github.com/MohamedBoghdaddy/hkiiapply",
         websiteLink: "https://boghhki.netlify.app/",
       },
       {
         image: FullstackImage4,
-        title: "PetZone -- Pet Care platform",
+        title: "PetZone - Pet Care Platform",
         description:
-          "PetZone 🐾 is a web-based pet care platform developed with HTML, CSS, and PHP. It connects pet owners to services, products, and veterinary support.",
+          "Web-based pet care platform built with HTML, CSS, and PHP.",
         githubLink: "https://github.com/MohamedBoghdaddy/Petzone",
       },
       {
         image: FullstackImage5,
         title: "Landing Page for Relief Emergency Charity",
         description:
-          "Developed A responsive landing page designed for humanitarian relief efforts.",
+          "Responsive landing page designed for humanitarian relief efforts.",
         githubLink: "https://github.com/MohamedBoghdaddy/ReliefLandingPage",
         websiteLink: "https://reliefland.netlify.app/",
       },
     ],
   },
   {
-    title: "🌐🌐🌐 Web-Development",
+    title: "🌐 Web Development",
     projects: [
       {
         image: WebDevelopment1,
         title: "Stop Watch",
         description:
-          "interactive stopwatch web app using HTML, CSS, and JavaScript.",
+          "Interactive stopwatch web app using HTML, CSS, and JavaScript.",
         githubLink: "https://github.com/MohamedBoghdaddy/PRODIGY_WD_02",
       },
       {
         image: WebDevelopment2,
         title: "TIC-TAC-TOE",
         description:
-          "Tic-Tac-Toe Web Application is a simple yet engaging browser-based game built using HTML, CSS, and JavaScript.",
+          "Browser-based Tic-Tac-Toe built using HTML, CSS, and JavaScript.",
         githubLink: "https://github.com/MohamedBoghdaddy/PRODIGY_WD_03",
       },
       {
         image: WebDevelopment3,
         title: "Prodigy Landing Page",
         description:
-          "Responsive Landing Web page for Prodigy Info Tech Internship",
+          "Responsive landing page for Prodigy Info Tech Internship.",
         githubLink: "https://github.com/MohamedBoghdaddy/PRODIGY_WD_01",
       },
     ],
@@ -287,7 +355,6 @@ const renderProjects = (projects) =>
       </Card>
     </div>
   ));
-
 
 const ProjectsSection = () => (
   <Container className="projects-section" id="ProjectsSection">
