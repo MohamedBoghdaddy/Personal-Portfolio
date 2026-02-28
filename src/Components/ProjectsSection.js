@@ -40,6 +40,10 @@ import WebDevelopment1 from "../assets/images/stopwatch.png";
 import WebDevelopment2 from "../assets/images/XO.png";
 import WebDevelopment3 from "../assets/images/prodigypage.png";
 
+// ✅ NEW images
+import HuntFlowImage from "../assets/images/huntflow.png";
+import MasarImage from "../assets/images/MASAR.png";
+import TabeebImage from "../assets/images/Tabeeb.png";
 
 const LoanAcceptanceImage = MLImage3;
 const RagChatbotImage = DesktopAppImage5;
@@ -77,7 +81,6 @@ const projectCategories = [
           "ML-based music recommendation system trained on user preferences.",
         githubLink: "https://github.com/MohamedBoghdaddy/CODEALPHA-Task1",
       },
-
       {
         image: LoanAcceptanceImage,
         title: "Loan Acceptance Prediction",
@@ -150,13 +153,6 @@ const projectCategories = [
           "Deep learning diagnostic tool for early-stage cancer detection.",
         githubLink: "https://github.com/MohamedBoghdaddy/MammoAI",
       },
-      {
-        image: HealthcareAI1,
-        title: "MammoAI - Cancer Detection",
-        description:
-          "Deep learning diagnostic tool for early-stage cancer detection.",
-        githubLink: "https://github.com/MohamedBoghdaddy/MammoAI",
-      },
     ],
   },
   {
@@ -170,7 +166,24 @@ const projectCategories = [
         githubLink: "https://github.com/MohamedBoghdaddy/Talabat",
       },
 
-      // ✅ NEW (Mobile)
+      // ✅ NEW (Flutter Mobile)
+      {
+        image: MasarImage,
+        title: "MASAR (Flutter Mobile App)",
+        description:
+          "Flutter mobile app built with a clean UX, modular structure, and scalable architecture.",
+        githubLink: "https://github.com/MohamedBoghdaddy/MASAR",
+      },
+
+      // ✅ NEW (Flutter Mobile)
+      {
+        image: TabeebImage,
+        title: "Tabeeb (Flutter Mobile App)",
+        description:
+          "Healthcare-focused Flutter mobile app with smooth flows, clean UI, and production-ready structure.",
+        githubLink: "https://github.com/MohamedBoghdaddy/Tabeeb",
+      },
+
       {
         image: DesktopAppImage6,
         title: "FoundIt (Flutter Mobile App)",
@@ -185,8 +198,6 @@ const projectCategories = [
           "React Native mobile CRM app built with TypeScript; designed for scalable mobile workflows.",
         githubLink: "https://github.com/MohamedBoghdaddy/ThreadCRM",
       },
-
-      // ✅ NEW (C++)
       {
         image: DesktopAppImage7,
         title: "Student Grade GUI (C++)",
@@ -194,7 +205,6 @@ const projectCategories = [
           "C++ GUI application for managing and displaying student grades.",
         githubLink: "https://github.com/MohamedBoghdaddy/studentGradeGUI",
       },
-
       {
         image: DesktopAppImage4,
         title: "Spanish Learning App",
@@ -236,15 +246,24 @@ const projectCategories = [
         githubLink: "https://github.com/MohamedBoghdaddy/PreGen",
         websiteLink: "https://preprod-pregen.netlify.app/",
       },
+
+      // ✅ NEW (MERN Fullstack)
+      {
+        image: HuntFlowImage,
+        title: "HuntFlow (MERN Fullstack)",
+        description:
+          "All-in-one job hunt companion: aggregate jobs, analyze your CV, track applications, and apply faster using a clean pipeline dashboard.",
+        githubLink: "https://github.com/MohamedBoghdaddy/HuntFlow",
+      },
+
       {
         image: FullstackImage7,
         title: "Swarm Negotiation (MERN + ML / PSO)",
         description:
-          "Full-stack MERN project integrating swarm optimization (PSO) .",
+          "Full-stack MERN project integrating swarm optimization (PSO).",
         githubLink:
           "https://github.com/MohamedBoghdaddy/Swarm_Negotiation_MPSO",
       },
-
       {
         image: FullstackImage1,
         title: "Document Management System",
@@ -330,16 +349,27 @@ const sliderSettings = {
 // Render Projects
 const renderProjects = (projects) =>
   projects.map((project) => (
-    <div key={project.githubLink} className="project-card-container">
+    <div
+      key={
+        project.id || project.githubLink || project.websiteLink || project.title
+      }
+      className="project-card-container"
+    >
       <Card className="custom-card">
         <Card.Img variant="top" src={project.image} alt={project.title} />
         <Card.Body>
           <Card.Title>{project.title}</Card.Title>
           <Card.Text>{project.description}</Card.Text>
           <div className="button-group">
-            <Button href={project.githubLink} target="_blank" variant="primary">
-              GitHub
-            </Button>
+            {project.githubLink && (
+              <Button
+                href={project.githubLink}
+                target="_blank"
+                variant="primary"
+              >
+                GitHub
+              </Button>
+            )}
             {project.websiteLink && (
               <Button
                 href={project.websiteLink}
