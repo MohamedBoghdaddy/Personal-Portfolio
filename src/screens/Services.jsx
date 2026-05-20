@@ -56,7 +56,7 @@ export default function Services() {
           </div>
           <div className="flex flex-shrink-0 flex-wrap gap-sm">
             <Button to="/contact" icon="alternate_email">Get in Touch</Button>
-            <Button to="/builds" icon="grid_view" variant="secondary">See My Work</Button>
+            <Button to="/projects" icon="grid_view" variant="secondary">See My Work</Button>
           </div>
         </GlassCard>
       </div>

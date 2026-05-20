@@ -56,7 +56,7 @@ export default function CaseStudy() {
   const project = allProjects.find((item) => item.slug === slug);
 
   if (!project) {
-    return <Navigate to="/builds" replace />;
+    return <Navigate to="/projects" replace />;
   }
 
   const caseStudy = project.caseStudy || fallbackCaseStudy(project);
@@ -187,7 +187,7 @@ export default function CaseStudy() {
           </p>
           <div className="flex flex-wrap gap-sm">
             <Button to="/contact" icon="alternate_email">Contact Me</Button>
-            <Button to="/builds" icon="arrow_back" variant="secondary">Back to Projects</Button>
+            <Button to="/projects" icon="arrow_back" variant="secondary">Back to Projects</Button>
           </div>
         </GlassCard>
       </section>

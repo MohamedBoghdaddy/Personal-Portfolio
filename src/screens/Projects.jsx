@@ -65,7 +65,7 @@ function ProjectCard({ project, wide = false }) {
         <div className="flex flex-wrap items-center gap-xs">
           {project.caseStudy && (
             <Link
-              to={`/case-studies/${project.slug}`}
+              to={`/projects/${project.slug}`}
               className={`focus-ring label-caps border px-sm py-xs transition hover:bg-primary/10 ${ac.text} ${ac.border}`}
             >
               Case Study
@@ -123,7 +123,7 @@ function FeaturedCard({ project }) {
           </div>
           <div className="flex flex-wrap gap-sm">
             {project.caseStudy && (
-              <Button to={`/case-studies/${project.slug}`} icon="visibility">Case Study</Button>
+              <Button to={`/projects/${project.slug}`} icon="visibility">Case Study</Button>
             )}
             {project.githubUrl && (
               <Button href={project.githubUrl} icon="code" variant="secondary">GitHub</Button>

@@ -8,7 +8,7 @@ export default function Footer() {
           Mohamed Boghdady // Full-Stack AI Engineer
         </div>
         <nav className="flex flex-wrap justify-center gap-6 font-display text-[10px] uppercase tracking-[0.2em]" aria-label="Footer navigation">
-          <NavLink to="/builds" className="text-on-surface-variant transition hover:-translate-y-0.5 hover:text-secondary">
+          <NavLink to="/projects" className="text-on-surface-variant transition hover:-translate-y-0.5 hover:text-secondary">
             Projects
           </NavLink>
           <NavLink to="/experience" className="text-on-surface-variant transition hover:-translate-y-0.5 hover:text-secondary">

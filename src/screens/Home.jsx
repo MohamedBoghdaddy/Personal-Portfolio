@@ -52,7 +52,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <Button to="/builds" icon="grid_view">View Projects</Button>
+              <Button to="/projects" icon="grid_view">View Projects</Button>
               <Button href={identity.cvUrl} icon="description" variant="secondary" download="Mohamed-Boghdady-CV.pdf">
                 Download CV
               </Button>
@@ -164,7 +164,7 @@ export default function Home() {
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-[10px] uppercase text-outline">{project.status}</span>
                     <Link
-                      to={`/case-studies/${project.slug}`}
+                      to={`/projects/${project.slug}`}
                       className={`focus-ring label-caps ${ac.text} hover:text-primary`}
                     >
                       View Case Study →
@@ -176,7 +176,7 @@ export default function Home() {
           })}
         </div>
         <div className="mt-lg flex justify-center gap-md">
-          <Button to="/builds" icon="grid_view">All Projects</Button>
+          <Button to="/projects" icon="grid_view">All Projects</Button>
           <Button to="/contact" icon="alternate_email" variant="secondary">Contact Me</Button>
         </div>
       </section>
