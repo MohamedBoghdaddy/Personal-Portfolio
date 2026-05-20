@@ -5,7 +5,6 @@ export { default as Icon } from "./Icon";
 export { default as ProgressBar } from "./ProgressBar";
 export { default as SectionHeader } from "./SectionHeader";
 export { default as Tag } from "./Tag";
-export { default as VisualPlaceholder } from "./VisualPlaceholder";
 
 export const accentClasses = {
   primary: {

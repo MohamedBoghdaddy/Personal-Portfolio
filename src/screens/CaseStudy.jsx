@@ -6,7 +6,7 @@ function fallbackCaseStudy(project) {
   return {
     duration: "Project cycle",
     status: project.status,
-    missionBrief:
+    summary:
       "Turn the product idea into a usable build with clear flows, reliable data handling, and a maintainable technical shape.",
     problemSpace: [
       `${project.title} needed a clear product story beyond a static demo.`,
@@ -44,9 +44,10 @@ function fallbackCaseStudy(project) {
 }
 
 function ActionLink({ url, label, icon, variant = "secondary" }) {
+  if (!url) return null;
   return (
-    <Button href={url || undefined} icon={icon} variant={variant} disabled={!url}>
-      {url ? label : `${label} TODO`}
+    <Button href={url} icon={icon} variant={variant}>
+      {label}
     </Button>
   );
 }
@@ -103,7 +104,7 @@ export default function CaseStudy() {
               <Icon name="info" className={ac.text} />
               Project Summary
             </h2>
-            <p className="text-on-surface-variant">{caseStudy.missionBrief}</p>
+            <p className="text-on-surface-variant">{caseStudy.summary}</p>
           </div>
           <div className="mt-md grid grid-cols-2 gap-sm border-t border-outline-variant pt-md">
             <div>
@@ -134,7 +135,7 @@ export default function CaseStudy() {
       </section>
 
       <section className="mb-xl">
-        <h2 className="mb-md text-center font-display text-3xl font-semibold uppercase">System Architecture</h2>
+        <h2 className="mb-md text-center font-display text-3xl font-semibold uppercase">Architecture</h2>
         <GlassCard className="rounded-xl p-1" accent={project.accent}>
           <div className="grid grid-cols-1 gap-lg rounded-lg bg-surface-container-low p-lg text-center md:grid-cols-3">
             {caseStudy.architecture.map((layer, index) => (

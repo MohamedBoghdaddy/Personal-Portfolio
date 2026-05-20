@@ -2,7 +2,7 @@
 // githubUrl / liveUrl: use confirmed links only. Empty string = not available / TODO.
 
 const defaultCaseStudy = {
-  missionBrief: "Build a production-minded product with clear flows, reliable data, and a maintainable technical shape.",
+  summary: "Build a production-minded product with clear flows, reliable data, and a maintainable technical shape.",
   problemSpace: [
     "The product needed clear user flows beyond a single demo screen.",
     "The system needed practical architecture that could keep evolving.",
@@ -58,7 +58,7 @@ export const mainProjects = [
       ...defaultCaseStudy,
       duration: "Active build",
       status: "In progress",
-      missionBrief: "Build an AI-assisted nutrition product that makes scanning, tracking, groups, profile management, and subscription flows feel coherent on mobile.",
+      summary: "Build an AI-assisted nutrition product that makes scanning, tracking, groups, profile management, and subscription flows feel coherent on mobile.",
       problemSpace: [
         "Food tracking needs fast input without hiding important context from the user.",
         "Mobile AI flows need camera, backend, and dashboard states to feel reliable.",
@@ -108,7 +108,7 @@ export const mainProjects = [
       ...defaultCaseStudy,
       duration: "Iterative build",
       status: "QA-tested",
-      missionBrief: "Create a learning system where AI-assisted practice generation, reports, and role-based workflows support students and instructors.",
+      summary: "Create a learning system where AI-assisted practice generation, reports, and role-based workflows support students and instructors.",
       problemSpace: [
         "Manual practice creation slows down learning operations at scale.",
         "Students need feedback that explains direction, not just grades.",
@@ -165,7 +165,7 @@ export const mainProjects = [
       ...defaultCaseStudy,
       duration: "Research build",
       status: "Prototype",
-      missionBrief: "Prototype a security-focused AI lab that explains risk, classifies suspicious inputs, and presents findings in a reviewer-friendly UI.",
+      summary: "Prototype a security-focused AI lab that explains risk, classifies suspicious inputs, and presents findings in a reviewer-friendly UI.",
       problemSpace: [
         "Security AI outputs need clarity and caution, not dramatic unsupported claims.",
         "Prompt-injection and phishing workflows need explainable reasoning.",
