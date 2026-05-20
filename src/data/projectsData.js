@@ -46,9 +46,19 @@ export const mainProjects = [
     filterTags: ["Mobile", "AI / LLM"],
     role: "Flutter + AI Product Engineer",
     status: "Active Build",
-    description: "AI calorie-tracking app with onboarding, camera scan flow, meal logging, dashboard, groups, paywall, profile, localization, Firebase Auth, Firestore, and FastAPI backend integration.",
+    description:
+      "AI calorie-tracking app with onboarding, camera scan flow, meal logging, dashboard, groups, paywall, profile, localization, Firebase Auth, Firestore, and FastAPI backend integration.",
     image: null, // No screenshot available yet
-    tech: ["Flutter", "BLoC", "go_router", "Firebase Auth", "Firestore", "FastAPI", "Dio", "ARB Localization"],
+    tech: [
+      "Flutter",
+      "BLoC",
+      "go_router",
+      "Firebase Auth",
+      "Firestore",
+      "FastAPI",
+      "Dio",
+      "ARB Localization",
+    ],
     githubUrl: "",
     liveUrl: "",
     accent: "primary",
@@ -58,16 +68,29 @@ export const mainProjects = [
       ...defaultCaseStudy,
       duration: "Active build",
       status: "In progress",
-      summary: "Build an AI-assisted nutrition product that makes scanning, tracking, groups, profile management, and subscription flows feel coherent on mobile.",
+      summary:
+        "Build an AI-assisted nutrition product that makes scanning, tracking, groups, profile management, and subscription flows feel coherent on mobile.",
       problemSpace: [
         "Food tracking needs fast input without hiding important context from the user.",
         "Mobile AI flows need camera, backend, and dashboard states to feel reliable.",
-        "Subscription, localization, and support screens need production-level polish."
+        "Subscription, localization, and support screens need production-level polish.",
       ],
       architecture: [
-        { title: "Flutter Client", detail: "Onboarding, scan flow, dashboard, groups, profile, legal, and support screens." },
-        { title: "Firebase Core", detail: "Auth, Firestore data, app configuration, and user/session state." },
-        { title: "AI Backend", detail: "FastAPI integration surface for image analysis and structured calorie outputs." }
+        {
+          title: "Flutter Client",
+          detail:
+            "Onboarding, scan flow, dashboard, groups, profile, legal, and support screens.",
+        },
+        {
+          title: "Firebase Core",
+          detail:
+            "Auth, Firestore data, app configuration, and user/session state.",
+        },
+        {
+          title: "AI Backend",
+          detail:
+            "FastAPI integration surface for image analysis and structured calorie outputs.",
+        },
       ],
       features: [
         "BLoC-based state management across all flows.",
@@ -75,19 +98,19 @@ export const mainProjects = [
         "Localized UI surfaces with ARB localization.",
         "Subscription-aware navigation and paywall logic.",
         "Groups feature for social accountability.",
-        "Firebase Auth with Firestore-backed user profiles."
+        "Firebase Auth with Firestore-backed user profiles.",
       ],
       outcomes: [
         "Active product build with strong mobile architecture.",
         "Reusable scan and dashboard patterns for future AI mobile apps.",
-        "Production-minded handling of auth, groups, and support flows."
+        "Production-minded handling of auth, groups, and support flows.",
       ],
       role: [
         "Built all mobile UI flows in Flutter.",
         "Structured BLoC state, go_router routing, and Firebase integration.",
-        "Prepared backend integration surface and QA notes for launch readiness."
-      ]
-    }
+        "Prepared backend integration surface and QA notes for launch readiness.",
+      ],
+    },
   },
   {
     slug: "pregen-ai-lms",
@@ -96,11 +119,21 @@ export const mainProjects = [
     filterTags: ["AI / LLM", "Full-Stack"],
     role: "Full-Stack AI Engineer",
     status: "Active / QA-Tested",
-    description: "AI-powered learning platform with practice generation, student/teacher flows, PDF reports, quizzes, materials, grades, and role-based dashboards. Built with MERN + Python AI backend.",
+    description:
+      "AI-powered learning platform with practice generation, student/teacher flows, PDF reports, quizzes, materials, grades, and role-based dashboards. Built with MERN + Python AI backend.",
     image: "/images/projects/pregen-ai-lms.png",
-    tech: ["React", "Node.js", "FastAPI", "LLM APIs", "PDF Reports", "MongoDB", "Docker", "CI/CD"],
+    tech: [
+      "React",
+      "Node.js",
+      "FastAPI",
+      "LLM APIs",
+      "PDF Reports",
+      "MongoDB",
+      "Docker",
+      "CI/CD",
+    ],
     githubUrl: "https://github.com/MohamedBoghdaddy/PreGen",
-    liveUrl: "https://preprod-pregen.netlify.app/",
+    liveUrl: "https://pregeneg.com/",
     accent: "tertiary",
     featured: true,
     priority: 2,
@@ -108,16 +141,29 @@ export const mainProjects = [
       ...defaultCaseStudy,
       duration: "Iterative build",
       status: "QA-tested",
-      summary: "Create a learning system where AI-assisted practice generation, reports, and role-based workflows support students and instructors.",
+      summary:
+        "Create a learning system where AI-assisted practice generation, reports, and role-based workflows support students and instructors.",
       problemSpace: [
         "Manual practice creation slows down learning operations at scale.",
         "Students need feedback that explains direction, not just grades.",
-        "Teacher and student flows need different interfaces without splitting the product."
+        "Teacher and student flows need different interfaces without splitting the product.",
       ],
       architecture: [
-        { title: "Student Layer", detail: "Practice flows, dashboard states, progress context, and feedback views." },
-        { title: "AI / Backend Core", detail: "FastAPI endpoints, LLM prompt orchestration, structured outputs, and report generation." },
-        { title: "Teacher Layer", detail: "Management views, report previews, QA states, and role-aware navigation." }
+        {
+          title: "Student Layer",
+          detail:
+            "Practice flows, dashboard states, progress context, and feedback views.",
+        },
+        {
+          title: "AI / Backend Core",
+          detail:
+            "FastAPI endpoints, LLM prompt orchestration, structured outputs, and report generation.",
+        },
+        {
+          title: "Teacher Layer",
+          detail:
+            "Management views, report previews, QA states, and role-aware navigation.",
+        },
       ],
       features: [
         "AI practice generation from teacher-defined parameters.",
@@ -125,26 +171,27 @@ export const mainProjects = [
         "PDF report generation with structured AI outputs.",
         "Quiz and materials management system.",
         "Grade tracking and feedback workflows.",
-        "Docker deployment and CI/CD pipeline."
+        "Docker deployment and CI/CD pipeline.",
       ],
       outcomes: [
         "Portfolio-ready LMS with real product depth.",
         "Reduced manual content creation effort significantly.",
-        "Reusable architecture for future educational AI products."
+        "Reusable architecture for future educational AI products.",
       ],
       role: [
         "Implemented React UI flows and product screens.",
         "Worked across FastAPI integration and LLM output handling.",
         "Led Docker deployment and CI/CD setup.",
-        "Used QA passes to improve reliability and screen polish."
+        "Used QA passes to improve reliability and screen polish.",
       ],
       challenges: [
         {
           title: "Making AI output reviewable and trustworthy",
-          resolution: "Kept outputs structured, visible, and attached to clear report states so users can verify what the system generated."
-        }
-      ]
-    }
+          resolution:
+            "Kept outputs structured, visible, and attached to clear report states so users can verify what the system generated.",
+        },
+      ],
+    },
   },
   {
     slug: "ai-cyber-defense-lab",
@@ -153,9 +200,17 @@ export const mainProjects = [
     filterTags: ["AI / LLM", "Cybersecurity", "Full-Stack"],
     role: "AI / Full-Stack Builder",
     status: "Prototype",
-    description: "Security analysis dashboard with modules for prompt injection detection, phishing defense, and DoS/DDoS traffic analysis using risk scores and AI explanations.",
+    description:
+      "Security analysis dashboard with modules for prompt injection detection, phishing defense, and DoS/DDoS traffic analysis using risk scores and AI explanations.",
     image: "/images/projects/byteguard.png",
-    tech: ["FastAPI", "React", "Tailwind", "ML Classification", "LLM Analysis", "Python"],
+    tech: [
+      "FastAPI",
+      "React",
+      "Tailwind",
+      "ML Classification",
+      "LLM Analysis",
+      "Python",
+    ],
     githubUrl: "https://github.com/MohamedBoghdaddy/ByteGuard",
     liveUrl: "",
     accent: "secondary",
@@ -165,30 +220,41 @@ export const mainProjects = [
       ...defaultCaseStudy,
       duration: "Research build",
       status: "Prototype",
-      summary: "Prototype a security-focused AI lab that explains risk, classifies suspicious inputs, and presents findings in a reviewer-friendly UI.",
+      summary:
+        "Prototype a security-focused AI lab that explains risk, classifies suspicious inputs, and presents findings in a reviewer-friendly UI.",
       problemSpace: [
         "Security AI outputs need clarity and caution, not dramatic unsupported claims.",
         "Prompt-injection and phishing workflows need explainable reasoning.",
-        "Prototype tools need safe language around what is detected versus what is inferred."
+        "Prototype tools need safe language around what is detected versus what is inferred.",
       ],
       architecture: [
-        { title: "Input Capture", detail: "Suspicious text, prompt payloads, URLs, or traffic summaries." },
-        { title: "Analysis Layer", detail: "ML/LLM-assisted classification with explicit risk language." },
-        { title: "Review UI", detail: "Findings, severity context, and next-step recommendations." }
+        {
+          title: "Input Capture",
+          detail:
+            "Suspicious text, prompt payloads, URLs, or traffic summaries.",
+        },
+        {
+          title: "Analysis Layer",
+          detail: "ML/LLM-assisted classification with explicit risk language.",
+        },
+        {
+          title: "Review UI",
+          detail: "Findings, severity context, and next-step recommendations.",
+        },
       ],
       features: [
         "Prompt injection detection module.",
         "Phishing URL analysis with risk scoring.",
         "DoS/DDoS traffic pattern analysis.",
         "Explainable AI outputs with severity labels.",
-        "Dashboard for security findings review."
+        "Dashboard for security findings review.",
       ],
       role: [
         "Designed the modular security analysis architecture.",
         "Built React dashboard and FastAPI analysis endpoints.",
-        "Integrated ML classification with LLM explanation layer."
-      ]
-    }
+        "Integrated ML classification with LLM explanation layer.",
+      ],
+    },
   },
   {
     slug: "foundit",
@@ -197,7 +263,8 @@ export const mainProjects = [
     filterTags: ["Mobile", "AI / LLM"],
     role: "Flutter Developer",
     status: "MVP / Prototype",
-    description: "Lost-and-found mobile app with AI-generated ownership questionnaire, structured answers, matching, and ranking logic to verify item ownership.",
+    description:
+      "Lost-and-found mobile app with AI-generated ownership questionnaire, structured answers, matching, and ranking logic to verify item ownership.",
     image: "/images/projects/foundit.png",
     tech: ["Flutter", "Firebase", "Firebase Auth", "Firestore", "AI Matching"],
     githubUrl: "https://github.com/MohamedBoghdaddy/FoundIt",
@@ -205,7 +272,11 @@ export const mainProjects = [
     accent: "primary",
     featured: true,
     priority: 4,
-    caseStudy: { ...defaultCaseStudy, duration: "MVP build", status: "MVP / Prototype" }
+    caseStudy: {
+      ...defaultCaseStudy,
+      duration: "MVP build",
+      status: "MVP / Prototype",
+    },
   },
   {
     slug: "swarm-negotiation-mpso",
@@ -214,15 +285,27 @@ export const mainProjects = [
     filterTags: ["AI / LLM", "Full-Stack"],
     role: "AI Systems Builder",
     status: "Research Build",
-    description: "Particle Swarm Optimization web platform for intelligent multi-objective price negotiation. Explores PSO algorithms applied to real-world pricing decisions.",
+    description:
+      "Particle Swarm Optimization web platform for intelligent multi-objective price negotiation. Explores PSO algorithms applied to real-world pricing decisions.",
     image: "/images/projects/swarm-negotiation.png",
-    tech: ["Python", "PSO Algorithm", "React", "Node.js", "MongoDB", "ML Optimization"],
+    tech: [
+      "Python",
+      "PSO Algorithm",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "ML Optimization",
+    ],
     githubUrl: "https://github.com/MohamedBoghdaddy/Swarm_Negotiation_MPSO",
     liveUrl: "",
     accent: "tertiary",
     featured: true,
     priority: 5,
-    caseStudy: { ...defaultCaseStudy, duration: "Research build", status: "Research Build" }
+    caseStudy: {
+      ...defaultCaseStudy,
+      duration: "Research build",
+      status: "Research Build",
+    },
   },
   {
     slug: "financial-ai-advisor",
@@ -231,7 +314,8 @@ export const mainProjects = [
     filterTags: ["Finance", "AI / LLM"],
     role: "AI Product Builder",
     status: "MVP",
-    description: "AI-powered financial advisory system analyzing investment trends based on salary, spending, and stock market data. Built with LLM integration for personalized recommendations.",
+    description:
+      "AI-powered financial advisory system analyzing investment trends based on salary, spending, and stock market data. Built with LLM integration for personalized recommendations.",
     image: "/images/projects/financial-ai-advisor.jpg",
     tech: ["LLM APIs", "React", "Python", "Analytics", "Finance Data"],
     githubUrl: "https://github.com/MohamedBoghdaddy/FinancialAIAdvisor",
@@ -239,7 +323,7 @@ export const mainProjects = [
     accent: "secondary",
     featured: false,
     priority: 6,
-    caseStudy: { ...defaultCaseStudy, duration: "MVP build", status: "MVP" }
+    caseStudy: { ...defaultCaseStudy, duration: "MVP build", status: "MVP" },
   },
   {
     slug: "bugpilot",
@@ -248,7 +332,8 @@ export const mainProjects = [
     filterTags: ["AI / LLM", "Full-Stack"],
     role: "AI Tool Builder",
     status: "Prototype",
-    description: "Bug reporting system with integrated AI analyzer for issue classification, tracking, resolution insights, and developer handoff clarity.",
+    description:
+      "Bug reporting system with integrated AI analyzer for issue classification, tracking, resolution insights, and developer handoff clarity.",
     image: "/images/projects/bugpilot.jpg",
     tech: ["LLM APIs", "React", "Backend", "AI Classification", "Dashboard"],
     githubUrl: "",
@@ -256,7 +341,11 @@ export const mainProjects = [
     accent: "secondary",
     featured: false,
     priority: 7,
-    caseStudy: { ...defaultCaseStudy, duration: "Prototype", status: "Prototype" }
+    caseStudy: {
+      ...defaultCaseStudy,
+      duration: "Prototype",
+      status: "Prototype",
+    },
   },
   {
     slug: "intellekt",
@@ -265,7 +354,8 @@ export const mainProjects = [
     filterTags: ["AI / LLM", "Full-Stack"],
     role: "AI/Data Platform Builder",
     status: "Prototype",
-    description: "Scraping platform capable of extracting data from websites and exporting structured results. Focuses on automation and clean data output pipelines.",
+    description:
+      "Scraping platform capable of extracting data from websites and exporting structured results. Focuses on automation and clean data output pipelines.",
     image: "/images/projects/intellekt.png",
     tech: ["Web Scraping", "Automation", "Structured Data", "Python", "React"],
     githubUrl: "",
@@ -273,7 +363,11 @@ export const mainProjects = [
     accent: "tertiary",
     featured: false,
     priority: 8,
-    caseStudy: { ...defaultCaseStudy, duration: "Prototype", status: "Prototype" }
+    caseStudy: {
+      ...defaultCaseStudy,
+      duration: "Prototype",
+      status: "Prototype",
+    },
   },
   {
     slug: "worldpulse-daily",
@@ -282,7 +376,8 @@ export const mainProjects = [
     filterTags: ["Automation"],
     role: "Automation Builder",
     status: "Active Workflow",
-    description: "n8n-based automation workflow that generates daily content, processes news signals, and uploads produced content to YouTube automatically.",
+    description:
+      "n8n-based automation workflow that generates daily content, processes news signals, and uploads produced content to YouTube automatically.",
     image: "/images/projects/worldpulse-daily.png",
     tech: ["n8n", "Automation", "Content Generation", "YouTube API", "LLM"],
     githubUrl: "",
@@ -290,7 +385,7 @@ export const mainProjects = [
     accent: "primary",
     featured: false,
     priority: 9,
-    caseStudy: null
+    caseStudy: null,
   },
   {
     slug: "tabeeb",
@@ -299,7 +394,8 @@ export const mainProjects = [
     filterTags: ["Mobile", "Healthcare"],
     role: "Flutter Developer",
     status: "Hackathon MVP",
-    description: "Healthcare-focused Flutter mobile app built during a hackathon. Features smooth patient/doctor flows, clean UI, and a scalable app structure.",
+    description:
+      "Healthcare-focused Flutter mobile app built during a hackathon. Features smooth patient/doctor flows, clean UI, and a scalable app structure.",
     image: "/images/projects/tabeeb.png",
     tech: ["Flutter", "Firebase", "Healthcare", "Mobile UI"],
     githubUrl: "https://github.com/MohamedBoghdaddy/Tabeeb",
@@ -307,7 +403,7 @@ export const mainProjects = [
     accent: "primary",
     featured: false,
     priority: 10,
-    caseStudy: null
+    caseStudy: null,
   },
   {
     slug: "huntflow",
@@ -316,7 +412,8 @@ export const mainProjects = [
     filterTags: ["Full-Stack", "AI / LLM"],
     role: "Full-Stack Engineer",
     status: "MVP",
-    description: "All-in-one job hunt companion: aggregate jobs, analyze your CV with AI, track applications, and apply faster using a clean pipeline dashboard.",
+    description:
+      "All-in-one job hunt companion: aggregate jobs, analyze your CV with AI, track applications, and apply faster using a clean pipeline dashboard.",
     image: "/images/projects/huntflow.png",
     tech: ["React", "Node.js", "MongoDB", "AI CV Analysis", "REST APIs"],
     githubUrl: "https://github.com/MohamedBoghdaddy/HuntFlow",
@@ -324,7 +421,7 @@ export const mainProjects = [
     accent: "secondary",
     featured: false,
     priority: 11,
-    caseStudy: null
+    caseStudy: null,
   },
   {
     slug: "mammoai",
@@ -333,7 +430,8 @@ export const mainProjects = [
     filterTags: ["Healthcare", "AI / LLM"],
     role: "ML Engineer",
     status: "Research Build",
-    description: "Deep learning diagnostic tool for early-stage mammography cancer detection. Uses CNN-based image classification with clinical data integration.",
+    description:
+      "Deep learning diagnostic tool for early-stage mammography cancer detection. Uses CNN-based image classification with clinical data integration.",
     image: "/images/projects/mammoai.png",
     tech: ["Python", "TensorFlow", "Deep Learning", "CNN", "Medical Imaging"],
     githubUrl: "https://github.com/MohamedBoghdaddy/MammoAI",
@@ -341,8 +439,8 @@ export const mainProjects = [
     accent: "tertiary",
     featured: false,
     priority: 12,
-    caseStudy: null
-  }
+    caseStudy: null,
+  },
 ];
 
 // ─── EARLIER BUILDS (smaller/older projects, no full case study) ───────────────
