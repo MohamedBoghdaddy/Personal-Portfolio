@@ -1,0 +1,264 @@
+import { useMemo, useState } from "react";
+import emailjs from "emailjs-com";
+import { useForm } from "react-hook-form";
+import { contactTopics, identity } from "../data/portfolioData";
+import { Button, GlassCard, Icon, ProgressBar, SectionHeader } from "../components/UI";
+
+const emailServiceId = "service_42p3sju";
+const emailTemplateId = "template_t64w4wp";
+const emailPublicKey = "PV9slaOWlMSALkZ3v";
+
+export default function Contact() {
+  const [activeTab, setActiveTab] = useState("quick");
+  const [messageStatus, setMessageStatus] = useState(null);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors, isSubmitting }
+  } = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      topic: contactTopics[0],
+      projectType: "AI MVP / Product Build",
+      timeline: "",
+      message: "",
+      terms: false
+    }
+  });
+
+  const watched = watch();
+  const completion = useMemo(() => {
+    const required = [watched.firstName, watched.lastName, watched.email, watched.topic, watched.message, watched.terms];
+    const done = required.filter(Boolean).length;
+    return Math.round((done / required.length) * 100);
+  }, [watched]);
+
+  const onSubmit = async (data) => {
+    setMessageStatus(null);
+    try {
+      const response = await emailjs.send(
+        emailServiceId,
+        emailTemplateId,
+        {
+          ...data,
+          fullName: `${data.firstName} ${data.lastName}`.trim(),
+          subject: data.topic,
+          source: "BOGHDADDY OS portfolio"
+        },
+        emailPublicKey
+      );
+
+      if (response.status === 200) {
+        setMessageStatus({ type: "success", text: "Message sent successfully through EmailJS." });
+        reset();
+      } else {
+        setMessageStatus({ type: "error", text: "EmailJS did not confirm delivery. Please use direct email." });
+      }
+    } catch (error) {
+      setMessageStatus({ type: "error", text: "Message could not be sent. Please use direct email." });
+    }
+  };
+
+  return (
+    <main className="page-shell">
+      <SectionHeader
+        eyebrow="Contact: Launch Mission"
+        title={<>Start a New <span className="text-primary">Mission</span></>}
+        description="Initialize direct communication for high-priority collaborations in AI, mobile, and full-stack product development."
+        icon="rocket_launch"
+      />
+
+      <div className="grid grid-cols-1 gap-md lg:grid-cols-12">
+        <div className="space-y-md lg:col-span-5">
+          <GlassCard className="p-md">
+            <div className="mb-md flex items-center justify-between border-b border-outline-variant pb-sm">
+              <span className="label-caps text-on-surface-variant">Operator Status</span>
+              <div className="flex items-center gap-xs">
+                <span className="relative flex h-3 w-3">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                  <span className="relative inline-flex h-3 w-3 rounded-full bg-primary" />
+                </span>
+                <span className="font-mono text-sm text-primary">AVAILABLE</span>
+              </div>
+            </div>
+
+            <div className="mb-md space-y-sm">
+              <div className="border-l-2 border-tertiary bg-surface-container-high p-sm">
+                <h3 className="mb-xs font-display text-2xl font-semibold">Role Focus</h3>
+                <p className="text-sm text-on-surface-variant">
+                  Open to AI integration, full-stack architecture, Flutter mobile, and product engineering roles.
+                </p>
+              </div>
+              <div className="flex items-center gap-sm text-on-surface-variant">
+                <Icon name="location_on" className="text-secondary" />
+                <span className="font-mono text-sm">{identity.location} / Global Protocol</span>
+              </div>
+            </div>
+
+            <div className="grid gap-sm">
+              <Button href={`mailto:${identity.email}`} icon="mail" className="w-full">
+                Initialize Email
+              </Button>
+              <div className="grid grid-cols-2 gap-sm">
+                <Button href={identity.linkedinUrl || undefined} icon="share" variant="secondary" disabled={!identity.linkedinUrl}>
+                  LinkedIn TODO
+                </Button>
+                <Button href={identity.cvUrl} icon="description" variant="secondary" download="Mohamed-Boghdady-CV.pdf">
+                  View CV
+                </Button>
+              </div>
+            </div>
+          </GlassCard>
+
+          <GlassCard className="p-md">
+            <div className="mb-xs flex justify-between gap-sm label-caps text-on-surface-variant">
+              <span>Data Transmission Strength</span>
+              <span>{completion}% Complete</span>
+            </div>
+            <ProgressBar value={completion} accent={completion === 100 ? "primary" : "secondary"} />
+            <p className="mt-sm font-mono text-[11px] italic text-outline">
+              Mission parameters: [Name: {watched.firstName ? "OK" : "PENDING"}] [Email: {watched.email ? "OK" : "PENDING"}] [Message: {watched.message ? "OK" : "PENDING"}]
+            </p>
+          </GlassCard>
+        </div>
+
+        <div className="lg:col-span-7">
+          <GlassCard className="h-full overflow-hidden">
+            <div className="flex border-b border-outline-variant">
+              {[
+                ["quick", "Quick Contact"],
+                ["brief", "Project Brief"]
+              ].map(([key, label]) => (
+                <button
+                  key={key}
+                  className={`focus-ring flex-1 px-md py-md label-caps transition ${
+                    activeTab === key ? "border-b-2 border-primary bg-primary/5 text-primary" : "text-on-surface-variant hover:text-on-surface"
+                  }`}
+                  type="button"
+                  onClick={() => setActiveTab(key)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-md p-md">
+              <div className="grid grid-cols-1 gap-md md:grid-cols-2">
+                <Field label="Codename / First Name" error={errors.firstName?.message}>
+                  <input
+                    className="field-input"
+                    placeholder="Mohamed"
+                    type="text"
+                    {...register("firstName", {
+                      required: "First name is required",
+                      pattern: { value: /^[A-Za-z\s'-]+$/, message: "Use letters only" }
+                    })}
+                  />
+                </Field>
+                <Field label="Last Name" error={errors.lastName?.message}>
+                  <input
+                    className="field-input"
+                    placeholder="Boghdady"
+                    type="text"
+                    {...register("lastName", {
+                      required: "Last name is required",
+                      pattern: { value: /^[A-Za-z\s'-]+$/, message: "Use letters only" }
+                    })}
+                  />
+                </Field>
+              </div>
+
+              <Field label="Return Frequency / Email" error={errors.email?.message}>
+                <input
+                  className="field-input"
+                  placeholder="you@example.com"
+                  type="email"
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: { value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/, message: "Invalid email format" }
+                  })}
+                />
+              </Field>
+
+              {activeTab === "quick" ? (
+                <Field label="Mission Objective / Subject" error={errors.topic?.message}>
+                  <select className="field-input" {...register("topic", { required: "Please select a topic" })}>
+                    {contactTopics.map((topic) => <option key={topic}>{topic}</option>)}
+                  </select>
+                </Field>
+              ) : (
+                <div className="grid grid-cols-1 gap-md md:grid-cols-2">
+                  <Field label="Project Type">
+                    <select className="field-input" {...register("projectType")}>
+                      <option>AI MVP / Product Build</option>
+                      <option>Flutter Mobile App</option>
+                      <option>Full-Stack Web App</option>
+                      <option>Technical Review</option>
+                    </select>
+                  </Field>
+                  <Field label="Timeline">
+                    <input className="field-input" placeholder="Flexible / target date" type="text" {...register("timeline")} />
+                  </Field>
+                </div>
+              )}
+
+              <Field label="Transmission Data / Message" error={errors.message?.message}>
+                <textarea
+                  className="field-input min-h-[170px] resize-none"
+                  placeholder="Describe the mission parameters in detail..."
+                  rows={6}
+                  {...register("message", {
+                    required: "Message cannot be empty",
+                    minLength: { value: 10, message: "Message must be at least 10 characters" },
+                    maxLength: { value: 800, message: "Message cannot exceed 800 characters" }
+                  })}
+                />
+              </Field>
+
+              <label className="flex items-start gap-xs font-mono text-xs text-on-surface-variant">
+                <input className="mt-1 accent-primary" type="checkbox" {...register("terms", { required: "Please confirm this is a real message" })} />
+                <span>I confirm this is a real message and understand the form sends through EmailJS.</span>
+              </label>
+              {errors.terms && <p className="font-mono text-xs text-error">{errors.terms.message}</p>}
+
+              {messageStatus && (
+                <div className={`border p-sm font-mono text-sm ${messageStatus.type === "success" ? "border-primary/30 bg-primary/10 text-primary" : "border-error/30 bg-error/10 text-error"}`}>
+                  {messageStatus.text}
+                </div>
+              )}
+
+              <button
+                className="focus-ring group relative flex w-full items-center justify-center gap-sm overflow-hidden bg-primary py-md font-display text-xl font-semibold uppercase tracking-widest text-on-primary transition hover:scale-[1.01] active:scale-95 md:text-2xl"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                <span className="relative z-10 flex items-center gap-sm">
+                  <Icon name="rocket_launch" />
+                  {isSubmitting ? "Transmitting..." : "Launch Mission"}
+                </span>
+                <div className="absolute inset-0 bg-primary-strong opacity-0 transition group-hover:opacity-100" />
+              </button>
+            </form>
+          </GlassCard>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+function Field({ label, error, children }) {
+  return (
+    <label className="block space-y-xs">
+      <span className="ml-1 block font-display text-[10px] uppercase tracking-[0.18em] text-on-surface-variant">
+        {label}
+      </span>
+      {children}
+      {error && <span className="block font-mono text-xs text-error">{error}</span>}
+    </label>
+  );
+}
+

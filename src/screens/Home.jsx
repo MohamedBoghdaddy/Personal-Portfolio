@@ -1,0 +1,128 @@
+import { capabilities, identity } from "../data/portfolioData";
+import { Button, GlassCard, Icon, SectionHeader, Tag, accentClasses } from "../components/UI";
+
+export default function Home() {
+  return (
+    <main>
+      <section className="relative flex min-h-[calc(100vh-64px)] items-center overflow-hidden px-5 py-20 md:px-8">
+        <div className="pointer-events-none absolute inset-0 z-0">
+          <div className="absolute left-1/2 top-1/2 h-[760px] w-[760px] -translate-x-1/2 -translate-y-1/2 animate-pulse rounded-full border border-secondary/10" />
+          <div className="absolute inset-0 hud-grid opacity-40" />
+        </div>
+
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 gap-12 lg:grid-cols-12">
+          <div className="flex flex-col justify-center gap-8 lg:col-span-7">
+            <div className="inline-flex w-fit items-center gap-3 rounded-full border border-primary/20 bg-surface-container-low px-4 py-2">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+              </span>
+              <span className="font-mono text-sm uppercase tracking-[0.1em] text-primary">
+                Available for selected opportunities
+              </span>
+            </div>
+
+            <div>
+              <h2 className="mb-4 font-display text-2xl font-semibold uppercase tracking-widest text-primary/80">
+                {identity.name}
+              </h2>
+              <h1 className="font-display text-5xl font-semibold leading-tight tracking-tight text-on-background lg:text-7xl">
+                I build <span className="italic text-primary">AI-powered</span> products from idea to production.
+              </h1>
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-on-surface-variant">
+                {identity.summary}
+              </p>
+            </div>
+
+            <div className="border-l-4 border-primary bg-surface-container-lowest p-4 font-mono text-lg text-primary">
+              <span className="opacity-50">&gt;</span> whoami:{" "}
+              <span className="text-on-background">{identity.title}</span>
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <Button to="/missions" icon="rocket_launch">Start Mission</Button>
+              <Button to="/builds" icon="visibility" variant="secondary">View Case Studies</Button>
+              <Button href={identity.cvUrl} icon="description" variant="ghost" download="Mohamed-Boghdady-CV.pdf">
+                CV
+              </Button>
+              <Button to="/contact" icon="alternate_email" variant="ghost">Contact</Button>
+            </div>
+          </div>
+
+          <div className="relative flex items-center justify-center lg:col-span-5">
+            <div className="relative aspect-square w-full max-w-[500px]">
+              <div className="absolute inset-0 rounded-full border-[12px] border-surface-container-highest p-4">
+                <div className="h-full w-full overflow-hidden rounded-full border border-primary/30 bg-surface-container">
+                  <img
+                    className="h-full w-full object-cover opacity-80 grayscale transition duration-500 hover:opacity-95 hover:grayscale-0"
+                    src={identity.portraitImage}
+                    alt="Mohamed Boghdady"
+                  />
+                </div>
+                <div className="absolute -inset-8 animate-[spin_60s_linear_infinite] rounded-full border border-dashed border-primary/20" />
+                <div className="absolute -inset-12 animate-[spin_100s_linear_infinite_reverse] rounded-full border-2 border-secondary/10" />
+              </div>
+
+              <GlassCard className="absolute -right-1 top-2 max-w-[190px] p-sm shadow-2xl" hover={false}>
+                <div className="mb-xs flex items-center gap-xs text-primary">
+                  <Icon name="memory" className="text-sm" />
+                  <span className="font-mono text-[10px] uppercase">AI Systems</span>
+                </div>
+                <h4 className="mb-xs font-display text-sm font-semibold">LLM Workflows</h4>
+                <div className="h-1 w-full overflow-hidden rounded-full bg-surface-container-highest">
+                  <div className="h-full w-4/5 bg-primary" />
+                </div>
+              </GlassCard>
+
+              <GlassCard className="absolute -left-4 bottom-12 border-l-4 border-tertiary p-sm shadow-2xl md:-left-12" hover={false} accent="tertiary">
+                <div className="mb-xs flex items-center gap-xs text-tertiary">
+                  <Icon name="layers" className="text-sm" />
+                  <span className="font-mono text-[10px] uppercase">Core Architect</span>
+                </div>
+                <h4 className="font-display text-sm font-semibold">Full-Stack Core</h4>
+                <p className="text-[10px] text-on-surface-variant">React // FastAPI // Flutter</p>
+              </GlassCard>
+
+              <GlassCard className="absolute -bottom-2 right-4 border-l-2 border-secondary p-sm shadow-2xl" hover={false} accent="secondary">
+                <div className="text-[10px] font-mono uppercase text-secondary">QA Cluster</div>
+                <p className="mt-xs text-xs text-on-surface-variant">Testing and release checks online</p>
+              </GlassCard>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="page-shell">
+        <SectionHeader
+          eyebrow="Capability Bento"
+          title="System Capabilities"
+          description="A quick map of the engineering modes that power the portfolio."
+          icon="hub"
+        />
+        <div className="grid grid-cols-1 gap-md md:grid-cols-3">
+          {capabilities.map((capability, index) => {
+            const ac = accentClasses[capability.accent];
+            return (
+              <GlassCard
+                key={capability.title}
+                className={`p-md ${index === 0 ? "md:col-span-2" : ""} ${index > 0 ? `border-l-4 ${ac.borderLeft}` : ""}`}
+                accent={capability.accent}
+              >
+                <div className="mb-sm flex items-center justify-between">
+                  <span className="label-caps text-primary">{capability.protocol}</span>
+                  <Icon name={capability.icon} className={`text-4xl ${ac.text}`} />
+                </div>
+                <h3 className="mb-xs font-display text-2xl font-semibold">{capability.title}</h3>
+                <p className="text-on-surface-variant">{capability.description}</p>
+                <div className="mt-sm flex flex-wrap gap-xs">
+                  <Tag accent={capability.accent}>Production-minded</Tag>
+                  <Tag accent="secondary">Data-driven</Tag>
+                </div>
+              </GlassCard>
+            );
+          })}
+        </div>
+      </section>
+    </main>
+  );
+}
