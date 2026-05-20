@@ -104,13 +104,28 @@ export default function Contact() {
                 Send Email
               </Button>
               <div className="grid grid-cols-2 gap-sm">
-                <Button href={identity.linkedinUrl || undefined} icon="share" variant="secondary" disabled={!identity.linkedinUrl}>
+                <Button
+                  href={identity.linkedinUrl}
+                  icon="share"
+                  variant="secondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   LinkedIn
                 </Button>
-                <Button href={identity.cvUrl} icon="description" variant="secondary" download="Mohamed-Boghdady-CV.pdf">
-                  Download CV
+                <Button
+                  href={identity.githubUrl}
+                  icon="code"
+                  variant="secondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
                 </Button>
               </div>
+              <Button href={identity.cvUrl} icon="description" variant="ghost" download="Mohamed-Boghdady-CV.pdf" className="w-full">
+                Download CV
+              </Button>
             </div>
           </GlassCard>
 

@@ -1,0 +1,657 @@
+// Single source of truth for all portfolio projects.
+// githubUrl / liveUrl: use confirmed links only. Empty string = not available / TODO.
+
+const defaultCaseStudy = {
+  missionBrief: "Build a production-minded product with clear flows, reliable data, and a maintainable technical shape.",
+  problemSpace: [
+    "The product needed clear user flows beyond a single demo screen.",
+    "The system needed practical architecture that could keep evolving.",
+    "QA-friendly states for loading, validation, errors, and handoff were required."
+  ],
+  architecture: [
+    { title: "Input Layer", detail: "User flows, form data, assets, and role-specific actions." },
+    { title: "System Core", detail: "Business logic, APIs, AI services, Firebase, or backend modules." },
+    { title: "Experience Layer", detail: "Responsive UI, dashboard views, feedback states, and polish." }
+  ],
+  features: [
+    "Responsive interface with clear navigation.",
+    "Reusable data and UI structures.",
+    "Validation, feedback states, and QA-minded interactions."
+  ],
+  outcomes: [
+    "A portfolio-ready build with a strong product story.",
+    "Clearer architecture for future iterations.",
+    "Reusable patterns for related AI and full-stack work."
+  ],
+  role: [
+    "Translated requirements into product flows.",
+    "Designed the frontend/backend integration shape.",
+    "Reviewed the experience for responsiveness, errors, and clarity."
+  ],
+  challenges: [
+    {
+      title: "Keeping the build useful beyond a demo",
+      resolution: "Focused on reusable data, route-based structure, and clear states instead of hardcoded one-off screens."
+    }
+  ]
+};
+
+// ─── MAIN PROJECTS (featured, with full case study) ───────────────────────────
+
+export const mainProjects = [
+  {
+    slug: "calorielens",
+    title: "CalorieLens",
+    category: "Mobile AI / Health Tech",
+    filterTags: ["Mobile", "AI / LLM"],
+    role: "Flutter + AI Product Engineer",
+    status: "Active Build",
+    description: "AI calorie-tracking app with onboarding, camera scan flow, meal logging, dashboard, groups, paywall, profile, localization, Firebase Auth, Firestore, and FastAPI backend integration.",
+    image: null, // No screenshot available yet
+    tech: ["Flutter", "BLoC", "go_router", "Firebase Auth", "Firestore", "FastAPI", "Dio", "ARB Localization"],
+    githubUrl: "",
+    liveUrl: "",
+    accent: "primary",
+    featured: true,
+    priority: 1,
+    caseStudy: {
+      ...defaultCaseStudy,
+      duration: "Active build",
+      status: "In progress",
+      missionBrief: "Build an AI-assisted nutrition product that makes scanning, tracking, groups, profile management, and subscription flows feel coherent on mobile.",
+      problemSpace: [
+        "Food tracking needs fast input without hiding important context from the user.",
+        "Mobile AI flows need camera, backend, and dashboard states to feel reliable.",
+        "Subscription, localization, and support screens need production-level polish."
+      ],
+      architecture: [
+        { title: "Flutter Client", detail: "Onboarding, scan flow, dashboard, groups, profile, legal, and support screens." },
+        { title: "Firebase Core", detail: "Auth, Firestore data, app configuration, and user/session state." },
+        { title: "AI Backend", detail: "FastAPI integration surface for image analysis and structured calorie outputs." }
+      ],
+      features: [
+        "BLoC-based state management across all flows.",
+        "Camera scan journey with clear loading and result states.",
+        "Localized UI surfaces with ARB localization.",
+        "Subscription-aware navigation and paywall logic.",
+        "Groups feature for social accountability.",
+        "Firebase Auth with Firestore-backed user profiles."
+      ],
+      outcomes: [
+        "Active product build with strong mobile architecture.",
+        "Reusable scan and dashboard patterns for future AI mobile apps.",
+        "Production-minded handling of auth, groups, and support flows."
+      ],
+      role: [
+        "Built all mobile UI flows in Flutter.",
+        "Structured BLoC state, go_router routing, and Firebase integration.",
+        "Prepared backend integration surface and QA notes for launch readiness."
+      ]
+    }
+  },
+  {
+    slug: "pregen-ai-lms",
+    title: "PreGen AI LMS",
+    category: "AI Education Platform",
+    filterTags: ["AI / LLM", "Full-Stack"],
+    role: "Full-Stack AI Engineer",
+    status: "Active / QA-Tested",
+    description: "AI-powered learning platform with practice generation, student/teacher flows, PDF reports, quizzes, materials, grades, and role-based dashboards. Built with MERN + Python AI backend.",
+    image: "/images/projects/pregen-ai-lms.png",
+    tech: ["React", "Node.js", "FastAPI", "LLM APIs", "PDF Reports", "MongoDB", "Docker", "CI/CD"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/PreGen",
+    liveUrl: "https://preprod-pregen.netlify.app/",
+    accent: "tertiary",
+    featured: true,
+    priority: 2,
+    caseStudy: {
+      ...defaultCaseStudy,
+      duration: "Iterative build",
+      status: "QA-tested",
+      missionBrief: "Create a learning system where AI-assisted practice generation, reports, and role-based workflows support students and instructors.",
+      problemSpace: [
+        "Manual practice creation slows down learning operations at scale.",
+        "Students need feedback that explains direction, not just grades.",
+        "Teacher and student flows need different interfaces without splitting the product."
+      ],
+      architecture: [
+        { title: "Student Layer", detail: "Practice flows, dashboard states, progress context, and feedback views." },
+        { title: "AI / Backend Core", detail: "FastAPI endpoints, LLM prompt orchestration, structured outputs, and report generation." },
+        { title: "Teacher Layer", detail: "Management views, report previews, QA states, and role-aware navigation." }
+      ],
+      features: [
+        "AI practice generation from teacher-defined parameters.",
+        "Role-specific student and teacher dashboard flows.",
+        "PDF report generation with structured AI outputs.",
+        "Quiz and materials management system.",
+        "Grade tracking and feedback workflows.",
+        "Docker deployment and CI/CD pipeline."
+      ],
+      outcomes: [
+        "Portfolio-ready LMS with real product depth.",
+        "Reduced manual content creation effort significantly.",
+        "Reusable architecture for future educational AI products."
+      ],
+      role: [
+        "Implemented React UI flows and product screens.",
+        "Worked across FastAPI integration and LLM output handling.",
+        "Led Docker deployment and CI/CD setup.",
+        "Used QA passes to improve reliability and screen polish."
+      ],
+      challenges: [
+        {
+          title: "Making AI output reviewable and trustworthy",
+          resolution: "Kept outputs structured, visible, and attached to clear report states so users can verify what the system generated."
+        }
+      ]
+    }
+  },
+  {
+    slug: "ai-cyber-defense-lab",
+    title: "AI Cyber Defense Lab",
+    category: "Cybersecurity AI",
+    filterTags: ["AI / LLM", "Cybersecurity", "Full-Stack"],
+    role: "AI / Full-Stack Builder",
+    status: "Prototype",
+    description: "Security analysis dashboard with modules for prompt injection detection, phishing defense, and DoS/DDoS traffic analysis using risk scores and AI explanations.",
+    image: "/images/projects/byteguard.png",
+    tech: ["FastAPI", "React", "Tailwind", "ML Classification", "LLM Analysis", "Python"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/ByteGuard",
+    liveUrl: "",
+    accent: "secondary",
+    featured: true,
+    priority: 3,
+    caseStudy: {
+      ...defaultCaseStudy,
+      duration: "Research build",
+      status: "Prototype",
+      missionBrief: "Prototype a security-focused AI lab that explains risk, classifies suspicious inputs, and presents findings in a reviewer-friendly UI.",
+      problemSpace: [
+        "Security AI outputs need clarity and caution, not dramatic unsupported claims.",
+        "Prompt-injection and phishing workflows need explainable reasoning.",
+        "Prototype tools need safe language around what is detected versus what is inferred."
+      ],
+      architecture: [
+        { title: "Input Capture", detail: "Suspicious text, prompt payloads, URLs, or traffic summaries." },
+        { title: "Analysis Layer", detail: "ML/LLM-assisted classification with explicit risk language." },
+        { title: "Review UI", detail: "Findings, severity context, and next-step recommendations." }
+      ],
+      features: [
+        "Prompt injection detection module.",
+        "Phishing URL analysis with risk scoring.",
+        "DoS/DDoS traffic pattern analysis.",
+        "Explainable AI outputs with severity labels.",
+        "Dashboard for security findings review."
+      ],
+      role: [
+        "Designed the modular security analysis architecture.",
+        "Built React dashboard and FastAPI analysis endpoints.",
+        "Integrated ML classification with LLM explanation layer."
+      ]
+    }
+  },
+  {
+    slug: "foundit",
+    title: "FoundIt",
+    category: "Mobile App / AI Matching",
+    filterTags: ["Mobile", "AI / LLM"],
+    role: "Flutter Developer",
+    status: "MVP / Prototype",
+    description: "Lost-and-found mobile app with AI-generated ownership questionnaire, structured answers, matching, and ranking logic to verify item ownership.",
+    image: "/images/projects/foundit.png",
+    tech: ["Flutter", "Firebase", "Firebase Auth", "Firestore", "AI Matching"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/FoundIt",
+    liveUrl: "",
+    accent: "primary",
+    featured: true,
+    priority: 4,
+    caseStudy: { ...defaultCaseStudy, duration: "MVP build", status: "MVP / Prototype" }
+  },
+  {
+    slug: "swarm-negotiation-mpso",
+    title: "Swarm Negotiation MPSO",
+    category: "AI Optimization",
+    filterTags: ["AI / LLM", "Full-Stack"],
+    role: "AI Systems Builder",
+    status: "Research Build",
+    description: "Particle Swarm Optimization web platform for intelligent multi-objective price negotiation. Explores PSO algorithms applied to real-world pricing decisions.",
+    image: "/images/projects/swarm-negotiation.png",
+    tech: ["Python", "PSO Algorithm", "React", "Node.js", "MongoDB", "ML Optimization"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/Swarm_Negotiation_MPSO",
+    liveUrl: "",
+    accent: "tertiary",
+    featured: true,
+    priority: 5,
+    caseStudy: { ...defaultCaseStudy, duration: "Research build", status: "Research Build" }
+  },
+  {
+    slug: "financial-ai-advisor",
+    title: "Financial AI Advisor",
+    category: "FinTech AI",
+    filterTags: ["Finance", "AI / LLM"],
+    role: "AI Product Builder",
+    status: "MVP",
+    description: "AI-powered financial advisory system analyzing investment trends based on salary, spending, and stock market data. Built with LLM integration for personalized recommendations.",
+    image: "/images/projects/financial-ai-advisor.jpg",
+    tech: ["LLM APIs", "React", "Python", "Analytics", "Finance Data"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/FinancialAIAdvisor",
+    liveUrl: "",
+    accent: "secondary",
+    featured: false,
+    priority: 6,
+    caseStudy: { ...defaultCaseStudy, duration: "MVP build", status: "MVP" }
+  },
+  {
+    slug: "bugpilot",
+    title: "BugPilot",
+    category: "AI Developer Tooling",
+    filterTags: ["AI / LLM", "Full-Stack"],
+    role: "AI Tool Builder",
+    status: "Prototype",
+    description: "Bug reporting system with integrated AI analyzer for issue classification, tracking, resolution insights, and developer handoff clarity.",
+    image: "/images/projects/bugpilot.jpg",
+    tech: ["LLM APIs", "React", "Backend", "AI Classification", "Dashboard"],
+    githubUrl: "",
+    liveUrl: "",
+    accent: "secondary",
+    featured: false,
+    priority: 7,
+    caseStudy: { ...defaultCaseStudy, duration: "Prototype", status: "Prototype" }
+  },
+  {
+    slug: "intellekt",
+    title: "Intellekt",
+    category: "Web Scraping / Data Extraction",
+    filterTags: ["AI / LLM", "Full-Stack"],
+    role: "AI/Data Platform Builder",
+    status: "Prototype",
+    description: "Scraping platform capable of extracting data from websites and exporting structured results. Focuses on automation and clean data output pipelines.",
+    image: "/images/projects/intellekt.png",
+    tech: ["Web Scraping", "Automation", "Structured Data", "Python", "React"],
+    githubUrl: "",
+    liveUrl: "",
+    accent: "tertiary",
+    featured: false,
+    priority: 8,
+    caseStudy: { ...defaultCaseStudy, duration: "Prototype", status: "Prototype" }
+  },
+  {
+    slug: "worldpulse-daily",
+    title: "WorldPulse Daily",
+    category: "Automation / Content",
+    filterTags: ["Automation"],
+    role: "Automation Builder",
+    status: "Active Workflow",
+    description: "n8n-based automation workflow that generates daily content, processes news signals, and uploads produced content to YouTube automatically.",
+    image: "/images/projects/worldpulse-daily.png",
+    tech: ["n8n", "Automation", "Content Generation", "YouTube API", "LLM"],
+    githubUrl: "",
+    liveUrl: "",
+    accent: "primary",
+    featured: false,
+    priority: 9,
+    caseStudy: null
+  },
+  {
+    slug: "tabeeb",
+    title: "Tabeeb",
+    category: "Healthcare Mobile",
+    filterTags: ["Mobile", "Healthcare"],
+    role: "Flutter Developer",
+    status: "Hackathon MVP",
+    description: "Healthcare-focused Flutter mobile app built during a hackathon. Features smooth patient/doctor flows, clean UI, and a scalable app structure.",
+    image: "/images/projects/tabeeb.png",
+    tech: ["Flutter", "Firebase", "Healthcare", "Mobile UI"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/Tabeeb",
+    liveUrl: "",
+    accent: "primary",
+    featured: false,
+    priority: 10,
+    caseStudy: null
+  },
+  {
+    slug: "huntflow",
+    title: "HuntFlow",
+    category: "Full-Stack Web App",
+    filterTags: ["Full-Stack", "AI / LLM"],
+    role: "Full-Stack Engineer",
+    status: "MVP",
+    description: "All-in-one job hunt companion: aggregate jobs, analyze your CV with AI, track applications, and apply faster using a clean pipeline dashboard.",
+    image: "/images/projects/huntflow.png",
+    tech: ["React", "Node.js", "MongoDB", "AI CV Analysis", "REST APIs"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/HuntFlow",
+    liveUrl: "",
+    accent: "secondary",
+    featured: false,
+    priority: 11,
+    caseStudy: null
+  },
+  {
+    slug: "mammoai",
+    title: "MammoAI",
+    category: "Healthcare AI",
+    filterTags: ["Healthcare", "AI / LLM"],
+    role: "ML Engineer",
+    status: "Research Build",
+    description: "Deep learning diagnostic tool for early-stage mammography cancer detection. Uses CNN-based image classification with clinical data integration.",
+    image: "/images/projects/mammoai.png",
+    tech: ["Python", "TensorFlow", "Deep Learning", "CNN", "Medical Imaging"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/MammoAI",
+    liveUrl: "",
+    accent: "tertiary",
+    featured: false,
+    priority: 12,
+    caseStudy: null
+  }
+];
+
+// ─── EARLIER BUILDS (smaller/older projects, no full case study) ───────────────
+
+export const earlierBuilds = [
+  // Full-Stack
+  {
+    slug: "document-management-system",
+    title: "Document Management System",
+    category: "Full-Stack Web App",
+    filterTags: ["Full-Stack"],
+    role: "Full-Stack MERN Intern (ATOS)",
+    status: "Shipped",
+    description: "Fullstack MERN + PERN application for real-time document collaboration and management. Built during ATOS internship.",
+    image: "/images/projects/document-management.png",
+    tech: ["React", "Node.js", "PostgreSQL", "MongoDB", "REST APIs"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/Atos-Task-document-management-system",
+    liveUrl: "https://atos0dms.netlify.app/",
+    accent: "secondary",
+    featured: false,
+    priority: 20,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "hedj",
+    title: "Hedj",
+    category: "E-Commerce Platform",
+    filterTags: ["Full-Stack"],
+    role: "Full-Stack Developer",
+    status: "Live",
+    description: "Furniture and product design e-commerce platform built with the MERN stack. Includes product listings, cart, auth, and admin dashboard.",
+    image: "/images/projects/hedj.png",
+    tech: ["React", "Node.js", "MongoDB", "Express", "Tailwind"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/Hedj",
+    liveUrl: "https://hedj.netlify.app/",
+    accent: "primary",
+    featured: false,
+    priority: 21,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "hkiiapply",
+    title: "HKIIAPPLY",
+    category: "AI Job Search Platform",
+    filterTags: ["Full-Stack", "AI / LLM"],
+    role: "Full-Stack Developer",
+    status: "Live",
+    description: "AI-powered platform that automates job applications, provides AI-driven guidance, and streamlines the job search process.",
+    image: "/images/projects/hkiiapply.png",
+    tech: ["React", "Node.js", "MongoDB", "AI APIs", "REST APIs"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/hkiiapply",
+    liveUrl: "https://boghhki.netlify.app/",
+    accent: "tertiary",
+    featured: false,
+    priority: 22,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "relief-charity",
+    title: "Relief Emergency Charity",
+    category: "Web Development",
+    filterTags: ["Full-Stack"],
+    role: "Microservices Intern",
+    status: "Live",
+    description: "Responsive landing page designed for humanitarian relief efforts. Built with microservices architecture during internship at Relief Foundation.",
+    image: "/images/projects/relief-charity.png",
+    tech: ["React", "Node.js", "WordPress", "Microservices"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/ReliefLandingPage",
+    liveUrl: "https://reliefland.netlify.app/",
+    accent: "primary",
+    featured: false,
+    priority: 23,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "petzone",
+    title: "PetZone",
+    category: "Web Platform",
+    filterTags: ["Full-Stack"],
+    role: "Web Developer",
+    status: "Prototype",
+    description: "Web-based pet care platform with product listings, appointment booking, and community features.",
+    image: "/images/projects/petzone.png",
+    tech: ["HTML", "CSS", "PHP", "MySQL"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/Petzone",
+    liveUrl: "",
+    accent: "secondary",
+    featured: false,
+    priority: 24,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  // Mobile
+  {
+    slug: "masar",
+    title: "MASAR",
+    category: "Flutter Mobile App",
+    filterTags: ["Mobile"],
+    role: "Flutter Developer",
+    status: "MVP",
+    description: "Flutter mobile app built with a clean UX, modular structure, and scalable architecture for navigation and guidance.",
+    image: "/images/projects/masar.png",
+    tech: ["Flutter", "Dart", "Firebase"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/MASAR",
+    liveUrl: "",
+    accent: "primary",
+    featured: false,
+    priority: 25,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "threadcrm",
+    title: "ThreadCRM",
+    category: "React Native CRM",
+    filterTags: ["Mobile", "Full-Stack"],
+    role: "Mobile Developer",
+    status: "Prototype",
+    description: "React Native mobile CRM app built with TypeScript for scalable mobile client-relationship workflows.",
+    image: "/images/projects/threadcrm.png",
+    tech: ["React Native", "TypeScript", "REST APIs"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/ThreadCRM",
+    liveUrl: "",
+    accent: "secondary",
+    featured: false,
+    priority: 26,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "ozlot",
+    title: "OZLOT Food Ordering",
+    category: "Desktop Application",
+    filterTags: ["Full-Stack"],
+    role: "Java Developer",
+    status: "Prototype",
+    description: "Desktop-based food ordering system developed with Java and MySQL featuring order management, menu listings, and customer tracking.",
+    image: "/images/projects/ozlot.jpg",
+    tech: ["Java", "MySQL", "Swing GUI"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/Talabat",
+    liveUrl: "",
+    accent: "tertiary",
+    featured: false,
+    priority: 27,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  // ML / AI
+  {
+    slug: "autoai-suite",
+    title: "AutoAI Suite",
+    category: "Automated ML Toolkit",
+    filterTags: ["AI / LLM", "Cybersecurity"],
+    role: "ML Engineer",
+    status: "Research Build",
+    description: "Automated ML pipeline toolkit for classification, scraping, summarization workflows, and model evaluation.",
+    image: "/images/projects/autoai-suite.png",
+    tech: ["Python", "Scikit-learn", "Automation", "ML Pipelines"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/AutoAI-Suite",
+    liveUrl: "",
+    accent: "secondary",
+    featured: false,
+    priority: 28,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "banking-dashboard",
+    title: "Banking Dashboard",
+    category: "FinTech Web App",
+    filterTags: ["Finance", "Full-Stack"],
+    role: "Full-Stack Developer",
+    status: "Prototype",
+    description: "Banking and finance management dashboard built with Next.js 14. Features account views, transaction tracking, and financial summaries.",
+    image: "/images/projects/banking-dashboard.png",
+    tech: ["Next.js", "TypeScript", "Tailwind", "Finance APIs"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/Banking-App",
+    liveUrl: "",
+    accent: "primary",
+    featured: false,
+    priority: 29,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "stock-prediction",
+    title: "Stock Market Prediction",
+    category: "Finance ML",
+    filterTags: ["Finance", "AI / LLM"],
+    role: "ML Intern (Code Alpha)",
+    status: "Research Build",
+    description: "LSTM-powered model forecasting NFLX stock prices 30 days ahead with visualized predictions and time-series analysis.",
+    image: "/images/projects/stock-prediction.png",
+    tech: ["Python", "LSTM", "ARIMA", "Pandas", "Matplotlib"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/CODEALPHA-Task4",
+    liveUrl: "",
+    accent: "secondary",
+    featured: false,
+    priority: 30,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "music-recommendation",
+    title: "Music Recommendation App",
+    category: "ML / Data",
+    filterTags: ["AI / LLM"],
+    role: "ML Intern (Code Alpha)",
+    status: "Research Build",
+    description: "ML-based music recommendation system trained on user listening preferences using collaborative filtering.",
+    image: "/images/projects/music-recommendation.png",
+    tech: ["Python", "Scikit-learn", "Collaborative Filtering", "Pandas"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/CODEALPHA-Task1",
+    liveUrl: "",
+    accent: "tertiary",
+    featured: false,
+    priority: 31,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "sportify-ai",
+    title: "Sportify AI",
+    category: "Computer Vision",
+    filterTags: ["AI / LLM"],
+    role: "ML Engineer",
+    status: "Research Build",
+    description: "CNN + MobileNetV2-powered sports image classifier that categorizes sports images with high accuracy.",
+    image: "/images/projects/sportify-ai.png",
+    tech: ["Python", "TensorFlow", "CNN", "MobileNetV2", "Computer Vision"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/Sportify-AI",
+    liveUrl: "",
+    accent: "primary",
+    featured: false,
+    priority: 32,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "rag-chatbot",
+    title: "RAG Chatbot",
+    category: "LLM / AI System",
+    filterTags: ["AI / LLM"],
+    role: "AI Engineer",
+    status: "Prototype",
+    description: "Retrieval-Augmented Generation chatbot integrating document retrieval with LLM-style responses for grounded, accurate answers.",
+    image: "/images/projects/rag-chatbot.png",
+    tech: ["Python", "RAG", "LangChain", "Vector Search", "LLM"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/rag-chatbot",
+    liveUrl: "",
+    accent: "tertiary",
+    featured: false,
+    priority: 33,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "loan-prediction",
+    title: "Loan Acceptance Prediction",
+    category: "Finance ML",
+    filterTags: ["Finance", "AI / LLM"],
+    role: "ML Intern (Code Alpha)",
+    status: "Research Build",
+    description: "Machine learning pipeline for loan acceptance prediction with data preprocessing, feature engineering, and model evaluation.",
+    image: "/images/projects/super-image-resolution.png",
+    tech: ["Python", "XGBoost", "Scikit-learn", "Pandas", "Feature Engineering"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/Loan_Acceptance_Prediction",
+    liveUrl: "",
+    accent: "secondary",
+    featured: false,
+    priority: 34,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "template-matching",
+    title: "Multi-Object Detection",
+    category: "Computer Vision",
+    filterTags: ["AI / LLM"],
+    role: "ML Engineer",
+    status: "Research Build",
+    description: "Template matching and multi-object detection experiments using OpenCV for sub-region image detection.",
+    image: "/images/projects/template-matching.png",
+    tech: ["Python", "OpenCV", "Computer Vision", "NumPy"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/Template-Matching",
+    liveUrl: "",
+    accent: "primary",
+    featured: false,
+    priority: 35,
+    caseStudy: null,
+    earlierBuild: true
+  }
+];
+
+export const allProjects = [...mainProjects, ...earlierBuilds];
+
+// Filter categories for the Projects page
+export const projectFilters = [
+  "All",
+  "AI / LLM",
+  "Full-Stack",
+  "Mobile",
+  "Healthcare",
+  "Cybersecurity",
+  "Finance",
+  "Automation",
+  "Earlier Builds"
+];

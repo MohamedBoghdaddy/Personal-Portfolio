@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { identity } from "../../data/portfolioData";
 
 export default function Footer() {
   return (

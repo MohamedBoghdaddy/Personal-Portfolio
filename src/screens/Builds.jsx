@@ -1,52 +1,178 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { projects } from "../data/portfolioData";
-import { Button, GlassCard, Icon, SectionHeader, Tag, VisualPlaceholder, accentClasses } from "../components/UI";
-
-const filters = ["All", "AI", "Full-Stack", "Mobile", "FinTech", "Healthcare"];
+import { allProjects, mainProjects, earlierBuilds, projectFilters } from "../data/projectsData";
+import { Button, GlassCard, SectionHeader, Tag, accentClasses } from "../components/UI";
 
 function projectMatchesFilter(project, filter) {
-  if (filter === "All") {
-    return true;
-  }
-  const haystack = `${project.category} ${project.tags.join(" ")}`.toUpperCase();
-  return haystack.includes(filter.toUpperCase().replace("-", " "));
+  if (filter === "All") return true;
+  if (filter === "Earlier Builds") return project.earlierBuild === true;
+  return project.filterTags?.some((t) => t === filter);
 }
 
-function LinkButton({ url, label, icon, variant = "secondary" }) {
+function ProjectImage({ src, alt, className = "" }) {
+  if (!src) {
+    const initials = alt
+      .split(" ")
+      .slice(0, 2)
+      .map((w) => w[0])
+      .join("")
+      .toUpperCase();
+    return (
+      <div className={`flex items-center justify-center bg-surface-container-high ${className}`}>
+        <span className="font-display text-4xl font-bold text-primary/40">{initials}</span>
+      </div>
+    );
+  }
   return (
-    <Button href={url || undefined} icon={icon} variant={variant} disabled={!url}>
-      {url ? label : `${label} TODO`}
-    </Button>
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${className}`}
+    />
+  );
+}
+
+function ProjectCard({ project, wide = false }) {
+  const ac = accentClasses[project.accent] || accentClasses.primary;
+  return (
+    <GlassCard
+      className={`group flex flex-col overflow-hidden ${wide ? "md:col-span-6" : "md:col-span-4"}`}
+      accent={project.accent}
+    >
+      <div className="relative aspect-video overflow-hidden bg-surface-container-high">
+        <ProjectImage src={project.image} alt={project.title} />
+        <div className="absolute right-2 top-2">
+          <span className="rounded-full bg-surface/80 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wide text-on-surface backdrop-blur-sm">
+            {project.status}
+          </span>
+        </div>
+      </div>
+
+      <div className="flex flex-1 flex-col p-md">
+        <p className={`label-caps mb-xs ${ac.text}`}>{project.category}</p>
+        <h3 className="mb-xs font-display text-xl font-semibold">{project.title}</h3>
+        <p className="mb-xs font-mono text-[10px] uppercase text-outline">Role: {project.role}</p>
+        <p className="mb-sm flex-1 text-sm leading-relaxed text-on-surface-variant">{project.description}</p>
+
+        <div className="mb-sm flex flex-wrap gap-xs">
+          {project.tech.slice(0, 4).map((t) => <Tag key={t} accent={project.accent}>{t}</Tag>)}
+          {project.tech.length > 4 && (
+            <span className="font-mono text-[10px] text-outline">+{project.tech.length - 4} more</span>
+          )}
+        </div>
+
+        <div className="flex flex-wrap items-center gap-xs">
+          {project.caseStudy && (
+            <Link
+              to={`/case-studies/${project.slug}`}
+              className={`focus-ring label-caps border px-sm py-xs transition hover:bg-primary/10 ${ac.text} ${ac.border}`}
+            >
+              Case Study
+            </Link>
+          )}
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus-ring label-caps border border-outline-variant px-sm py-xs text-on-surface-variant transition hover:border-secondary hover:text-secondary"
+            >
+              GitHub
+            </a>
+          )}
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus-ring label-caps border border-outline-variant px-sm py-xs text-on-surface-variant transition hover:border-primary hover:text-primary"
+            >
+              Live Demo
+            </a>
+          )}
+        </div>
+      </div>
+    </GlassCard>
+  );
+}
+
+function FeaturedCard({ project }) {
+  const ac = accentClasses[project.accent] || accentClasses.primary;
+  return (
+    <GlassCard
+      className={`group md:col-span-8 overflow-hidden border-l-4 ${ac.borderLeft}`}
+      accent={project.accent}
+    >
+      <div className="grid md:grid-cols-2">
+        <div className="relative aspect-video overflow-hidden bg-surface-container-high md:aspect-auto">
+          <ProjectImage src={project.image} alt={project.title} />
+        </div>
+        <div className="flex flex-col justify-between p-md">
+          <div>
+            <div className="mb-sm flex items-center justify-between">
+              <p className={`label-caps ${ac.text}`}>{project.category}</p>
+              <span className="font-mono text-[10px] uppercase text-outline">{project.status}</span>
+            </div>
+            <h2 className="mb-xs font-display text-3xl font-semibold">{project.title}</h2>
+            <p className="mb-xs font-mono text-[10px] uppercase text-outline">Role: {project.role}</p>
+            <p className="mb-sm text-sm leading-relaxed text-on-surface-variant">{project.description}</p>
+            <div className="mb-sm flex flex-wrap gap-xs">
+              {project.tech.slice(0, 5).map((t) => <Tag key={t} accent={project.accent}>{t}</Tag>)}
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-sm">
+            {project.caseStudy && (
+              <Button to={`/case-studies/${project.slug}`} icon="visibility">Case Study</Button>
+            )}
+            {project.githubUrl && (
+              <Button href={project.githubUrl} icon="code" variant="secondary">GitHub</Button>
+            )}
+            {project.liveUrl && (
+              <Button href={project.liveUrl} icon="open_in_new" variant="ghost">Live Demo</Button>
+            )}
+          </div>
+        </div>
+      </div>
+    </GlassCard>
   );
 }
 
 export default function Builds() {
   const [activeFilter, setActiveFilter] = useState("All");
-  const visibleProjects = useMemo(
-    () => projects.filter((project) => projectMatchesFilter(project, activeFilter)),
+
+  const visibleMain = useMemo(
+    () => mainProjects.filter((p) => projectMatchesFilter(p, activeFilter)),
     [activeFilter]
   );
-  const featured = visibleProjects.find((project) => project.featured) || visibleProjects[0] || projects[0];
-  const others = visibleProjects.filter((project) => project.slug !== featured.slug);
+  const visibleEarlier = useMemo(
+    () => earlierBuilds.filter((p) => projectMatchesFilter(p, activeFilter)),
+    [activeFilter]
+  );
+
+  const featured = visibleMain.find((p) => p.featured) || visibleMain[0];
+  const rest = visibleMain.filter((p) => p.slug !== featured?.slug);
+
+  const showEarlier = activeFilter === "All" || activeFilter === "Earlier Builds" || visibleEarlier.length > 0;
 
   return (
     <main className="page-shell">
       <SectionHeader
         eyebrow="Portfolio"
         title="My Projects"
-        description="AI systems, mobile products, full-stack builds, research prototypes, and automation workflows — each with role, stack, and status."
+        description="AI systems, mobile products, full-stack builds, research prototypes, and automation workflows — each with role, stack, status, and links."
         icon="grid_view"
       />
 
-      <div className="mb-lg flex flex-wrap items-center gap-sm" aria-label="Project filters">
-        {filters.map((filter) => (
+      {/* Filter tabs */}
+      <div className="mb-lg flex flex-wrap items-center gap-xs" aria-label="Project filters">
+        {projectFilters.map((filter) => (
           <button
             key={filter}
-            className={`focus-ring label-caps px-md py-xs transition ${
+            className={`focus-ring label-caps px-sm py-xs transition ${
               activeFilter === filter
                 ? "bg-primary text-on-primary"
-                : "border border-outline-variant bg-surface-container-high text-on-surface-variant hover:border-secondary"
+                : "border border-outline-variant bg-surface-container-high text-on-surface-variant hover:border-primary/40 hover:text-primary"
             }`}
             type="button"
             onClick={() => setActiveFilter(filter)}
@@ -56,83 +182,101 @@ export default function Builds() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-md md:grid-cols-12">
-        <ProjectFeature project={featured} />
+      {/* Main projects */}
+      {visibleMain.length > 0 && (
+        <div className="grid grid-cols-1 gap-md md:grid-cols-12">
+          {featured && <FeaturedCard project={featured} />}
+          {/* sidebar stat card */}
+          <GlassCard className="flex flex-col justify-between p-md md:col-span-4" accent="primary">
+            <div>
+              <p className="label-caps mb-sm text-primary">Build Profile</p>
+              <div className="space-y-sm">
+                {[
+                  ["Total Projects", allProjects.length.toString()],
+                  ["Live / Deployed", allProjects.filter((p) => p.liveUrl).length.toString()],
+                  ["Open Source", allProjects.filter((p) => p.githubUrl).length.toString()],
+                  ["Active Builds", mainProjects.filter((p) => p.status.toLowerCase().includes("active")).length.toString()]
+                ].map(([label, val]) => (
+                  <div key={label} className="flex items-center justify-between border-b border-outline-variant/20 pb-xs">
+                    <span className="font-mono text-xs text-outline">{label}</span>
+                    <span className="font-display text-xl font-semibold text-primary">{val}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <Button to="/contact" icon="alternate_email" className="mt-md w-full">
+              Start a Project
+            </Button>
+          </GlassCard>
 
-        {others.map((project, index) => (
-          <ProjectCard key={project.slug} project={project} wide={index % 3 !== 0} />
-        ))}
-      </div>
+          {rest.map((project, i) => (
+            <ProjectCard key={project.slug} project={project} wide={i % 3 !== 0} />
+          ))}
+        </div>
+      )}
+
+      {visibleMain.length === 0 && activeFilter !== "Earlier Builds" && (
+        <p className="py-xl text-center text-on-surface-variant">No projects match this filter in the main builds.</p>
+      )}
+
+      {/* Earlier Builds */}
+      {showEarlier && visibleEarlier.length > 0 && (
+        <div className="mt-2xl">
+          <div className="mb-lg flex items-center gap-md">
+            <div className="flex-1 border-t border-outline-variant/30" />
+            <h2 className="font-display text-2xl font-semibold text-on-surface-variant">
+              More Projects / Earlier Builds
+            </h2>
+            <div className="flex-1 border-t border-outline-variant/30" />
+          </div>
+          <p className="mb-lg text-center text-sm text-outline">
+            Internship work, research builds, ML experiments, and earlier full-stack projects.
+          </p>
+          <div className="grid grid-cols-1 gap-md sm:grid-cols-2 lg:grid-cols-3">
+            {visibleEarlier.map((project) => (
+              <EarlierCard key={project.slug} project={project} />
+            ))}
+          </div>
+        </div>
+      )}
     </main>
   );
 }
 
-function ProjectFeature({ project }) {
-  const ac = accentClasses[project.accent];
-
+function EarlierCard({ project }) {
+  const ac = accentClasses[project.accent] || accentClasses.primary;
   return (
-    <GlassCard className={`p-md md:col-span-8 border-l-4 ${ac.borderLeft}`} accent={project.accent}>
-      <div className="flex flex-col gap-md">
-        <div className="flex flex-col justify-between gap-sm md:flex-row">
-          <div>
-            <p className={`label-caps mb-xs ${ac.text}`}>{project.category}</p>
-            <h2 className="font-display text-3xl font-semibold">{project.title}</h2>
-          </div>
-          <div className="font-mono text-xs uppercase md:text-right">
-            <p className="text-primary">STATUS: {project.status}</p>
-            <p className="text-on-surface-variant">ROLE: {project.role}</p>
-          </div>
-        </div>
-
-        <div className="grid gap-md md:grid-cols-2">
-          <div>
-            <p className="mb-sm border border-outline-variant/30 bg-surface-container-lowest/50 p-sm text-on-surface-variant">
-              {project.description}
-            </p>
-            <div className="mb-md flex flex-wrap gap-xs">
-              {project.tags.map((tag) => <Tag key={tag} accent={project.accent}>{tag}</Tag>)}
-            </div>
-            <div className="space-y-xs font-mono text-xs">
-              <div className="flex justify-between gap-sm"><span className="text-on-surface-variant">ROLE</span><span>{project.role}</span></div>
-              <div className="flex justify-between gap-sm"><span className="text-on-surface-variant">BUILD_STATE</span><span>{project.status}</span></div>
-            </div>
-          </div>
-
-          <VisualPlaceholder image={project.image} icon="dashboard" title={`${project.title} Visual Node`} accent={project.accent} className="rounded-lg" />
-        </div>
-
-        <div className="flex flex-wrap gap-sm">
-          <Button to={`/case-studies/${project.slug}`} icon="visibility">Case Study</Button>
-          <LinkButton url={project.links.github} label="GitHub" icon="code" />
-          <LinkButton url={project.links.demo} label="Demo" icon="open_in_new" variant="ghost" />
+    <GlassCard className="group flex flex-col overflow-hidden" accent={project.accent}>
+      <div className="relative h-36 overflow-hidden bg-surface-container-high">
+        <ProjectImage src={project.image} alt={project.title} />
+      </div>
+      <div className="flex flex-1 flex-col p-sm">
+        <p className={`label-caps mb-xs text-[9px] ${ac.text}`}>{project.category}</p>
+        <h3 className="mb-xs font-display text-base font-semibold">{project.title}</h3>
+        <p className="mb-sm flex-1 text-xs leading-relaxed text-on-surface-variant line-clamp-2">{project.description}</p>
+        <div className="flex flex-wrap gap-xs">
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`focus-ring label-caps text-[9px] border px-xs py-0.5 transition hover:bg-surface-container-high ${ac.text} ${ac.border}`}
+            >
+              GitHub
+            </a>
+          )}
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus-ring label-caps text-[9px] border border-primary/30 px-xs py-0.5 text-primary transition hover:bg-primary/10"
+            >
+              Live
+            </a>
+          )}
         </div>
       </div>
     </GlassCard>
   );
 }
-
-function ProjectCard({ project, wide }) {
-  const ac = accentClasses[project.accent];
-
-  return (
-    <GlassCard className={`${wide ? "md:col-span-6" : "md:col-span-4"} p-md`} accent={project.accent}>
-      <div className="mb-sm flex items-center justify-between">
-        <Icon name={project.accent === "tertiary" ? "monitoring" : "deployed_code"} className={`text-3xl ${ac.text}`} />
-        <span className="font-mono text-[10px] uppercase text-on-surface-variant">{project.status}</span>
-      </div>
-      <p className="label-caps mb-xs text-on-surface-variant">{project.category}</p>
-      <h3 className="mb-sm font-display text-2xl font-semibold">{project.title}</h3>
-      <p className="mb-md text-sm leading-relaxed text-on-surface-variant">{project.description}</p>
-      <div className="mb-md flex flex-wrap gap-xs">
-        {project.tags.slice(0, 4).map((tag) => <Tag key={tag} accent={project.accent}>{tag}</Tag>)}
-      </div>
-      <div className="flex flex-wrap items-center gap-sm">
-        <Link to={`/case-studies/${project.slug}`} className="focus-ring label-caps text-secondary hover:text-primary">
-          Case Study →
-        </Link>
-        {!project.links.github && <span className="font-mono text-[10px] uppercase text-outline">GitHub TODO</span>}
-      </div>
-    </GlassCard>
-  );
-}
-

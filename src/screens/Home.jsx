@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { identity, projects } from "../data/portfolioData";
-import { Button, GlassCard, Icon, SectionHeader, Tag, VisualPlaceholder, accentClasses } from "../components/UI";
+import { identity } from "../data/portfolioData";
+import { mainProjects } from "../data/projectsData";
+import { Button, GlassCard, Icon, SectionHeader, Tag, accentClasses } from "../components/UI";
 
 const proofCards = [
   { icon: "psychology", label: "AI Product Systems", desc: "LLM APIs, RAG, prompt engineering", accent: "tertiary" },
@@ -14,7 +15,7 @@ const featuredSlugs = ["calorielens", "pregen-ai-lms", "ai-cyber-defense-lab"];
 
 export default function Home() {
   const featuredProjects = featuredSlugs
-    .map((slug) => projects.find((p) => p.slug === slug))
+    .map((slug) => mainProjects.find((p) => p.slug === slug))
     .filter(Boolean);
 
   return (
@@ -136,28 +137,39 @@ export default function Home() {
           {featuredProjects.map((project) => {
             const ac = accentClasses[project.accent];
             return (
-              <GlassCard key={project.slug} className={`flex flex-col border-l-4 ${ac.borderLeft} p-md`} accent={project.accent}>
-                <VisualPlaceholder
-                  image={project.image}
-                  icon="dashboard"
-                  title={project.title}
-                  accent={project.accent}
-                  className="mb-md rounded-md aspect-video"
-                />
-                <p className={`label-caps mb-xs ${ac.text}`}>{project.category}</p>
-                <h3 className="mb-sm font-display text-xl font-semibold">{project.title}</h3>
-                <p className="mb-sm flex-1 text-sm leading-relaxed text-on-surface-variant">{project.description}</p>
-                <div className="mb-md flex flex-wrap gap-xs">
-                  {project.tags.slice(0, 3).map((tag) => <Tag key={tag} accent={project.accent}>{tag}</Tag>)}
+              <GlassCard key={project.slug} className={`group flex flex-col border-l-4 ${ac.borderLeft} overflow-hidden`} accent={project.accent}>
+                <div className="relative aspect-video overflow-hidden bg-surface-container-high">
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center">
+                      <span className="font-display text-4xl font-bold text-primary/30">
+                        {project.title.split(" ").slice(0,2).map(w => w[0]).join("")}
+                      </span>
+                    </div>
+                  )}
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] uppercase text-outline">{project.status}</span>
-                  <Link
-                    to={`/case-studies/${project.slug}`}
-                    className={`focus-ring label-caps ${ac.text} hover:text-primary`}
-                  >
-                    View Case Study →
-                  </Link>
+                <div className="flex flex-1 flex-col p-md">
+                  <p className={`label-caps mb-xs ${ac.text}`}>{project.category}</p>
+                  <h3 className="mb-sm font-display text-xl font-semibold">{project.title}</h3>
+                  <p className="mb-sm flex-1 text-sm leading-relaxed text-on-surface-variant">{project.description}</p>
+                  <div className="mb-md flex flex-wrap gap-xs">
+                    {(project.tech || []).slice(0, 3).map((tag) => <Tag key={tag} accent={project.accent}>{tag}</Tag>)}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[10px] uppercase text-outline">{project.status}</span>
+                    <Link
+                      to={`/case-studies/${project.slug}`}
+                      className={`focus-ring label-caps ${ac.text} hover:text-primary`}
+                    >
+                      View Case Study →
+                    </Link>
+                  </div>
                 </div>
               </GlassCard>
             );

@@ -1,6 +1,6 @@
 import { Navigate, useParams } from "react-router-dom";
-import { projects } from "../data/portfolioData";
-import { Button, GlassCard, Icon, SectionHeader, Tag, VisualPlaceholder, accentClasses } from "../components/UI";
+import { allProjects } from "../data/projectsData";
+import { Button, GlassCard, Icon, SectionHeader, Tag, accentClasses } from "../components/UI";
 
 function fallbackCaseStudy(project) {
   return {
@@ -53,7 +53,7 @@ function ActionLink({ url, label, icon, variant = "secondary" }) {
 
 export default function CaseStudy() {
   const { slug } = useParams();
-  const project = projects.find((item) => item.slug === slug);
+  const project = allProjects.find((item) => item.slug === slug);
 
   if (!project) {
     return <Navigate to="/builds" replace />;
@@ -78,11 +78,21 @@ export default function CaseStudy() {
               {project.description}
             </p>
             <div className="flex flex-wrap gap-sm">
-              <ActionLink url={project.links.github} label="GitHub Repository" icon="code" variant="primary" />
-              <ActionLink url={project.links.demo} label="Live Demo" icon="rocket_launch" />
+              <ActionLink url={project.githubUrl} label="GitHub" icon="code" variant="primary" />
+              <ActionLink url={project.liveUrl} label="Live Demo" icon="open_in_new" />
             </div>
           </div>
-          <VisualPlaceholder image={project.image} icon="psychology" title={`${project.title} Dossier`} accent={project.accent} className="aspect-square w-full rounded-lg md:w-1/3" />
+          <div className="aspect-video w-full overflow-hidden rounded-lg bg-surface-container-high md:w-2/5">
+            {project.image ? (
+              <img src={project.image} alt={project.title} loading="lazy" className="h-full w-full object-cover" />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center">
+                <span className="font-display text-5xl font-bold text-primary/30">
+                  {project.title.split(" ").slice(0,2).map(w => w[0]).join("")}
+                </span>
+              </div>
+            )}
+          </div>
         </GlassCard>
       </section>
 
@@ -142,7 +152,7 @@ export default function CaseStudy() {
 
       <section className="mb-xl grid grid-cols-1 gap-md md:grid-cols-4">
         {["Tech Stack", "Engineering Features", "Results / Outcomes", "My Role"].map((title, index) => {
-          const lists = [project.tags, caseStudy.features, caseStudy.outcomes, caseStudy.role];
+          const lists = [project.tech || project.tags || [], caseStudy.features, caseStudy.outcomes, caseStudy.role];
           return (
             <GlassCard key={title} className="p-md" accent={project.accent}>
               <span className={`mb-sm block font-mono text-xs uppercase ${ac.text}`}>{title}</span>
