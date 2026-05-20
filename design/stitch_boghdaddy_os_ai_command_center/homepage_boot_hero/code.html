@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+        .hud-border {
+            position: relative;
+        }
+        .hud-border::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #4be277;
+            border-left: 2px solid #4be277;
+        }
+        .hud-border::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            width: 10px;
+            height: 10px;
+            border-bottom: 2px solid #4be277;
+            border-right: 2px solid #4be277;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#161d16",
+                      "on-error-container": "#ffdad6",
+                      "secondary-container": "#00a6e0",
+                      "on-secondary-fixed-variant": "#004c69",
+                      "on-error": "#690005",
+                      "on-tertiary-fixed": "#2c0051",
+                      "on-primary-fixed": "#002109",
+                      "surface-container-highest": "#2f372e",
+                      "secondary-fixed-dim": "#7bd0ff",
+                      "on-secondary": "#00354a",
+                      "on-secondary-container": "#00374d",
+                      "surface-container-high": "#242c24",
+                      "on-surface-variant": "#bccbb9",
+                      "primary-fixed": "#6bff8f",
+                      "surface-container": "#1a221a",
+                      "primary": "#4be277",
+                      "primary-fixed-dim": "#4ae176",
+                      "on-primary": "#003915",
+                      "on-surface": "#dce5d9",
+                      "on-primary-fixed-variant": "#005321",
+                      "error": "#ffb4ab",
+                      "tertiary": "#deb8ff",
+                      "primary-container": "#22c55e",
+                      "secondary": "#7bd0ff",
+                      "inverse-surface": "#dce5d9",
+                      "tertiary-container": "#cb94ff",
+                      "on-tertiary-fixed-variant": "#6900b3",
+                      "surface-dim": "#0e150e",
+                      "surface": "#0e150e",
+                      "surface-bright": "#333b33",
+                      "tertiary-fixed": "#f0dbff",
+                      "background": "#0e150e",
+                      "on-primary-container": "#004b1e",
+                      "on-tertiary": "#490080",
+                      "on-background": "#dce5d9",
+                      "tertiary-fixed-dim": "#ddb7ff",
+                      "outline-variant": "#3d4a3d",
+                      "surface-variant": "#2f372e",
+                      "on-secondary-fixed": "#001e2c",
+                      "outline": "#869585",
+                      "surface-tint": "#4ae176",
+                      "inverse-on-surface": "#2a322a",
+                      "on-tertiary-container": "#5f00a3",
+                      "error-container": "#93000a",
+                      "secondary-fixed": "#c4e7ff",
+                      "inverse-primary": "#006e2f",
+                      "surface-container-lowest": "#091009"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xl": "64px",
+                      "gutter": "20px",
+                      "base": "4px",
+                      "margin": "32px",
+                      "xs": "8px",
+                      "lg": "40px",
+                      "md": "24px",
+                      "sm": "16px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "mono-data": ["Space Grotesk"],
+                      "h2": ["Space Grotesk"],
+                      "h3": ["Space Grotesk"],
+                      "body-lg": ["Inter"],
+                      "h1": ["Space Grotesk"],
+                      "label-caps": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "mono-data": ["13px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                      "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-[#0B1120]/80 backdrop-blur-lg border-b border-cyan-500/20 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<nav class="flex justify-between items-center px-8 py-3 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="text-xl font-black tracking-widest text-primary drop-shadow-[0_0_8px_rgba(34,197,94,0.4)] font-['Space_Grotesk']">BOGHDADDY OS</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase text-primary border-b-2 border-primary pb-1" href="#">Boot</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase text-slate-400 transition-colors duration-300 hover:text-primary hover:bg-primary/5" href="#">Missions</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase text-slate-400 transition-colors duration-300 hover:text-primary hover:bg-primary/5" href="#">Skill Tree</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase text-slate-400 transition-colors duration-300 hover:text-primary hover:bg-primary/5" href="#">Logs</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase text-slate-400 transition-colors duration-300 hover:text-primary hover:bg-primary/5" href="#">Proof</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase text-slate-400 transition-colors duration-300 hover:text-primary hover:bg-primary/5" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex gap-2 text-primary text-sm font-mono items-center">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span class="material-symbols-outlined text-[18px]">sensors</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-sm font-['Space_Grotesk'] text-xs font-bold uppercase tracking-widest active:opacity-80 active:scale-95 transition-all">
+                    SIGNAL: ACTIVE
+                </button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-32 overflow-hidden px-4">
+<!-- HUD Background Elements -->
+<div class="absolute inset-0 pointer-events-none z-0">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-cyan-500/10 rounded-full animate-pulse"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] border border-cyan-500/5 rounded-full"></div>
+<!-- Grid background overlay -->
+<div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(to right, #4be277 1px, transparent 1px), linear-gradient(to bottom, #4be277 1px, transparent 1px); background-size: 40px 40px;"></div>
+</div>
+<div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+<!-- Left: Content Column -->
+<div class="lg:col-span-7 flex flex-col justify-center gap-8">
+<!-- Status Badge -->
+<div class="inline-flex items-center gap-3 px-4 py-2 bg-surface-container-low border border-primary/20 rounded-full w-fit">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-mono-data text-body-sm text-primary uppercase tracking-[0.1em]">Available for selected opportunities</span>
+</div>
+<div class="space-y-4">
+<h2 class="font-h2 text-primary/80 uppercase tracking-widest">Mohamed Boghdaddy</h2>
+<h1 class="font-h1 text-on-background leading-tight text-5xl lg:text-7xl">
+                            I build <span class="text-primary italic">AI-powered</span> products from idea to production.
+                        </h1>
+<p class="font-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                            Full-Stack AI Engineer &amp; LLM Product Systems Architect specializing in architecting resilient LLM platforms, distributed machine learning pipelines, and high-performance full-stack applications that transform raw data into intelligent user experiences.
+                        </p>
+</div>
+<!-- Terminal Line -->
+<div class="bg-surface-container-lowest p-4 border-l-4 border-primary font-mono-data text-primary text-lg">
+<span class="opacity-50">&gt;</span> whoami: <span class="text-on-primary-fixed">Full-Stack AI Engineer</span>
+</div>
+<!-- CTA Cluster -->
+<div class="flex flex-wrap gap-4 mt-4">
+<button class="bg-primary text-on-primary px-8 py-4 font-h3 text-base flex items-center gap-2 hover:shadow-[0_0_20px_rgba(75,226,119,0.3)] transition-all">
+<span class="material-symbols-outlined">rocket_launch</span>
+                            START MISSION
+                        </button>
+<button class="border border-secondary text-secondary px-8 py-4 font-h3 text-base hover:bg-secondary/10 transition-all">
+                            VIEW CASE STUDIES
+                        </button>
+<div class="flex gap-4">
+<button class="glass-panel text-on-background px-6 py-4 font-h3 text-base flex items-center gap-2 hover:bg-surface-container-highest/40 transition-all">
+<span class="material-symbols-outlined">download</span>
+                                CV
+                            </button>
+<button class="glass-panel text-on-background px-6 py-4 font-h3 text-base flex items-center gap-2 hover:bg-surface-container-highest/40 transition-all">
+<span class="material-symbols-outlined">alternate_email</span>
+                                CONTACT
+                            </button>
+</div>
+</div>
+</div>
+<!-- Right: Visual Column -->
+<div class="lg:col-span-5 relative flex items-center justify-center">
+<div class="relative w-full aspect-square max-w-[500px]">
+<!-- Profile HUD Frame -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-full h-full rounded-full border-[12px] border-surface-container-highest relative p-4">
+<div class="w-full h-full rounded-full border border-primary/30 flex items-center justify-center overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500" data-alt="A futuristic professional portrait of a tech engineer, with low-key cinematic lighting casting sharp shadows. The background is a dense array of glowing server racks and digital interfaces. The engineer wears high-tech minimalist apparel. The aesthetic is clean and executive-grade with deep navy and vibrant emerald green highlights, suggesting a high-level AI command center environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0sBcWuDWQbpKYuF1Mn657p44pnrFsreRr1xKhVtgfwt4sZMxoe-2CP-4EYvf9RnFHyXZAYbPI28ZEOBiQiJyr9GmysXA_AQdEbrerZSdWj-MFthN5eUkTw7g4fNp5n0LyJceMUtiQwaCzgQ3Hp-YUR-oEZ4KfdzMfhhGxjuxH-fHU87vDXq4NZDIz-WHxQ0pq8LvWd83xFfg9yJEoy1rWn-D7ZoWAKjgu22Lz45vaAd6S8ySV3qfpqNtdZjh_p8hzLPEUFhm_ZVI"/>
+</div>
+<!-- HUD Accent Rings -->
+<div class="absolute -inset-8 border-[1px] border-dashed border-primary/20 rounded-full animate-[spin_60s_linear_infinite]"></div>
+<div class="absolute -inset-12 border-[2px] border-cyan-500/10 rounded-full animate-[spin_100s_linear_infinite_reverse]"></div>
+</div>
+</div>
+<!-- Floating Data Cards -->
+<!-- AI Systems -->
+<div class="absolute -top-4 -right-4 glass-panel p-4 hud-border max-w-[180px] shadow-2xl">
+<div class="flex items-center gap-2 mb-2 text-primary">
+<span class="material-symbols-outlined text-sm">memory</span>
+<span class="font-mono-data text-[10px] uppercase">Neural Net</span>
+</div>
+<h4 class="font-h3 text-sm mb-1">AI Systems</h4>
+<div class="w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-primary w-4/5 h-full"></div>
+</div>
+</div>
+<!-- Full-Stack -->
+<div class="absolute bottom-12 -left-12 glass-panel p-4 border-l-4 border-tertiary shadow-2xl">
+<div class="flex items-center gap-2 mb-2 text-tertiary">
+<span class="material-symbols-outlined text-sm">layers</span>
+<span class="font-mono-data text-[10px] uppercase">Core Architect</span>
+</div>
+<h4 class="font-h3 text-sm">Full-Stack Core</h4>
+<p class="text-[10px] text-on-surface-variant">Distributed Systems // React // Rust</p>
+</div>
+<!-- LLM Status -->
+<div class="absolute bottom-0 -right-8 glass-panel p-4 border-l-2 border-secondary shadow-2xl">
+<div class="text-[10px] font-mono-data text-secondary uppercase mb-1">LLM Cluster</div>
+<div class="flex gap-1">
+<div class="w-1.5 h-3 bg-secondary"></div>
+<div class="w-1.5 h-3 bg-secondary"></div>
+<div class="w-1.5 h-3 bg-secondary"></div>
+<div class="w-1.5 h-3 bg-secondary opacity-30"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Section: Capabilities -->
+<section class="max-w-7xl mx-auto px-4 py-xl">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="md:col-span-2 glass-panel p-md flex flex-col gap-sm">
+<span class="font-mono-data text-primary text-xs uppercase tracking-widest">System Protocol 01</span>
+<h3 class="font-h2">LLM Product Systems</h3>
+<p class="font-body-md text-on-surface-variant">End-to-end orchestration of large language models, from RAG (Retrieval-Augmented Generation) pipelines to fine-tuning and deployment on scalable cloud infrastructure.</p>
+</div>
+<div class="glass-panel p-md flex flex-col justify-between border-l-4 border-secondary">
+<span class="material-symbols-outlined text-secondary text-4xl">analytics</span>
+<div>
+<h4 class="font-h3 text-lg">Real-time Analytics</h4>
+<p class="text-body-sm text-on-surface-variant">Low-latency data processing for AI decision making.</p>
+</div>
+</div>
+<div class="glass-panel p-md flex flex-col justify-between border-l-4 border-tertiary">
+<span class="material-symbols-outlined text-tertiary text-4xl">hub</span>
+<div>
+<h4 class="font-h3 text-lg">Cloud Infrastructure</h4>
+<p class="text-body-sm text-on-surface-variant">Scalable microservices and serverless architectures.</p>
+</div>
+</div>
+<div class="md:col-span-2 glass-panel p-md flex items-center gap-md">
+<div class="w-24 h-24 bg-surface-container-high rounded-full flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl">code_blocks</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-h3 text-xl">System Integrity &amp; DevOps</h3>
+<p class="text-body-md text-on-surface-variant">Automated deployment pipelines and rigorous observability for high-stakes AI applications.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-cyan-900/30 bg-[#0B1120]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 w-full gap-6 max-w-7xl mx-auto">
+<div class="text-primary font-bold font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase">
+                © 2024 BOGHDADDY OS // SYSTEM STATUS: NOMINAL
+            </div>
+<div class="flex gap-8">
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-secondary hover:translate-y-[-1px] transition-all" href="#">Access Logs</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-secondary hover:translate-y-[-1px] transition-all" href="#">Core Terminal</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-secondary hover:translate-y-[-1px] transition-all" href="#">Network Protocol</a>
+</div>
+<div class="flex gap-4">
+<span class="text-primary text-xs font-mono">ENCRYPTION: AES-256</span>
+<span class="text-slate-700 text-xs font-mono">|</span>
+<span class="text-primary text-xs font-mono">LOC: 40.7128° N, 74.0060° W</span>
+</div>
+</div>
+</footer>
+<!-- Boot Sequence Overlay (Simplified CSS-driven visibility for static output) -->
+<div class="fixed inset-0 z-[100] bg-background flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-1000" id="boot-sequence">
+<div class="max-w-md w-full p-8 font-mono-data text-primary space-y-2">
+<p>&gt; Initializing Boghdaddy OS...</p>
+<p>&gt; Loading LLM Core Modules... <span class="text-secondary">[OK]</span></p>
+<p>&gt; Calibrating Neural Arrays... <span class="text-secondary">[OK]</span></p>
+<p>&gt; Syncing Full-Stack Protocols... <span class="text-secondary">[OK]</span></p>
+<p class="pt-4 text-xl font-bold">ACCESS GRANTED.</p>
+</div>
+</div>
+</body></html>

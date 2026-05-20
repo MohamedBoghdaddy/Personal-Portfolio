@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BOGHDADDY OS // Project Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#161d16",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#00a6e0",
+                        "on-secondary-fixed-variant": "#004c69",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#2c0051",
+                        "on-primary-fixed": "#002109",
+                        "surface-container-highest": "#2f372e",
+                        "secondary-fixed-dim": "#7bd0ff",
+                        "on-secondary": "#00354a",
+                        "on-secondary-container": "#00374d",
+                        "surface-container-high": "#242c24",
+                        "on-surface-variant": "#bccbb9",
+                        "primary-fixed": "#6bff8f",
+                        "surface-container": "#1a221a",
+                        "primary": "#4be277",
+                        "primary-fixed-dim": "#4ae176",
+                        "on-primary": "#003915",
+                        "on-surface": "#dce5d9",
+                        "on-primary-fixed-variant": "#005321",
+                        "error": "#ffb4ab",
+                        "tertiary": "#deb8ff",
+                        "primary-container": "#22c55e",
+                        "secondary": "#7bd0ff",
+                        "inverse-surface": "#dce5d9",
+                        "tertiary-container": "#cb94ff",
+                        "on-tertiary-fixed-variant": "#6900b3",
+                        "surface-dim": "#0e150e",
+                        "surface": "#0e150e",
+                        "surface-bright": "#333b33",
+                        "tertiary-fixed": "#f0dbff",
+                        "background": "#0e150e",
+                        "on-primary-container": "#004b1e",
+                        "on-tertiary": "#490080",
+                        "on-background": "#dce5d9",
+                        "tertiary-fixed-dim": "#ddb7ff",
+                        "outline-variant": "#3d4a3d",
+                        "surface-variant": "#2f372e",
+                        "on-secondary-fixed": "#001e2c",
+                        "outline": "#869585",
+                        "surface-tint": "#4ae176",
+                        "inverse-on-surface": "#2a322a",
+                        "on-tertiary-container": "#5f00a3",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#c4e7ff",
+                        "inverse-primary": "#006e2f",
+                        "surface-container-lowest": "#091009"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xl": "64px",
+                        "gutter": "20px",
+                        "base": "4px",
+                        "margin": "32px",
+                        "xs": "8px",
+                        "lg": "40px",
+                        "md": "24px",
+                        "sm": "16px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "mono-data": ["Space Grotesk"],
+                        "h2": ["Space Grotesk"],
+                        "h3": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "h1": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "mono-data": ["13px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: linear-gradient(180deg, transparent, rgba(30, 41, 59, 0.5));
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+        .corner-accent {
+            position: relative;
+        }
+        .corner-accent::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 8px;
+            height: 8px;
+            border-top: 2px solid #7bd0ff;
+            border-left: 2px solid #7bd0ff;
+        }
+        .corner-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            width: 8px;
+            height: 8px;
+            border-bottom: 2px solid #7bd0ff;
+            border-right: 2px solid #7bd0ff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary/30">
+<nav class="sticky top-0 w-full z-50 bg-[#0B1120]/80 backdrop-blur-lg border-b border-cyan-500/20 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex justify-between items-center px-8 py-3 w-full max-w-7xl mx-auto">
+<div class="text-xl font-black tracking-widest text-emerald-500 drop-shadow-[0_0_8px_rgba(34,197,94,0.4)] font-['Space_Grotesk']">
+                BOGHDADDY OS
+            </div>
+<div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase">
+<a class="text-slate-400 transition-colors duration-300 hover:text-emerald-300 hover:bg-emerald-500/5 px-2 py-1" href="#">Boot</a>
+<a class="text-slate-400 transition-colors duration-300 hover:text-emerald-300 hover:bg-emerald-500/5 px-2 py-1" href="#">Missions</a>
+<a class="text-slate-400 transition-colors duration-300 hover:text-emerald-300 hover:bg-emerald-500/5 px-2 py-1" href="#">Skill Tree</a>
+<a class="text-emerald-400 border-b-2 border-emerald-500 pb-1" href="#">Logs</a>
+<a class="text-slate-400 transition-colors duration-300 hover:text-emerald-300 hover:bg-emerald-500/5 px-2 py-1" href="#">Proof</a>
+<a class="text-slate-400 transition-colors duration-300 hover:text-emerald-300 hover:bg-emerald-500/5 px-2 py-1" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-emerald-500 cursor-pointer hover:opacity-80">terminal</span>
+<span class="material-symbols-outlined text-emerald-500 cursor-pointer hover:opacity-80">sensors</span>
+<button class="bg-primary text-on-primary px-4 py-1.5 font-label-caps uppercase text-xs tracking-wider font-bold rounded-sm transition-all active:scale-95">SIGNAL: ACTIVE</button>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-8 py-xl">
+<header class="mb-lg border-l-4 border-primary pl-md">
+<h1 class="font-h1 text-h1 text-on-surface mb-2">Early Builds / Archive</h1>
+<p class="text-on-surface-variant font-body-lg max-w-2xl">A chronological index of deprecated systems, foundational logic tests, and legacy architectural prototypes from the system's genesis.</p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md items-start">
+<section class="md:col-span-8 space-y-base">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+<div class="glass-panel corner-accent p-md group cursor-pointer hover:bg-[#1E293B] transition-all duration-300 border-outline-variant/30">
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="timer">timer</span>
+<span class="font-mono-data text-xs text-outline">v0.0.1</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-xs group-hover:text-primary transition-colors">Stopwatch</h3>
+<p class="text-on-surface-variant text-body-sm mb-md">High-precision millisecond timing kernel for measuring asynchronous execution cycles.</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[10px] uppercase tracking-widest px-2 py-0.5 bg-surface-container-high text-secondary border border-secondary/20 font-mono-data">Vanilla JS</span>
+<span class="text-[10px] uppercase tracking-widest px-2 py-0.5 bg-surface-container-high text-secondary border border-secondary/20 font-mono-data">RAF Logic</span>
+</div>
+</div>
+<div class="glass-panel corner-accent p-md group cursor-pointer hover:bg-[#1E293B] transition-all duration-300 border-outline-variant/30">
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="grid_view">grid_view</span>
+<span class="font-mono-data text-xs text-outline">v0.1.4</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-xs group-hover:text-primary transition-colors">Tic-Tac-Toe</h3>
+<p class="text-on-surface-variant text-body-sm mb-md">Early heuristic testing ground for Minimax decision trees in a restricted state space.</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[10px] uppercase tracking-widest px-2 py-0.5 bg-surface-container-high text-secondary border border-secondary/20 font-mono-data">Minimax AI</span>
+<span class="text-[10px] uppercase tracking-widest px-2 py-0.5 bg-surface-container-high text-secondary border border-secondary/20 font-mono-data">CSS Grid</span>
+</div>
+</div>
+<div class="glass-panel corner-accent p-md group cursor-pointer hover:bg-[#1E293B] transition-all duration-300 border-outline-variant/30">
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="pattern">pattern</span>
+<span class="font-mono-data text-xs text-outline">v0.2.2</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-xs group-hover:text-primary transition-colors">Template Matching</h3>
+<p class="text-on-surface-variant text-body-sm mb-md">Pixel-perfect sub-region detection algorithm for automated UI component audits.</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[10px] uppercase tracking-widest px-2 py-0.5 bg-surface-container-high text-secondary border border-secondary/20 font-mono-data">Computer Vision</span>
+<span class="text-[10px] uppercase tracking-widest px-2 py-0.5 bg-surface-container-high text-secondary border border-secondary/20 font-mono-data">Canvas API</span>
+</div>
+</div>
+<div class="glass-panel corner-accent p-md group cursor-pointer hover:bg-[#1E293B] transition-all duration-300 border-outline-variant/30">
+<div class="flex justify-between items-start mb-sm">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="database">database</span>
+<span class="font-mono-data text-xs text-outline">v0.3.0</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-xs group-hover:text-primary transition-colors">Data Parser</h3>
+<p class="text-on-surface-variant text-body-sm mb-md">Regex-based telemetry log extraction system for raw hardware diagnostic feeds.</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[10px] uppercase tracking-widest px-2 py-0.5 bg-surface-container-high text-secondary border border-secondary/20 font-mono-data">Regex</span>
+<span class="text-[10px] uppercase tracking-widest px-2 py-0.5 bg-surface-container-high text-secondary border border-secondary/20 font-mono-data">JSON Streams</span>
+</div>
+</div>
+</div>
+</section>
+<aside class="md:col-span-4 space-y-md">
+<div class="bg-surface-container-low border border-outline-variant/20 p-md">
+<div class="flex items-center gap-2 mb-sm">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<h4 class="font-label-caps text-on-surface uppercase tracking-widest">Archive Statistics</h4>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-mono-data text-outline">Total Artifacts</span>
+<span class="text-mono-data text-on-surface">14</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-mono-data text-outline">Latest Entry</span>
+<span class="text-mono-data text-on-surface">MAR 2024</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/10 pb-2">
+<span class="text-mono-data text-outline">Status</span>
+<span class="text-mono-data text-primary">COLD STORAGE</span>
+</div>
+</div>
+</div>
+<div class="p-md bg-tertiary/5 border-l-2 border-tertiary">
+<h4 class="font-label-caps text-tertiary mb-xs">AI NOTE</h4>
+<p class="text-body-sm text-on-surface-variant italic">"These early builds represent the silicon-first approach of BOGHDADDY OS. While minimalist, their architectural purity informs the current Boss-Level infrastructure."</p>
+</div>
+<div class="relative overflow-hidden aspect-square glass-panel border-outline-variant/30 flex items-center justify-center group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="A macro photograph of an intricate, futuristic circuit board glowing with soft cyan and emerald green fiber optic lights. The scene is shot with a shallow depth of field, emphasizing the technical complexity and high-precision engineering. The lighting is moody and dark, reflecting a high-end technological workspace, with subtle hints of floating digital particles in the air." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjh2BGarRfEVgLJ8P-0-nRXgYwtHstvhN1JW_saXMvY3raEL1ibyQsvYXucf_j-L23KrjIhsIOOLkXOSISrckt50IiGDIfz-vGe4n_GYaWmy5OiE5t7J_fbSpdAAiw6qgczpr3UxVgkK_qoN9FLrwsyA_Vj6R04sNxz_k6fL2XaeTgvQza8pW9JpZU8-kHSR2zIjF6scKcegoNXkfi9DNxUnWizwDs0xjVkccrg1Sj_747d8Z5A_kbOrA63Z6dhJo3U4gOstv7jgU"/>
+<div class="relative z-10 text-center p-md">
+<span class="material-symbols-outlined text-4xl text-primary mb-sm" data-icon="folder_zip">folder_zip</span>
+<p class="font-label-caps text-on-primary-fixed uppercase tracking-tighter">Download Full Repository</p>
+</div>
+</div>
+</aside>
+</div>
+<section class="mt-xl py-lg border-t border-cyan-900/30">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-h2 text-h2 text-on-surface">System Dependencies</h2>
+<span class="font-mono-data text-outline uppercase text-[10px] tracking-[0.3em]">Network Integrity: 100%</span>
+</div>
+<div class="flex flex-wrap gap-4 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+<div class="bg-surface-container-high px-4 py-3 flex items-center gap-3 border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary" data-icon="javascript">javascript</span>
+<span class="font-mono-data text-xs uppercase tracking-widest">Core_Engine</span>
+</div>
+<div class="bg-surface-container-high px-4 py-3 flex items-center gap-3 border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary" data-icon="css">css</span>
+<span class="font-mono-data text-xs uppercase tracking-widest">Styling_Layer</span>
+</div>
+<div class="bg-surface-container-high px-4 py-3 flex items-center gap-3 border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary" data-icon="api">api</span>
+<span class="font-mono-data text-xs uppercase tracking-widest">REST_Protocol</span>
+</div>
+<div class="bg-surface-container-high px-4 py-3 flex items-center gap-3 border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary" data-icon="memory">memory</span>
+<span class="font-mono-data text-xs uppercase tracking-widest">Buffer_Logic</span>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full py-12 border-t border-cyan-900/30 bg-[#0B1120]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 w-full max-w-7xl mx-auto gap-6">
+<div class="text-emerald-500 font-bold font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase">
+                © 2024 BOGHDADDY OS // SYSTEM STATUS: NOMINAL
+            </div>
+<div class="flex gap-8 font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase">
+<a class="text-slate-500 hover:text-cyan-400 transition-colors hover:translate-y-[-1px]" href="#">Access Logs</a>
+<a class="text-slate-500 hover:text-cyan-400 transition-colors hover:translate-y-[-1px]" href="#">Core Terminal</a>
+<a class="text-slate-500 hover:text-cyan-400 transition-colors hover:translate-y-[-1px]" href="#">Network Protocol</a>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<span class="text-emerald-500 font-mono-data text-[10px]">LIVE FEED ENCRYPTED</span>
+</div>
+</div>
+</footer>
+</body></html>

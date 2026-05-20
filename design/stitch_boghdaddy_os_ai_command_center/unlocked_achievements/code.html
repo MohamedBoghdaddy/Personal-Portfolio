@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BOGHDADDY OS - Unlocked Achievements</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#161d16",
+                    "on-error-container": "#ffdad6",
+                    "secondary-container": "#00a6e0",
+                    "on-secondary-fixed-variant": "#004c69",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed": "#2c0051",
+                    "on-primary-fixed": "#002109",
+                    "surface-container-highest": "#2f372e",
+                    "secondary-fixed-dim": "#7bd0ff",
+                    "on-secondary": "#00354a",
+                    "on-secondary-container": "#00374d",
+                    "surface-container-high": "#242c24",
+                    "on-surface-variant": "#bccbb9",
+                    "primary-fixed": "#6bff8f",
+                    "surface-container": "#1a221a",
+                    "primary": "#4be277",
+                    "primary-fixed-dim": "#4ae176",
+                    "on-primary": "#003915",
+                    "on-surface": "#dce5d9",
+                    "on-primary-fixed-variant": "#005321",
+                    "error": "#ffb4ab",
+                    "tertiary": "#deb8ff",
+                    "primary-container": "#22c55e",
+                    "secondary": "#7bd0ff",
+                    "inverse-surface": "#dce5d9",
+                    "tertiary-container": "#cb94ff",
+                    "on-tertiary-fixed-variant": "#6900b3",
+                    "surface-dim": "#0e150e",
+                    "surface": "#0e150e",
+                    "surface-bright": "#333b33",
+                    "tertiary-fixed": "#f0dbff",
+                    "background": "#0e150e",
+                    "on-primary-container": "#004b1e",
+                    "on-tertiary": "#490080",
+                    "on-background": "#dce5d9",
+                    "tertiary-fixed-dim": "#ddb7ff",
+                    "outline-variant": "#3d4a3d",
+                    "surface-variant": "#2f372e",
+                    "on-secondary-fixed": "#001e2c",
+                    "outline": "#869585",
+                    "surface-tint": "#4ae176",
+                    "inverse-on-surface": "#2a322a",
+                    "on-tertiary-container": "#5f00a3",
+                    "error-container": "#93000a",
+                    "secondary-fixed": "#c4e7ff",
+                    "inverse-primary": "#006e2f",
+                    "surface-container-lowest": "#091009"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "64px",
+                    "gutter": "20px",
+                    "base": "4px",
+                    "margin": "32px",
+                    "xs": "8px",
+                    "lg": "40px",
+                    "md": "24px",
+                    "sm": "16px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "mono-data": ["Space Grotesk"],
+                    "h2": ["Space Grotesk"],
+                    "h3": ["Space Grotesk"],
+                    "body-lg": ["Inter"],
+                    "h1": ["Space Grotesk"],
+                    "label-caps": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "mono-data": ["13px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "h1": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: linear-gradient(180deg, transparent 0%, rgba(30, 41, 59, 0.2) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(75, 226, 119, 0.1);
+        }
+        .hud-corner::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 8px;
+            height: 8px;
+            border-top: 2px solid #4be277;
+            border-left: 2px solid #4be277;
+        }
+        .ai-accent {
+            border-left: 2px solid #deb8ff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased">
+<!-- TopNavBar Execution -->
+<nav class="sticky top-0 w-full z-50 bg-[#0B1120]/80 backdrop-blur-lg border-b border-cyan-500/20 shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex justify-between items-center px-8 py-3 w-full max-w-7xl mx-auto">
+<div class="text-xl font-black tracking-widest text-emerald-500 drop-shadow-[0_0_8px_rgba(34,197,94,0.4)] font-['Space_Grotesk']">
+                BOGHDADDY OS
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase text-slate-400 transition-colors duration-300 hover:text-emerald-300 hover:bg-emerald-500/5 px-2" href="#">Boot</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase text-slate-400 transition-colors duration-300 hover:text-emerald-300 hover:bg-emerald-500/5 px-2" href="#">Missions</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase text-slate-400 transition-colors duration-300 hover:text-emerald-300 hover:bg-emerald-500/5 px-2" href="#">Skill Tree</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase text-slate-400 transition-colors duration-300 hover:text-emerald-300 hover:bg-emerald-500/5 px-2" href="#">Logs</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase text-emerald-400 border-b-2 border-emerald-500 pb-1" href="#">Proof</a>
+<a class="font-['Space_Grotesk'] tracking-tight text-sm font-medium uppercase text-slate-400 transition-colors duration-300 hover:text-emerald-300 hover:bg-emerald-500/5 px-2" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4 text-emerald-500">
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80">terminal</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-80">sensors</span>
+<button class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-sm font-label-caps text-[10px] uppercase font-bold tracking-widest active:scale-95 transition-all">
+                    SIGNAL: ACTIVE
+                </button>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-margin py-xl">
+<!-- Header Section -->
+<header class="mb-lg border-l-4 border-primary pl-md">
+<h1 class="font-h1 text-h1 text-on-surface uppercase tracking-tight">Unlocked Achievements</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-base max-w-2xl">
+                Validated operational milestones and technical deployments. System-level verification of architectural mastery and AI integration.
+            </p>
+</header>
+<!-- Bento Grid Achievements -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Achievement 1: Large Feature -->
+<div class="md:col-span-8 group relative glass-panel p-md rounded-lg overflow-hidden cursor-pointer hover:border-primary/40 transition-all duration-500">
+<div class="hud-corner"></div>
+<div class="flex flex-col md:flex-row gap-md items-start">
+<div class="bg-surface-container-highest p-sm rounded-xl border border-outline-variant group-hover:bg-primary/10 group-hover:border-primary/30 transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-sm mb-xs">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.2em]">Deployment: Platform</span>
+<span class="h-[1px] flex-1 bg-outline-variant"></span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-xs">Built AI LMS Platform (PreGen)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">
+                            Architected a high-scale Learning Management System leveraging generative AI for automated curriculum synthesis and personalized learner pathways. Integrated real-time data streaming and vector database querying.
+                        </p>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-surface-container-high px-sm py-1 border border-outline-variant rounded-full font-mono-data text-mono-data text-on-surface-variant">VEC_DB</span>
+<span class="bg-surface-container-high px-sm py-1 border border-outline-variant rounded-full font-mono-data text-mono-data text-on-surface-variant">REACT_NODE</span>
+<span class="bg-surface-container-high px-sm py-1 border border-outline-variant rounded-full font-mono-data text-mono-data text-on-surface-variant">LLM_OPS</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 right-0 p-sm opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-6xl rotate-12">verified</span>
+</div>
+</div>
+<!-- Achievement 2: Side Feature -->
+<div class="md:col-span-4 group relative glass-panel p-md rounded-lg ai-accent cursor-pointer hover:border-tertiary/40 transition-all duration-500">
+<div class="hud-corner"></div>
+<div class="flex flex-col gap-sm">
+<div class="bg-surface-container-highest w-fit p-sm rounded-xl border border-outline-variant group-hover:bg-tertiary/10 group-hover:border-tertiary/30 transition-colors">
+<span class="material-symbols-outlined text-tertiary text-3xl">medical_services</span>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-[0.2em]">Prototype: Healthcare</span>
+<h3 class="font-h3 text-h3 text-on-surface">Built Healthcare AI Prototype (MammoAI)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                        Computer vision diagnostic tool for radiological screening protocols. Developed in compliance with HIPAA-adjacent technical standards for data privacy.
+                    </p>
+</div>
+</div>
+<!-- Achievement 3: Grid Item -->
+<div class="md:col-span-4 group relative glass-panel p-md rounded-lg cursor-pointer hover:border-primary/40 transition-all duration-500">
+<div class="hud-corner"></div>
+<div class="flex items-center gap-md mb-sm">
+<div class="bg-surface-container-highest p-xs rounded-lg border border-outline-variant group-hover:border-primary/30 transition-colors">
+<span class="material-symbols-outlined text-primary text-2xl">layers</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.2em]">Execution</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-xs">Shipped Full-Stack MVPs</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Rapid deployment of minimum viable products with production-ready architecture and automated CI/CD pipelines.
+                </p>
+</div>
+<!-- Achievement 4: Grid Item -->
+<div class="md:col-span-4 group relative glass-panel p-md rounded-lg cursor-pointer hover:border-primary/40 transition-all duration-500">
+<div class="hud-corner"></div>
+<div class="flex items-center gap-md mb-sm">
+<div class="bg-surface-container-highest p-xs rounded-lg border border-outline-variant group-hover:border-primary/30 transition-colors">
+<span class="material-symbols-outlined text-primary text-2xl">payments</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.2em]">Validation</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-xs">Worked in UAT/QA for Fintech</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Ensuring system reliability and security protocols within high-stakes financial technology environments. 99.9% uptime focus.
+                </p>
+</div>
+<!-- Achievement 5: Grid Item -->
+<div class="md:col-span-4 group relative glass-panel p-md rounded-lg cursor-pointer hover:border-primary/40 transition-all duration-500">
+<div class="hud-corner"></div>
+<div class="flex items-center gap-md mb-sm">
+<div class="bg-surface-container-highest p-xs rounded-lg border border-outline-variant group-hover:border-primary/30 transition-colors">
+<span class="material-symbols-outlined text-primary text-2xl">security</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.2em]">Concepts</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-xs">Built Cybersecurity AI Concepts (ByteGuard)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Conceptual framework for autonomous threat detection using neural pattern recognition in high-traffic networks.
+                </p>
+</div>
+</div>
+<!-- System Visualization Section -->
+<section class="mt-xl grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
+<div class="relative rounded-lg overflow-hidden border border-cyan-500/20 aspect-video group">
+<img alt="Cybersecurity Visualization" class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-80 transition-all duration-700" data-alt="A cinematic, high-detail visualization of a futuristic cybersecurity command center. Dozens of glowing blue holographic screens display complex data streams, network nodes, and threat detection graphs in a dark, aerospace-grade industrial setting. The lighting is low-key with intense electric cyan accents reflecting off brushed metal surfaces. The atmosphere is professional, cold, and high-tech, emphasizing precision and silent intelligence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIWkGSM2G_LbsfwaZg-D4QwLgfdCJ3-B06ExoUDBaqPqdh-4-D47_RjlM59fQfzXMPhovp5fSZGA01pNjbOqPLJK95Zb2Wh81g0uq4__tR88TRq-di_pPY3C-abAECmGASqUDUCkYCPUMmo3wTZVeaB_aBdy5IEDYWkjEJa7BLw2n7nQdsqbL_-FrNf_9ykKHE2G0oVSEINwvrqTfT_lgZf13Kyq25V9s5v4tP1c4k5UZbeSCSKAFK0U_4KRCgFqqJTwtB73MLwoo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0B1120] to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<p class="font-mono-data text-primary text-mono-data mb-xs">TERMINAL_REF: //BYTEGUARD_OS</p>
+<div class="h-1 w-32 bg-primary"></div>
+</div>
+</div>
+<div class="flex flex-col gap-md">
+<h2 class="font-h2 text-h2 text-on-surface uppercase">The Validation Protocol</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Every achievement listed above undergoes a rigorous internal audit. We prioritize verifiable output over theoretical knowledge, ensuring that every "unlocked" skill represents a tangible contribution to a shipping ecosystem.
+                </p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-sm font-mono-data text-mono-data text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                        CODE_QUALITY_AUDIT: PASSED
+                    </li>
+<li class="flex items-center gap-sm font-mono-data text-mono-data text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                        SCALABILITY_STRESS_TEST: NOMINAL
+                    </li>
+<li class="flex items-center gap-sm font-mono-data text-mono-data text-on-surface">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                        AI_LOGIC_COHESION: OPTIMIZED
+                    </li>
+</ul>
+<button class="w-fit border border-secondary text-secondary px-lg py-sm font-label-caps tracking-widest hover:bg-secondary/5 transition-all">
+                    REQUEST ARCHITECTURE DOCS
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer Execution -->
+<footer class="w-full py-12 border-t border-cyan-900/30 bg-[#0B1120]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 w-full gap-6">
+<div class="text-emerald-500 font-bold font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase">
+                BOGHDADDY OS
+            </div>
+<div class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-slate-500">
+                © 2024 BOGHDADDY OS // SYSTEM STATUS: NOMINAL
+            </div>
+<div class="flex gap-8">
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-cyan-400 hover:translate-y-[-1px] transition-all" href="#">Access Logs</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-cyan-400 hover:translate-y-[-1px] transition-all" href="#">Core Terminal</a>
+<a class="font-['Space_Grotesk'] text-[10px] tracking-[0.2em] uppercase text-slate-500 hover:text-cyan-400 hover:translate-y-[-1px] transition-all" href="#">Network Protocol</a>
+</div>
+</div>
+</footer>
+</body></html>

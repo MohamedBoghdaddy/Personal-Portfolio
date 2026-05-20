@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(75, 226, 119, 0.08), transparent 34rem),
+    radial-gradient(circle at top right, rgba(123, 208, 255, 0.08), transparent 32rem),
+    #0e150e;
+  font-family: Inter, sans-serif;
+  overflow-x: hidden;
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  display: inline-flex;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+@layer components {
+  .page-shell {
+    @apply max-w-7xl mx-auto px-5 md:px-8 py-12 md:py-xl;
+  }
+
+  .glass-panel {
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.06) 0%, rgba(30, 41, 59, 0.52) 100%);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(56, 189, 248, 0.12);
+  }
+
+  .glass-panel-hover {
+    @apply transition-all duration-300;
+  }
+
+  .glass-panel-hover:hover {
+    background: rgba(30, 41, 59, 0.82);
+    border-color: rgba(75, 226, 119, 0.38);
+    box-shadow: 0 0 30px rgba(75, 226, 119, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .hud-corner {
+    position: relative;
+  }
+
+  .hud-corner::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #4be277;
+    border-left: 2px solid #4be277;
+  }
+
+  .hud-corner::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid #7bd0ff;
+    border-right: 2px solid #7bd0ff;
+  }
+
+  .hud-grid {
+    background-image:
+      linear-gradient(to right, rgba(75, 226, 119, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(75, 226, 119, 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .label-caps {
+    @apply font-display text-[11px] uppercase tracking-[0.18em] font-bold;
+  }
+
+  .terminal-cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .screen-reader-safe-focus {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+  }
+}
+
+
+@layer components {
+  .field-input {
+    @apply w-full rounded-none border border-outline-variant bg-surface-container px-sm py-md text-on-surface placeholder:text-slate-600 focus:border-secondary focus:ring-0;
+  }
+}
