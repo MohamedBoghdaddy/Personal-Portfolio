@@ -66,23 +66,23 @@ export default function Contact() {
   return (
     <main className="page-shell">
       <SectionHeader
-        eyebrow="Contact: Launch Mission"
-        title={<>Start a New <span className="text-primary">Mission</span></>}
-        description="Initialize direct communication for high-priority collaborations in AI, mobile, and full-stack product development."
-        icon="rocket_launch"
+        eyebrow="Get in Touch"
+        title={<>Let's <span className="text-primary">Work Together</span></>}
+        description="Open for AI product projects, full-stack builds, Flutter mobile apps, and technical collaborations."
+        icon="alternate_email"
       />
 
       <div className="grid grid-cols-1 gap-md lg:grid-cols-12">
         <div className="space-y-md lg:col-span-5">
           <GlassCard className="p-md">
             <div className="mb-md flex items-center justify-between border-b border-outline-variant pb-sm">
-              <span className="label-caps text-on-surface-variant">Operator Status</span>
+              <span className="label-caps text-on-surface-variant">Availability</span>
               <div className="flex items-center gap-xs">
                 <span className="relative flex h-3 w-3">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
                   <span className="relative inline-flex h-3 w-3 rounded-full bg-primary" />
                 </span>
-                <span className="font-mono text-sm text-primary">AVAILABLE</span>
+                <span className="font-mono text-sm text-primary">Available</span>
               </div>
             </div>
 
@@ -95,20 +95,20 @@ export default function Contact() {
               </div>
               <div className="flex items-center gap-sm text-on-surface-variant">
                 <Icon name="location_on" className="text-secondary" />
-                <span className="font-mono text-sm">{identity.location} / Global Protocol</span>
+                <span className="font-mono text-sm">{identity.location} / Remote</span>
               </div>
             </div>
 
             <div className="grid gap-sm">
               <Button href={`mailto:${identity.email}`} icon="mail" className="w-full">
-                Initialize Email
+                Send Email
               </Button>
               <div className="grid grid-cols-2 gap-sm">
                 <Button href={identity.linkedinUrl || undefined} icon="share" variant="secondary" disabled={!identity.linkedinUrl}>
-                  LinkedIn TODO
+                  LinkedIn
                 </Button>
                 <Button href={identity.cvUrl} icon="description" variant="secondary" download="Mohamed-Boghdady-CV.pdf">
-                  View CV
+                  Download CV
                 </Button>
               </div>
             </div>
@@ -116,12 +116,12 @@ export default function Contact() {
 
           <GlassCard className="p-md">
             <div className="mb-xs flex justify-between gap-sm label-caps text-on-surface-variant">
-              <span>Data Transmission Strength</span>
+              <span>Form Progress</span>
               <span>{completion}% Complete</span>
             </div>
             <ProgressBar value={completion} accent={completion === 100 ? "primary" : "secondary"} />
             <p className="mt-sm font-mono text-[11px] italic text-outline">
-              Mission parameters: [Name: {watched.firstName ? "OK" : "PENDING"}] [Email: {watched.email ? "OK" : "PENDING"}] [Message: {watched.message ? "OK" : "PENDING"}]
+              [Name: {watched.firstName ? "OK" : "needed"}] [Email: {watched.email ? "OK" : "needed"}] [Message: {watched.message ? "OK" : "needed"}]
             </p>
           </GlassCard>
         </div>
@@ -148,7 +148,7 @@ export default function Contact() {
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-md p-md">
               <div className="grid grid-cols-1 gap-md md:grid-cols-2">
-                <Field label="Codename / First Name" error={errors.firstName?.message}>
+                <Field label="First Name" error={errors.firstName?.message}>
                   <input
                     className="field-input"
                     placeholder="Mohamed"
@@ -172,7 +172,7 @@ export default function Contact() {
                 </Field>
               </div>
 
-              <Field label="Return Frequency / Email" error={errors.email?.message}>
+              <Field label="Email Address" error={errors.email?.message}>
                 <input
                   className="field-input"
                   placeholder="you@example.com"
@@ -185,7 +185,7 @@ export default function Contact() {
               </Field>
 
               {activeTab === "quick" ? (
-                <Field label="Mission Objective / Subject" error={errors.topic?.message}>
+                <Field label="Subject / Project Type" error={errors.topic?.message}>
                   <select className="field-input" {...register("topic", { required: "Please select a topic" })}>
                     {contactTopics.map((topic) => <option key={topic}>{topic}</option>)}
                   </select>
@@ -206,10 +206,10 @@ export default function Contact() {
                 </div>
               )}
 
-              <Field label="Transmission Data / Message" error={errors.message?.message}>
+              <Field label="Message" error={errors.message?.message}>
                 <textarea
                   className="field-input min-h-[170px] resize-none"
-                  placeholder="Describe the mission parameters in detail..."
+                  placeholder="Tell me about your project or opportunity..."
                   rows={6}
                   {...register("message", {
                     required: "Message cannot be empty",
@@ -237,8 +237,8 @@ export default function Contact() {
                 disabled={isSubmitting}
               >
                 <span className="relative z-10 flex items-center gap-sm">
-                  <Icon name="rocket_launch" />
-                  {isSubmitting ? "Transmitting..." : "Launch Mission"}
+                  <Icon name="send" />
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </span>
                 <div className="absolute inset-0 bg-primary-strong opacity-0 transition group-hover:opacity-100" />
               </button>

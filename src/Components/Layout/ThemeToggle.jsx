@@ -29,7 +29,7 @@ export default function ThemeToggle() {
       title={`Switch to ${nextTheme} theme`}
     >
       <Icon name={theme === "dark" ? "dark_mode" : "light_mode"} className="text-[16px]" />
-      <span className="hidden sm:inline">{theme === "dark" ? "Dark Ops" : "Light Ops"}</span>
+      <span className="hidden sm:inline">{theme === "dark" ? "Dark" : "Light"}</span>
     </button>
   );
 }

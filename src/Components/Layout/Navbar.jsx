@@ -36,18 +36,12 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-xs sm:gap-sm">
-          <NavLink className="focus-ring hidden text-secondary transition hover:text-primary sm:inline-flex" to="/terminal" aria-label="Open command terminal">
-            <Icon name="terminal" />
-          </NavLink>
-          <span className="hidden text-primary sm:inline-flex" aria-hidden="true">
-            <Icon name="sensors" />
-          </span>
           <ThemeToggle />
           <NavLink
             to="/contact"
             className="focus-ring hidden bg-primary px-sm py-1.5 font-display text-[10px] font-bold uppercase tracking-widest text-on-primary transition hover:brightness-110 active:scale-95 sm:inline-flex"
           >
-            Signal: Active
+            Hire Me
           </NavLink>
           <button
             className="focus-ring inline-flex border border-outline-variant bg-surface-container p-1.5 text-on-surface md:hidden"
@@ -84,7 +78,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="focus-ring mt-xs bg-primary px-sm py-xs text-center font-display text-xs font-bold uppercase tracking-widest text-on-primary"
             >
-              Signal: Active
+              Hire Me
             </NavLink>
           </div>
         </div>

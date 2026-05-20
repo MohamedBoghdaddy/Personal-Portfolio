@@ -1,9 +1,25 @@
-import { capabilities, identity } from "../data/portfolioData";
-import { Button, GlassCard, Icon, SectionHeader, Tag, accentClasses } from "../components/UI";
+import { Link } from "react-router-dom";
+import { identity, projects } from "../data/portfolioData";
+import { Button, GlassCard, Icon, SectionHeader, Tag, VisualPlaceholder, accentClasses } from "../components/UI";
+
+const proofCards = [
+  { icon: "psychology", label: "AI Product Systems", desc: "LLM APIs, RAG, prompt engineering", accent: "tertiary" },
+  { icon: "phone_iphone", label: "Flutter Mobile Apps", desc: "BLoC, Firebase, camera flows", accent: "primary" },
+  { icon: "dns", label: "FastAPI Backends", desc: "REST APIs, structured outputs", accent: "secondary" },
+  { icon: "cloud_done", label: "Firebase / Firestore", desc: "Auth, rules, real-time data", accent: "primary" },
+  { icon: "fact_check", label: "QA & Production Readiness", desc: "Postman, browser QA, release checks", accent: "secondary" }
+];
+
+const featuredSlugs = ["calorielens", "pregen-ai-lms", "ai-cyber-defense-lab"];
 
 export default function Home() {
+  const featuredProjects = featuredSlugs
+    .map((slug) => projects.find((p) => p.slug === slug))
+    .filter(Boolean);
+
   return (
     <main>
+      {/* Hero */}
       <section className="relative flex min-h-[calc(100vh-64px)] items-center overflow-hidden px-5 py-20 md:px-8">
         <div className="pointer-events-none absolute inset-0 z-0">
           <div className="absolute left-1/2 top-1/2 h-[760px] w-[760px] -translate-x-1/2 -translate-y-1/2 animate-pulse rounded-full border border-secondary/10" />
@@ -30,22 +46,16 @@ export default function Home() {
                 I build <span className="italic text-primary">AI-powered</span> products from idea to production.
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-relaxed text-on-surface-variant">
-                {identity.summary}
+                Full-Stack AI Engineer building web and mobile products with React, Flutter, FastAPI, Firebase, LLM APIs, and RAG workflows. I care about clean UI, working integrations, and real QA before shipping.
               </p>
             </div>
 
-            <div className="border-l-4 border-primary bg-surface-container-lowest p-4 font-mono text-lg text-primary">
-              <span className="opacity-50">&gt;</span> whoami:{" "}
-              <span className="text-on-background">{identity.title}</span>
-            </div>
-
             <div className="flex flex-wrap gap-4">
-              <Button to="/missions" icon="rocket_launch">Start Mission</Button>
-              <Button to="/builds" icon="visibility" variant="secondary">View Case Studies</Button>
-              <Button href={identity.cvUrl} icon="description" variant="ghost" download="Mohamed-Boghdady-CV.pdf">
-                CV
+              <Button to="/builds" icon="grid_view">View Projects</Button>
+              <Button href={identity.cvUrl} icon="description" variant="secondary" download="Mohamed-Boghdady-CV.pdf">
+                Download CV
               </Button>
-              <Button to="/contact" icon="alternate_email" variant="ghost">Contact</Button>
+              <Button to="/contact" icon="alternate_email" variant="ghost">Contact Me</Button>
             </div>
           </div>
 
@@ -65,10 +75,10 @@ export default function Home() {
 
               <GlassCard className="absolute -right-1 top-2 max-w-[190px] p-sm shadow-2xl" hover={false}>
                 <div className="mb-xs flex items-center gap-xs text-primary">
-                  <Icon name="memory" className="text-sm" />
+                  <Icon name="psychology" className="text-sm" />
                   <span className="font-mono text-[10px] uppercase">AI Systems</span>
                 </div>
-                <h4 className="mb-xs font-display text-sm font-semibold">LLM Workflows</h4>
+                <h4 className="mb-xs font-display text-sm font-semibold">LLM + RAG</h4>
                 <div className="h-1 w-full overflow-hidden rounded-full bg-surface-container-highest">
                   <div className="h-full w-4/5 bg-primary" />
                 </div>
@@ -77,50 +87,85 @@ export default function Home() {
               <GlassCard className="absolute -left-4 bottom-12 border-l-4 border-tertiary p-sm shadow-2xl md:-left-12" hover={false} accent="tertiary">
                 <div className="mb-xs flex items-center gap-xs text-tertiary">
                   <Icon name="layers" className="text-sm" />
-                  <span className="font-mono text-[10px] uppercase">Core Architect</span>
+                  <span className="font-mono text-[10px] uppercase">Full-Stack</span>
                 </div>
-                <h4 className="font-display text-sm font-semibold">Full-Stack Core</h4>
-                <p className="text-[10px] text-on-surface-variant">React // FastAPI // Flutter</p>
+                <h4 className="font-display text-sm font-semibold">React + FastAPI</h4>
+                <p className="text-[10px] text-on-surface-variant">Flutter mobile too</p>
               </GlassCard>
 
               <GlassCard className="absolute -bottom-2 right-4 border-l-2 border-secondary p-sm shadow-2xl" hover={false} accent="secondary">
-                <div className="text-[10px] font-mono uppercase text-secondary">QA Cluster</div>
-                <p className="mt-xs text-xs text-on-surface-variant">Testing and release checks online</p>
+                <div className="text-[10px] font-mono uppercase text-secondary">QA Mindset</div>
+                <p className="mt-xs text-xs text-on-surface-variant">Postman · browser QA · release checks</p>
               </GlassCard>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Proof Cards */}
       <section className="page-shell">
         <SectionHeader
-          eyebrow="Capability Bento"
-          title="System Capabilities"
-          description="A quick map of the engineering modes that power the portfolio."
+          eyebrow="What I Build"
+          title="Core Capabilities"
+          description="The engineering areas I work across — each backed by real projects."
           icon="hub"
         />
-        <div className="grid grid-cols-1 gap-md md:grid-cols-3">
-          {capabilities.map((capability, index) => {
-            const ac = accentClasses[capability.accent];
+        <div className="grid grid-cols-1 gap-md sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          {proofCards.map((card) => {
+            const ac = accentClasses[card.accent];
             return (
-              <GlassCard
-                key={capability.title}
-                className={`p-md ${index === 0 ? "md:col-span-2" : ""} ${index > 0 ? `border-l-4 ${ac.borderLeft}` : ""}`}
-                accent={capability.accent}
-              >
-                <div className="mb-sm flex items-center justify-between">
-                  <span className="label-caps text-primary">{capability.protocol}</span>
-                  <Icon name={capability.icon} className={`text-4xl ${ac.text}`} />
+              <GlassCard key={card.label} className={`border-l-4 ${ac.borderLeft} p-md text-center`} accent={card.accent}>
+                <Icon name={card.icon} className={`mx-auto mb-sm text-4xl ${ac.text}`} />
+                <h3 className="mb-xs font-display text-base font-semibold">{card.label}</h3>
+                <p className="text-xs text-on-surface-variant">{card.desc}</p>
+              </GlassCard>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Featured Projects */}
+      <section className="page-shell">
+        <SectionHeader
+          eyebrow="Featured Work"
+          title="Strongest Projects"
+          description="Three builds that demonstrate AI, mobile, and full-stack depth."
+          icon="star"
+        />
+        <div className="grid grid-cols-1 gap-md md:grid-cols-3">
+          {featuredProjects.map((project) => {
+            const ac = accentClasses[project.accent];
+            return (
+              <GlassCard key={project.slug} className={`flex flex-col border-l-4 ${ac.borderLeft} p-md`} accent={project.accent}>
+                <VisualPlaceholder
+                  image={project.image}
+                  icon="dashboard"
+                  title={project.title}
+                  accent={project.accent}
+                  className="mb-md rounded-md aspect-video"
+                />
+                <p className={`label-caps mb-xs ${ac.text}`}>{project.category}</p>
+                <h3 className="mb-sm font-display text-xl font-semibold">{project.title}</h3>
+                <p className="mb-sm flex-1 text-sm leading-relaxed text-on-surface-variant">{project.description}</p>
+                <div className="mb-md flex flex-wrap gap-xs">
+                  {project.tags.slice(0, 3).map((tag) => <Tag key={tag} accent={project.accent}>{tag}</Tag>)}
                 </div>
-                <h3 className="mb-xs font-display text-2xl font-semibold">{capability.title}</h3>
-                <p className="text-on-surface-variant">{capability.description}</p>
-                <div className="mt-sm flex flex-wrap gap-xs">
-                  <Tag accent={capability.accent}>Production-minded</Tag>
-                  <Tag accent="secondary">Data-driven</Tag>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[10px] uppercase text-outline">{project.status}</span>
+                  <Link
+                    to={`/case-studies/${project.slug}`}
+                    className={`focus-ring label-caps ${ac.text} hover:text-primary`}
+                  >
+                    View Case Study →
+                  </Link>
                 </div>
               </GlassCard>
             );
           })}
+        </div>
+        <div className="mt-lg flex justify-center gap-md">
+          <Button to="/builds" icon="grid_view">All Projects</Button>
+          <Button to="/contact" icon="alternate_email" variant="secondary">Contact Me</Button>
         </div>
       </section>
     </main>

@@ -5,10 +5,10 @@ export default function Experience() {
   return (
     <main className="page-shell">
       <SectionHeader
-        eyebrow="System Archive // Chronological Deployment History"
-        title="Experience Logs"
-        description="A chronological timeline for product work, project experience, technical growth, and QA-minded execution."
-        icon="history"
+        eyebrow="Background"
+        title="Work Experience"
+        description="Project-based and software house experience across AI products, mobile development, and full-stack engineering."
+        icon="work"
       />
 
       <div className="relative ml-4 mt-xl border-l border-outline-variant/40 pb-xl md:ml-12">
@@ -19,7 +19,7 @@ export default function Experience() {
               <div className="mb-sm flex flex-col justify-between gap-xs md:flex-row md:items-center">
                 <div>
                   <span className={`mb-1 block font-mono text-xs uppercase tracking-widest ${index === 0 ? "text-primary" : "text-outline"}`}>
-                    Deployment: {exp.status}
+                    {exp.status}
                   </span>
                   <h2 className="font-display text-2xl font-semibold md:text-3xl">{exp.role}</h2>
                 </div>
@@ -32,7 +32,7 @@ export default function Experience() {
               <div className="mb-md space-y-sm">
                 {exp.bullets.map((bullet) => (
                   <div key={bullet} className="flex gap-sm">
-                    <Icon name="double_arrow" className="mt-1 text-sm text-primary" />
+                    <Icon name="arrow_right" className="mt-1 text-sm text-primary" />
                     <p className="text-on-surface-variant">{bullet}</p>
                   </div>
                 ))}
@@ -49,8 +49,8 @@ export default function Experience() {
       <div className="grid grid-cols-1 gap-md md:grid-cols-3">
         {[
           ["hub", "Iterative", "Build process"],
-          ["memory", "AI", "Systems practice"],
-          ["cloud_done", "QA", "Release mindset"]
+          ["psychology", "AI-first", "Engineering mindset"],
+          ["fact_check", "QA", "Release readiness"]
         ].map(([icon, value, label]) => (
           <GlassCard key={label} className="flex flex-col items-center justify-center p-md text-center">
             <Icon name={icon} className="mb-sm text-4xl text-primary" />
@@ -62,4 +62,3 @@ export default function Experience() {
     </main>
   );
 }
-

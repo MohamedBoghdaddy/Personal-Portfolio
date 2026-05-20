@@ -11,11 +11,12 @@ import intellektImage from "../assets/images/education.png";
 import worldPulseImage from "../assets/images/workspace.png";
 
 export const navItems = [
-  { label: "Boot", to: "/" },
-  { label: "Missions", to: "/missions" },
-  { label: "Skill Tree", to: "/skill-tree" },
-  { label: "Logs", to: "/experience" },
-  { label: "Proof", to: "/proof" },
+  { label: "Home", to: "/" },
+  { label: "Projects", to: "/builds" },
+  { label: "Experience", to: "/experience" },
+  { label: "Skills", to: "/skill-tree" },
+  { label: "Services", to: "/services" },
+  { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" }
 ];
 
@@ -416,33 +417,75 @@ export const skillGroups = [
     group: "AI & LLM Systems",
     icon: "psychology",
     accent: "tertiary",
+    relatedProjects: ["PreGen AI LMS", "AI Cyber Defense Lab", "BugPilot"],
     nodes: [
-      { name: "LLM APIs", level: "Advanced", value: 88 },
-      { name: "RAG", level: "Strong", value: 82 },
-      { name: "Prompt Engineering", level: "Advanced", value: 90 },
-      { name: "Agents", level: "Working Knowledge", value: 70 }
+      { name: "LLM APIs", level: "Advanced" },
+      { name: "RAG Workflows", level: "Strong" },
+      { name: "Prompt Engineering", level: "Advanced" },
+      { name: "Structured JSON Outputs", level: "Strong" },
+      { name: "AI Agents", level: "Working Knowledge" }
     ]
   },
   {
-    group: "Full-Stack Engineering",
-    icon: "layers",
+    group: "Frontend",
+    icon: "web",
     accent: "secondary",
+    relatedProjects: ["PreGen AI LMS", "Financial AI Advisor", "AI Cyber Defense Lab"],
     nodes: [
-      { name: "React", level: "Advanced", value: 88 },
-      { name: "FastAPI", level: "Strong", value: 82 },
-      { name: "Node.js", level: "Strong", value: 78 },
-      { name: "API Design", level: "Strong", value: 82 }
+      { name: "React", level: "Advanced" },
+      { name: "Tailwind CSS", level: "Advanced" },
+      { name: "Responsive UI", level: "Strong" },
+      { name: "Component Architecture", level: "Strong" }
     ]
   },
   {
-    group: "ML / Data / Mobile / Cloud",
+    group: "Mobile — Flutter",
+    icon: "phone_iphone",
+    accent: "primary",
+    relatedProjects: ["CalorieLens", "FoundIt", "Tabeeb"],
+    nodes: [
+      { name: "Flutter", level: "Advanced" },
+      { name: "BLoC State Management", level: "Advanced" },
+      { name: "go_router", level: "Strong" },
+      { name: "ARB Localization", level: "Strong" },
+      { name: "Camera & Scan Flows", level: "Strong" }
+    ]
+  },
+  {
+    group: "Backend",
+    icon: "dns",
+    accent: "secondary",
+    relatedProjects: ["CalorieLens", "PreGen AI LMS", "Swarm Negotiation MPSO"],
+    nodes: [
+      { name: "FastAPI", level: "Strong" },
+      { name: "Node.js", level: "Strong" },
+      { name: "REST API Design", level: "Strong" },
+      { name: "PostgreSQL / MongoDB", level: "Working Knowledge" }
+    ]
+  },
+  {
+    group: "Firebase & Cloud",
     icon: "cloud_done",
     accent: "primary",
+    relatedProjects: ["CalorieLens", "FoundIt", "Tabeeb"],
     nodes: [
-      { name: "Flutter", level: "Advanced", value: 88 },
-      { name: "Firebase / Firestore", level: "Advanced", value: 86 },
-      { name: "ML Workflows", level: "Working Knowledge", value: 72 },
-      { name: "Docker / CI", level: "Working Knowledge", value: 68 }
+      { name: "Firebase Auth", level: "Advanced" },
+      { name: "Firestore", level: "Advanced" },
+      { name: "Firestore Rules", level: "Strong" },
+      { name: "Firebase Storage", level: "Strong" },
+      { name: "Docker", level: "Working Knowledge" }
+    ]
+  },
+  {
+    group: "QA & Product",
+    icon: "fact_check",
+    accent: "tertiary",
+    relatedProjects: ["PreGen AI LMS", "CalorieLens"],
+    nodes: [
+      { name: "Postman API Testing", level: "Strong" },
+      { name: "Browser QA", level: "Strong" },
+      { name: "Bug Tracking & Triage", level: "Strong" },
+      { name: "Figma / Screenshot to UI", level: "Working Knowledge" }
     ]
   }
 ];
@@ -513,38 +556,39 @@ export const validationProtocol = [
 
 export const experiences = [
   {
-    role: "AI / Full-Stack Product Builder",
-    company: "Independent + Product Builds",
+    role: "AI & Full-Stack Product Builder",
+    company: "Independent Projects",
     period: "2024 - Present",
-    status: "ACTIVE",
+    status: "Active",
     bullets: [
       "Built AI-powered systems using LLMs, FastAPI, React, Flutter, Firebase, and QA-focused workflows.",
       "Worked on CalorieLens, PreGen LMS, AI Cyber Defense Lab, FoundIt, Swarm Negotiation MPSO, and automation products.",
-      "Prepared deployment, testing, API, UI/UX, and architecture prompts for real engineering execution."
+      "Focused on architecture, UI/UX implementation, backend integration, and production-level QA."
     ],
-    tags: ["LLM", "FastAPI", "React", "Flutter", "Firebase"]
+    tags: ["LLM", "FastAPI", "React", "Flutter", "Firebase", "RAG"]
   },
   {
-    role: "Product Implementation Contributor",
-    company: "Client / Software House Projects",
+    role: "Software House Project Contributor",
+    company: "Sahlaa.ai",
     period: "Recent",
-    status: "ARCHIVED",
+    status: "Project-Based",
     bullets: [
-      "Contributed to product implementation thinking across web products, backend integration, and frontend polish.",
-      "Worked through practical handoff details: product flows, integration blockers, and QA notes."
+      "Built and improved frontend/backend product flows for two shipping and logistics web platforms.",
+      "Contributed to CalorieLens mobile product features including UI flows and Firebase integration.",
+      "Collaborated on production-minded software house projects with real handoff and QA requirements."
     ],
-    tags: ["Web", "Product", "QA"]
+    tags: ["React", "Flutter", "Firebase", "API Integration", "Product Flows"]
   },
   {
     role: "AI / Computer Vision Project Builder",
-    company: "Academic + R&D Projects",
+    company: "Academic & R&D Projects",
     period: "Ongoing",
-    status: "ARCHIVED",
+    status: "Ongoing",
     bullets: [
       "Explored computer vision workflows for healthcare, image processing, and AI-assisted analysis.",
       "Worked on structured data generation, annotation logic, and model-oriented pipelines."
     ],
-    tags: ["CV", "ML", "Python", "Research"]
+    tags: ["Python", "OpenCV", "ML", "Computer Vision", "Research"]
   }
 ];
 
@@ -733,10 +777,88 @@ export const flowPages = {
 
 export const contactTopics = [
   "Career Opportunity",
-  "AI Integration Consulting",
+  "AI Integration Project",
   "Full-Stack Development Project",
-  "Flutter / Mobile AI Project",
+  "Flutter / Mobile App Project",
   "Technical Review",
-  "Other System Request"
+  "Other"
 ];
+
+export const services = [
+  {
+    title: "AI MVP Development",
+    icon: "psychology",
+    accent: "tertiary",
+    description:
+      "I build AI-powered web apps, chatbots, automation dashboards, and LLM workflows from idea to a working product.",
+    stack: ["FastAPI", "LLM APIs", "RAG", "React", "Prompt Engineering"],
+    relatedProject: "PreGen AI LMS"
+  },
+  {
+    title: "Flutter Mobile Apps",
+    icon: "phone_iphone",
+    accent: "primary",
+    description:
+      "I build mobile apps with onboarding, auth flows, dashboards, camera features, paywall, and Firebase backend.",
+    stack: ["Flutter", "BLoC", "Firebase Auth", "Firestore", "go_router"],
+    relatedProject: "CalorieLens"
+  },
+  {
+    title: "Full-Stack Web Apps",
+    icon: "layers",
+    accent: "secondary",
+    description:
+      "React frontend, FastAPI or Node.js backend, database, auth, and a deployment-ready structure.",
+    stack: ["React", "Tailwind", "FastAPI", "Node.js", "PostgreSQL"],
+    relatedProject: "AI Cyber Defense Lab"
+  },
+  {
+    title: "RAG / LLM Systems",
+    icon: "hub",
+    accent: "tertiary",
+    description:
+      "Document ingestion, embeddings, vector search, retrieval, prompt design, and structured answer generation.",
+    stack: ["RAG", "Embeddings", "LLM APIs", "FastAPI", "Structured Outputs"],
+    relatedProject: "PreGen AI LMS"
+  },
+  {
+    title: "Firebase / Supabase Integration",
+    icon: "cloud_done",
+    accent: "primary",
+    description:
+      "Auth, Firestore schemas, security rules, storage, and backend integration for web or mobile products.",
+    stack: ["Firebase Auth", "Firestore", "Firestore Rules", "Storage", "Supabase"],
+    relatedProject: "FoundIt"
+  },
+  {
+    title: "UI/UX Implementation",
+    icon: "web",
+    accent: "secondary",
+    description:
+      "Convert Figma designs or screenshots into clean, responsive React or Flutter interfaces with proper states.",
+    stack: ["React", "Tailwind CSS", "Flutter", "Figma", "Responsive Design"],
+    relatedProject: "CalorieLens"
+  }
+];
+
+export const aboutContent = {
+  intro:
+    "I'm Mohamed Boghdady, a Full-Stack AI Engineer based in Egypt. I build production-minded AI applications across web, mobile, and backend systems.",
+  focus:
+    "My work sits at the intersection of LLM product systems, Flutter mobile development, and full-stack React/FastAPI engineering. I care about clean UI, reliable integrations, and real QA before shipping.",
+  approach: [
+    "I start with the product flow before writing code — understanding what the user actually needs.",
+    "I build with architecture in mind: reusable components, clean state, and scalable backend shapes.",
+    "I run real QA: Postman tests, browser checks, form validation, and error state handling.",
+    "I document clearly so handoffs, iterations, and future changes stay manageable."
+  ],
+  differentiation:
+    "I combine AI engineering depth with practical full-stack execution. I don't just prototype ideas — I build systems that work end-to-end with auth, state, error handling, and deployment readiness.",
+  currentInterests: [
+    "Building production LLM products with structured outputs and retrieval",
+    "Mobile AI apps with Flutter and real camera/scan flows",
+    "AI evaluation and QA patterns for reliable outputs",
+    "Clean RAG architectures that are actually maintainable"
+  ]
+};
 

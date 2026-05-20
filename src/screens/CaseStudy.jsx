@@ -90,8 +90,8 @@ export default function CaseStudy() {
         <GlassCard className="flex flex-col justify-between p-md md:col-span-4" accent={project.accent}>
           <div>
             <h2 className="mb-sm flex items-center gap-xs font-display text-2xl font-semibold uppercase">
-              <Icon name="target" className={ac.text} />
-              Mission Brief
+              <Icon name="info" className={ac.text} />
+              Project Summary
             </h2>
             <p className="text-on-surface-variant">{caseStudy.missionBrief}</p>
           </div>
@@ -110,7 +110,7 @@ export default function CaseStudy() {
         <GlassCard className={`p-md md:col-span-8 border-l-2 ${ac.borderLeft}`} accent={project.accent}>
           <h2 className="mb-md flex items-center gap-xs font-display text-2xl font-semibold uppercase">
             <Icon name="report_problem" className={ac.text} />
-            Problem Space
+            The Problem
           </h2>
           <div className="space-y-sm text-on-surface-variant">
             {caseStudy.problemSpace.map((problem) => (
@@ -171,21 +171,21 @@ export default function CaseStudy() {
         ))}
 
         <GlassCard className={`border-l-4 ${ac.borderLeft} p-lg`} accent={project.accent}>
-          <h2 className="mb-md font-display text-2xl font-semibold uppercase">Final CTA</h2>
+          <h2 className="mb-md font-display text-2xl font-semibold uppercase">Work Together</h2>
           <p className="mb-md text-on-surface-variant">
-            Want the same build discipline applied to your product, hiring review, or technical audit?
+            Want this kind of build discipline applied to your product? Let's talk.
           </p>
           <div className="flex flex-wrap gap-sm">
-            <Button to="/contact" icon="rocket_launch">Launch Mission</Button>
-            <Button to="/builds" icon="arrow_back" variant="secondary">Back to Builds</Button>
+            <Button to="/contact" icon="alternate_email">Contact Me</Button>
+            <Button to="/builds" icon="arrow_back" variant="secondary">Back to Projects</Button>
           </div>
         </GlassCard>
       </section>
 
       <SectionHeader
-        eyebrow="Reusable Dossier Template"
-        title="Built to Scale Beyond One Project"
-        description="This page is rendered from project data, so future projects can gain complete case studies without duplicating markup."
+        eyebrow="Data-Driven"
+        title="Each Project Has Its Own Case Study"
+        description="This layout is driven by project data — every project in the portfolio can have a full case study without duplicating markup."
         icon="data_object"
       />
     </main>

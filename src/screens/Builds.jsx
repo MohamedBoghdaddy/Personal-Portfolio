@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { projects } from "../data/portfolioData";
 import { Button, GlassCard, Icon, SectionHeader, Tag, VisualPlaceholder, accentClasses } from "../components/UI";
 
-const filters = ["ALL_SYSTEMS", "AI", "FULL-STACK", "MOBILE", "FINTECH", "HEALTHCARE"];
+const filters = ["All", "AI", "Full-Stack", "Mobile", "FinTech", "Healthcare"];
 
 function projectMatchesFilter(project, filter) {
-  if (filter === "ALL_SYSTEMS") {
+  if (filter === "All") {
     return true;
   }
   const haystack = `${project.category} ${project.tags.join(" ")}`.toUpperCase();
-  return haystack.includes(filter.replace("-", " "));
+  return haystack.includes(filter.toUpperCase().replace("-", " "));
 }
 
 function LinkButton({ url, label, icon, variant = "secondary" }) {
@@ -22,7 +22,7 @@ function LinkButton({ url, label, icon, variant = "secondary" }) {
 }
 
 export default function Builds() {
-  const [activeFilter, setActiveFilter] = useState("ALL_SYSTEMS");
+  const [activeFilter, setActiveFilter] = useState("All");
   const visibleProjects = useMemo(
     () => projects.filter((project) => projectMatchesFilter(project, activeFilter)),
     [activeFilter]
@@ -33,10 +33,10 @@ export default function Builds() {
   return (
     <main className="page-shell">
       <SectionHeader
-        eyebrow="Boss-Level Builds"
-        title="Project Missions"
-        description="A bento archive of AI systems, mobile products, full-stack builds, research prototypes, and older production-minded experiments."
-        icon="rocket_launch"
+        eyebrow="Portfolio"
+        title="My Projects"
+        description="AI systems, mobile products, full-stack builds, research prototypes, and automation workflows — each with role, stack, and status."
+        icon="grid_view"
       />
 
       <div className="mb-lg flex flex-wrap items-center gap-sm" aria-label="Project filters">
@@ -128,7 +128,7 @@ function ProjectCard({ project, wide }) {
       </div>
       <div className="flex flex-wrap items-center gap-sm">
         <Link to={`/case-studies/${project.slug}`} className="focus-ring label-caps text-secondary hover:text-primary">
-          View Mission
+          Case Study →
         </Link>
         {!project.links.github && <span className="font-mono text-[10px] uppercase text-outline">GitHub TODO</span>}
       </div>
