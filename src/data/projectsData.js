@@ -48,7 +48,7 @@ export const mainProjects = [
     status: "Active Build",
     description:
       "AI calorie-tracking app with onboarding, camera scan flow, meal logging, dashboard, groups, paywall, profile, localization, Firebase Auth, Firestore, and FastAPI backend integration.",
-    image: null, // No screenshot available yet
+    image: "/images/projects/calorielens.png",
     tech: [
       "Flutter",
       "BLoC",
@@ -334,9 +334,9 @@ export const mainProjects = [
     status: "Prototype",
     description:
       "Bug reporting system with integrated AI analyzer for issue classification, tracking, resolution insights, and developer handoff clarity.",
-    image: "/images/projects/bugpilot.jpg",
+    image: "/images/projects/Bugpilot.png",
     tech: ["LLM APIs", "React", "Backend", "AI Classification", "Dashboard"],
-    githubUrl: "",
+    githubUrl: "https://github.com/MohamedBoghdaddy/bugpilot",
     liveUrl: "",
     accent: "secondary",
     featured: false,
@@ -356,9 +356,9 @@ export const mainProjects = [
     status: "Prototype",
     description:
       "Scraping platform capable of extracting data from websites and exporting structured results. Focuses on automation and clean data output pipelines.",
-    image: "/images/projects/intellekt.png",
+    image: "/images/projects/Intellekt1.png",
     tech: ["Web Scraping", "Automation", "Structured Data", "Python", "React"],
-    githubUrl: "",
+    githubUrl: "https://github.com/MohamedBoghdaddy/intellekt",
     liveUrl: "",
     accent: "tertiary",
     featured: false,
@@ -414,7 +414,7 @@ export const mainProjects = [
     status: "MVP",
     description:
       "All-in-one job hunt companion: aggregate jobs, analyze your CV with AI, track applications, and apply faster using a clean pipeline dashboard.",
-    image: "/images/projects/huntflow.png",
+    image: "/images/projects/Huntflow.png",
     tech: ["React", "Node.js", "MongoDB", "AI CV Analysis", "REST APIs"],
     githubUrl: "https://github.com/MohamedBoghdaddy/HuntFlow",
     liveUrl: "",
@@ -540,19 +540,39 @@ export const earlierBuilds = [
   // Mobile
   {
     slug: "masar",
-    title: "MASAR",
-    category: "Flutter Mobile App",
-    filterTags: ["Mobile"],
-    role: "Flutter Developer",
+    title: "MASAR (مسار)",
+    category: "FinTech / Personal Finance",
+    filterTags: ["Finance", "Mobile"],
+    role: "Full-Stack Developer",
     status: "MVP",
-    description: "Flutter mobile app built with a clean UX, modular structure, and scalable architecture for navigation and guidance.",
+    description:
+      "Obligations-first personal finance app for Egypt. Calculates SafeSpend daily after deducting bills and installments, detects spending leaks, and generates monthly money stories with exportable reports.",
     image: "/images/projects/masar.png",
-    tech: ["Flutter", "Dart", "Firebase"],
-    githubUrl: "https://github.com/MohamedBoghdaddy/MASAR",
+    tech: ["React", "Node.js", "MongoDB", "Finance Logic", "Export / Reports"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/Masar",
     liveUrl: "",
     accent: "primary",
     featured: false,
     priority: 25,
+    caseStudy: null,
+    earlierBuild: true
+  },
+  {
+    slug: "deepx-shipping",
+    title: "Shipping System",
+    category: "Full-Stack / Hackathon",
+    filterTags: ["Full-Stack"],
+    role: "Full-Stack Developer",
+    status: "Hackathon Build",
+    description:
+      "Shipping and logistics management system built during the DeepX hackathon. Features shipment tracking, order management, and a clean operations dashboard.",
+    image: "/images/projects/Shipping System.png",
+    tech: ["React", "Node.js", "MongoDB", "REST APIs"],
+    githubUrl: "https://github.com/MohamedBoghdaddy/deepx",
+    liveUrl: "",
+    accent: "secondary",
+    featured: false,
+    priority: 26,
     caseStudy: null,
     earlierBuild: true
   },
