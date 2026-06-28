@@ -56,8 +56,8 @@ function ProjectCard({ project, wide = false }) {
         <p className="mb-sm flex-1 text-sm leading-relaxed text-on-surface-variant">{project.description}</p>
 
         <div className="mb-sm flex flex-wrap gap-xs">
-          {project.tech.slice(0, 4).map((t) => <Tag key={t} accent={project.accent}>{t}</Tag>)}
-          {project.tech.length > 4 && (
+          {(project.tech ?? []).slice(0, 4).map((t) => <Tag key={t} accent={project.accent}>{t}</Tag>)}
+          {(project.tech ?? []).length > 4 && (
             <span className="font-mono text-[10px] text-outline">+{project.tech.length - 4} more</span>
           )}
         </div>

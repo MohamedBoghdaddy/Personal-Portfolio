@@ -23,7 +23,8 @@ export default function Button({
   disabled = false,
   download,
   onClick,
-  ariaLabel
+  ariaLabel,
+  target
 }) {
   const classes = `focus-ring inline-flex items-center justify-center gap-xs px-md py-sm font-display text-[12px] font-bold uppercase tracking-[0.16em] transition ${variantClasses[variant] || variantClasses.primary} ${
     disabled ? "pointer-events-none cursor-not-allowed opacity-45" : ""
@@ -46,7 +47,7 @@ export default function Button({
 
   if (href && !disabled) {
     return (
-      <a className={classes} href={href} target={download ? undefined : "_blank"} rel={download ? undefined : "noreferrer"} download={download} aria-label={ariaLabel}>
+      <a className={classes} href={href} target={download ? undefined : (target ?? "_blank")} rel={download ? undefined : "noopener noreferrer"} download={download} aria-label={ariaLabel}>
         {content}
       </a>
     );

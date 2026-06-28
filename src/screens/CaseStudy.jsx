@@ -124,8 +124,8 @@ export default function CaseStudy() {
             The Problem
           </h2>
           <div className="space-y-sm text-on-surface-variant">
-            {caseStudy.problemSpace.map((problem) => (
-              <div key={problem} className="flex gap-sm">
+            {caseStudy.problemSpace.map((problem, i) => (
+              <div key={i} className="flex gap-sm">
                 <Icon name="close" className="mt-1 text-sm text-error" />
                 <span>{problem}</span>
               </div>
@@ -158,8 +158,8 @@ export default function CaseStudy() {
             <GlassCard key={title} className="p-md" accent={project.accent}>
               <span className={`mb-sm block font-mono text-xs uppercase ${ac.text}`}>{title}</span>
               <div className="space-y-xs">
-                {lists[index].map((item) => (
-                  <div key={item} className="flex gap-xs text-sm text-on-surface-variant">
+                {lists[index].map((item, i) => (
+                  <div key={i} className="flex gap-xs text-sm text-on-surface-variant">
                     <Icon name="check_circle" className={`mt-0.5 text-sm ${ac.text}`} />
                     <span>{item}</span>
                   </div>
