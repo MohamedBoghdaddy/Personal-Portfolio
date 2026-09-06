@@ -1,6 +1,7 @@
 import { Navigate, useParams } from "react-router-dom";
 import { allProjects } from "../data/projectsData";
 import { Button, GlassCard, Icon, SectionHeader, Tag, accentClasses } from "../components/UI";
+import useDocumentMeta, { SITE_URL } from "../hooks/useDocumentMeta";
 
 function fallbackCaseStudy(project) {
   return {
@@ -56,12 +57,32 @@ export default function CaseStudy() {
   const { slug } = useParams();
   const project = allProjects.find((item) => item.slug === slug);
 
+  const caseStudy = project ? project.caseStudy || fallbackCaseStudy(project) : null;
+
+  useDocumentMeta({
+    title: project ? `${project.title} — ${project.descriptor || project.category}` : "Case Study",
+    description: project ? project.description : undefined,
+    path: project ? `/projects/${project.slug}` : "/projects",
+    jsonLd: project
+      ? {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: project.title,
+          description: project.description,
+          applicationCategory: project.category,
+          url: `${SITE_URL}/projects/${project.slug}`,
+          ...(project.githubUrl ? { sameAs: [project.githubUrl] } : {}),
+          author: { "@type": "Person", name: "Mohamed Boghdaddy" }
+        }
+      : null
+  });
+
   if (!project) {
     return <Navigate to="/projects" replace />;
   }
 
-  const caseStudy = project.caseStudy || fallbackCaseStudy(project);
   const ac = accentClasses[project.accent];
+  const relatedProject = allProjects.find((p) => p.tier === project.tier && p.slug !== project.slug && p.tier);
 
   return (
     <main className="page-shell">
@@ -72,9 +93,12 @@ export default function CaseStudy() {
               <Tag accent={project.accent}>{project.category}</Tag>
               <Tag accent="primary">{project.status}</Tag>
             </div>
-            <h1 className="mb-sm font-display text-4xl font-semibold uppercase tracking-tight md:text-5xl">
+            <h1 className="font-display text-4xl font-semibold uppercase tracking-tight md:text-5xl">
               {project.title}
             </h1>
+            {project.descriptor && (
+              <p className="mb-sm mt-xs font-mono text-sm uppercase tracking-wide text-on-surface-variant">{project.descriptor}</p>
+            )}
             <p className="mb-md max-w-2xl text-lg leading-relaxed text-on-surface-variant">
               {project.description}
             </p>
@@ -192,6 +216,21 @@ export default function CaseStudy() {
           </div>
         </GlassCard>
       </section>
+
+      {relatedProject && (
+        <section className="mb-xl">
+          <p className="mb-sm label-caps text-on-surface-variant">Related Product</p>
+          <GlassCard className={`flex flex-col items-start justify-between gap-sm border-l-4 p-md md:flex-row md:items-center ${accentClasses[relatedProject.accent]?.borderLeft}`} accent={relatedProject.accent}>
+            <div>
+              <p className={`label-caps ${accentClasses[relatedProject.accent]?.text}`}>{relatedProject.category}</p>
+              <h3 className="font-display text-xl font-semibold">{relatedProject.title}</h3>
+            </div>
+            <Button to={`/projects/${relatedProject.slug}`} icon="arrow_forward" variant="secondary">
+              View {relatedProject.title}
+            </Button>
+          </GlassCard>
+        </section>
+      )}
 
       <SectionHeader
         eyebrow="Data-Driven"

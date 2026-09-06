@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { allProjects, mainProjects, earlierBuilds, projectFilters } from "../data/projectsData";
 import { Button, GlassCard, SectionHeader, Tag, accentClasses } from "../components/UI";
+import useDocumentMeta from "../hooks/useDocumentMeta";
 
 function projectMatchesFilter(project, filter) {
   if (filter === "All") return true;
@@ -9,17 +10,17 @@ function projectMatchesFilter(project, filter) {
   return project.filterTags?.some((t) => t === filter);
 }
 
-function ProjectImage({ src, alt, className = "" }) {
+function ProjectImage({ src, alt, title, className = "" }) {
   if (!src) {
-    const initials = alt
+    const initials = (title || alt)
       .split(" ")
       .slice(0, 2)
       .map((w) => w[0])
       .join("")
       .toUpperCase();
     return (
-      <div className={`flex items-center justify-center bg-surface-container-high ${className}`}>
-        <span className="font-display text-4xl font-bold text-primary/40">{initials}</span>
+      <div className={`flex items-center justify-center bg-surface-container-high ${className}`} role="img" aria-label={alt}>
+        <span className="font-display text-4xl font-bold text-primary/40" aria-hidden="true">{initials}</span>
       </div>
     );
   }
@@ -33,6 +34,10 @@ function ProjectImage({ src, alt, className = "" }) {
   );
 }
 
+function imageAlt(project) {
+  return `${project.title} — ${project.descriptor || project.category} interface`;
+}
+
 function ProjectCard({ project, wide = false }) {
   const ac = accentClasses[project.accent] || accentClasses.primary;
   return (
@@ -41,7 +46,7 @@ function ProjectCard({ project, wide = false }) {
       accent={project.accent}
     >
       <div className="relative aspect-video overflow-hidden bg-surface-container-high">
-        <ProjectImage src={project.image} alt={project.title} />
+        <ProjectImage src={project.image} alt={imageAlt(project)} title={project.title} />
         <div className="absolute right-2 top-2">
           <span className="rounded-full bg-surface/80 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wide text-on-surface backdrop-blur-sm">
             {project.status}
@@ -51,8 +56,11 @@ function ProjectCard({ project, wide = false }) {
 
       <div className="flex flex-1 flex-col p-md">
         <p className={`label-caps mb-xs ${ac.text}`}>{project.category}</p>
-        <h3 className="mb-xs font-display text-xl font-semibold">{project.title}</h3>
-        <p className="mb-xs font-mono text-[10px] uppercase text-outline">Role: {project.role}</p>
+        <h3 className="font-display text-xl font-semibold">{project.title}</h3>
+        {project.descriptor && (
+          <p className="font-mono text-xs uppercase tracking-wide text-on-surface-variant">{project.descriptor}</p>
+        )}
+        <p className="mb-xs mt-xs font-mono text-[10px] uppercase text-outline">Role: {project.role}</p>
         <p className="mb-sm flex-1 text-sm leading-relaxed text-on-surface-variant">{project.description}</p>
 
         <div className="mb-sm flex flex-wrap gap-xs">
@@ -106,7 +114,7 @@ function FeaturedCard({ project }) {
     >
       <div className="grid md:grid-cols-2">
         <div className="relative aspect-video overflow-hidden bg-surface-container-high md:aspect-auto">
-          <ProjectImage src={project.image} alt={project.title} />
+          <ProjectImage src={project.image} alt={imageAlt(project)} title={project.title} />
         </div>
         <div className="flex flex-col justify-between p-md">
           <div>
@@ -114,8 +122,11 @@ function FeaturedCard({ project }) {
               <p className={`label-caps ${ac.text}`}>{project.category}</p>
               <span className="font-mono text-[10px] uppercase text-outline">{project.status}</span>
             </div>
-            <h2 className="mb-xs font-display text-3xl font-semibold">{project.title}</h2>
-            <p className="mb-xs font-mono text-[10px] uppercase text-outline">Role: {project.role}</p>
+            <h2 className="font-display text-3xl font-semibold">{project.title}</h2>
+            {project.descriptor && (
+              <p className="mb-xs font-mono text-xs uppercase tracking-wide text-on-surface-variant">{project.descriptor}</p>
+            )}
+            <p className="mb-xs mt-xs font-mono text-[10px] uppercase text-outline">Role: {project.role}</p>
             <p className="mb-sm text-sm leading-relaxed text-on-surface-variant">{project.description}</p>
             <div className="mb-sm flex flex-wrap gap-xs">
               {project.tech.slice(0, 5).map((t) => <Tag key={t} accent={project.accent}>{t}</Tag>)}
@@ -138,7 +149,24 @@ function FeaturedCard({ project }) {
   );
 }
 
+function TierDivider({ title }) {
+  return (
+    <div className="mb-lg mt-2xl flex items-center gap-md">
+      <div className="flex-1 border-t border-outline-variant/30" />
+      <h2 className="font-display text-2xl font-semibold text-on-surface-variant">{title}</h2>
+      <div className="flex-1 border-t border-outline-variant/30" />
+    </div>
+  );
+}
+
 export default function Builds() {
+  useDocumentMeta({
+    title: "Products & Projects — AI, Computer Vision & Full-Stack Engineering",
+    description:
+      "PartIQ, HunterFlow, Kiwi, and other AI products built by Mohamed Boghdaddy — computer vision, LLM systems, and full-stack platforms.",
+    path: "/projects"
+  });
+
   const [activeFilter, setActiveFilter] = useState("All");
 
   const visibleMain = useMemo(
@@ -150,8 +178,13 @@ export default function Builds() {
     [activeFilter]
   );
 
-  const featured = visibleMain.find((p) => p.featured) || visibleMain[0];
-  const rest = visibleMain.filter((p) => p.slug !== featured?.slug);
+  const flagship = visibleMain.filter((p) => p.tier === "flagship");
+  const infrastructure = visibleMain.filter((p) => p.tier === "infrastructure");
+  const applied = visibleMain.filter((p) => p.tier === "applied");
+  const engineering = visibleMain.filter((p) => !["flagship", "infrastructure", "applied"].includes(p.tier));
+
+  const heroProject = flagship.find((p) => p.featured) || flagship[0];
+  const flagshipRest = flagship.filter((p) => p.slug !== heroProject?.slug);
 
   const showEarlier = activeFilter === "All" || activeFilter === "Earlier Builds" || visibleEarlier.length > 0;
 
@@ -159,8 +192,8 @@ export default function Builds() {
     <main className="page-shell">
       <SectionHeader
         eyebrow="Portfolio"
-        title="My Projects"
-        description="AI systems, mobile products, full-stack builds, research prototypes, and automation workflows — each with role, stack, status, and links."
+        title="Products & Projects"
+        description="Ordered by commercial and strategic importance — flagship products first, followed by infrastructure, applied builds, and earlier engineering work."
         icon="grid_view"
       />
 
@@ -182,53 +215,86 @@ export default function Builds() {
         ))}
       </div>
 
-      {/* Main projects */}
-      {visibleMain.length > 0 && (
-        <div className="grid grid-cols-1 gap-md md:grid-cols-12">
-          {featured && <FeaturedCard project={featured} />}
-          {/* sidebar stat card */}
-          <GlassCard className="flex flex-col justify-between p-md md:col-span-4" accent="primary">
-            <div>
-              <p className="label-caps mb-sm text-primary">Build Profile</p>
-              <div className="space-y-sm">
-                {[
-                  ["Total Projects", allProjects.length.toString()],
-                  ["Live / Deployed", allProjects.filter((p) => p.liveUrl).length.toString()],
-                  ["Open Source", allProjects.filter((p) => p.githubUrl).length.toString()],
-                  ["Active Builds", mainProjects.filter((p) => p.status.toLowerCase().includes("active")).length.toString()]
-                ].map(([label, val]) => (
-                  <div key={label} className="flex items-center justify-between border-b border-outline-variant/20 pb-xs">
-                    <span className="font-mono text-xs text-outline">{label}</span>
-                    <span className="font-display text-xl font-semibold text-primary">{val}</span>
-                  </div>
-                ))}
+      {/* Tier 1 — Featured Products */}
+      {flagship.length > 0 && (
+        <>
+          <h2 className="sr-only">Featured Products</h2>
+          <div className="grid grid-cols-1 gap-md md:grid-cols-12">
+            {heroProject && <FeaturedCard project={heroProject} />}
+            {/* sidebar stat card */}
+            <GlassCard className="flex flex-col justify-between p-md md:col-span-4" accent="primary">
+              <div>
+                <p className="label-caps mb-sm text-primary">Build Profile</p>
+                <div className="space-y-sm">
+                  {[
+                    ["Total Projects", allProjects.length.toString()],
+                    ["Live / Deployed", allProjects.filter((p) => p.liveUrl).length.toString()],
+                    ["Open Source", allProjects.filter((p) => p.githubUrl).length.toString()],
+                    ["Active Builds", mainProjects.filter((p) => p.status.toLowerCase().includes("active")).length.toString()]
+                  ].map(([label, val]) => (
+                    <div key={label} className="flex items-center justify-between border-b border-outline-variant/20 pb-xs">
+                      <span className="font-mono text-xs text-outline">{label}</span>
+                      <span className="font-display text-xl font-semibold text-primary">{val}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-            <Button to="/contact" icon="alternate_email" className="mt-md w-full">
-              Start a Project
-            </Button>
-          </GlassCard>
+              <Button to="/contact" icon="alternate_email" className="mt-md w-full">
+                Start a Project
+              </Button>
+            </GlassCard>
 
-          {rest.map((project, i) => (
-            <ProjectCard key={project.slug} project={project} wide={i % 3 !== 0} />
-          ))}
+            {flagshipRest.map((project) => (
+              <ProjectCard key={project.slug} project={project} wide />
+            ))}
+          </div>
+        </>
+      )}
+
+      {visibleMain.length === 0 && (
+        <p className="py-xl text-center text-on-surface-variant">No projects match this filter.</p>
+      )}
+
+      {/* Tier 2 — Infrastructure & Commerce */}
+      {infrastructure.length > 0 && (
+        <div>
+          <TierDivider title="Infrastructure & Commerce" />
+          <div className="grid grid-cols-1 gap-md md:grid-cols-12">
+            {infrastructure.map((project) => (
+              <ProjectCard key={project.slug} project={project} wide />
+            ))}
+          </div>
         </div>
       )}
 
-      {visibleMain.length === 0 && activeFilter !== "Earlier Builds" && (
-        <p className="py-xl text-center text-on-surface-variant">No projects match this filter in the main builds.</p>
+      {/* Tier 3 — Applied Intelligence */}
+      {applied.length > 0 && (
+        <div>
+          <TierDivider title="Applied Intelligence" />
+          <div className="grid grid-cols-1 gap-md md:grid-cols-12">
+            {applied.map((project) => (
+              <ProjectCard key={project.slug} project={project} wide />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Tier 4 — Additional Engineering Work */}
+      {engineering.length > 0 && (
+        <div>
+          <TierDivider title="Additional Engineering Work" />
+          <div className="grid grid-cols-1 gap-md sm:grid-cols-2 lg:grid-cols-3">
+            {engineering.map((project) => (
+              <EarlierCard key={project.slug} project={project} />
+            ))}
+          </div>
+        </div>
       )}
 
       {/* Earlier Builds */}
       {showEarlier && visibleEarlier.length > 0 && (
-        <div className="mt-2xl">
-          <div className="mb-lg flex items-center gap-md">
-            <div className="flex-1 border-t border-outline-variant/30" />
-            <h2 className="font-display text-2xl font-semibold text-on-surface-variant">
-              More Projects / Earlier Builds
-            </h2>
-            <div className="flex-1 border-t border-outline-variant/30" />
-          </div>
+        <div>
+          <TierDivider title="Early & Experimental Work" />
           <p className="mb-lg text-center text-sm text-outline">
             Internship work, research builds, ML experiments, and earlier full-stack projects.
           </p>
@@ -248,13 +314,21 @@ function EarlierCard({ project }) {
   return (
     <GlassCard className="group flex flex-col overflow-hidden" accent={project.accent}>
       <div className="relative h-36 overflow-hidden bg-surface-container-high">
-        <ProjectImage src={project.image} alt={project.title} />
+        <ProjectImage src={project.image} alt={imageAlt(project)} title={project.title} />
       </div>
       <div className="flex flex-1 flex-col p-sm">
         <p className={`label-caps mb-xs text-[9px] ${ac.text}`}>{project.category}</p>
         <h3 className="mb-xs font-display text-base font-semibold">{project.title}</h3>
         <p className="mb-sm flex-1 text-xs leading-relaxed text-on-surface-variant line-clamp-2">{project.description}</p>
         <div className="flex flex-wrap gap-xs">
+          {project.caseStudy && (
+            <Link
+              to={`/projects/${project.slug}`}
+              className={`focus-ring label-caps text-[9px] border px-xs py-0.5 transition hover:bg-surface-container-high ${ac.text} ${ac.border}`}
+            >
+              Case Study
+            </Link>
+          )}
           {project.githubUrl && (
             <a
               href={project.githubUrl}

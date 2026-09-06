@@ -14,11 +14,11 @@ export const navItems = [
 export const identity = {
   name: "Mohamed Boghdady",
   alias: "BOGHDADDY OS",
-  title: "Full-Stack AI Engineer",
-  subtitle: "AI Product Engineer · LLMs + Full Stack Systems",
-  headline: "I build AI-powered products from idea to production.",
+  title: "Technical Founder & Full Stack AI Engineer",
+  subtitle: "Technical Founder · Full Stack AI Engineer · Applied AI",
+  headline: "I design, build, and ship AI-powered products from architecture to production.",
   summary:
-    "Builds production-grade AI systems combining LLM pipelines with scalable full-stack architectures. Delivers real-world products that automate workflows, improve accuracy, and reduce operational overhead.",
+    "I work across AI, backend, frontend, and infrastructure — turning business problems into real software products. My work spans LLM pipelines, computer vision, and full-stack platforms across insurance, career services, and ecommerce, increasingly as a founder and technical product builder rather than only an individual contributor.",
   location: "Cairo, Egypt / Remote",
   email: "mohamedhammad3.142@gmail.com",
   phone: "+20 112 413 5316",
@@ -33,7 +33,7 @@ export const skillGroups = [
     group: "AI & LLM Systems",
     icon: "psychology",
     accent: "tertiary",
-    relatedProjects: ["PreGen AI LMS", "AI Cyber Defense Lab", "BugPilot", "RAG Chatbot"],
+    relatedProjects: ["PreGen", "AI Cyber Defense Lab", "BugPilot", "RAG Chatbot"],
     nodes: [
       { name: "LLM APIs (OpenAI, Gemini)", level: "Advanced" },
       { name: "Prompt Engineering", level: "Advanced" },
@@ -47,7 +47,7 @@ export const skillGroups = [
     group: "Frontend",
     icon: "web",
     accent: "secondary",
-    relatedProjects: ["PreGen AI LMS", "HuntFlow", "AI Cyber Defense Lab", "Hedj"],
+    relatedProjects: ["PreGen", "HunterFlow", "AI Cyber Defense Lab", "Hedj"],
     nodes: [
       { name: "React", level: "Advanced" },
       { name: "Next.js", level: "Strong" },
@@ -73,7 +73,7 @@ export const skillGroups = [
     group: "Backend",
     icon: "dns",
     accent: "secondary",
-    relatedProjects: ["PreGen AI LMS", "CalorieLens", "Document Management System"],
+    relatedProjects: ["PreGen", "CalorieLens", "Document Management System"],
     nodes: [
       { name: "Node.js / Express", level: "Advanced" },
       { name: "FastAPI / Python", level: "Strong" },
@@ -86,7 +86,7 @@ export const skillGroups = [
     group: "Databases & Cloud",
     icon: "cloud_done",
     accent: "primary",
-    relatedProjects: ["CalorieLens", "FoundIt", "PreGen AI LMS"],
+    relatedProjects: ["CalorieLens", "FoundIt", "PreGen"],
     nodes: [
       { name: "MongoDB", level: "Advanced" },
       { name: "Firebase Auth & Firestore", level: "Advanced" },
@@ -99,7 +99,7 @@ export const skillGroups = [
     group: "Machine Learning & CV",
     icon: "biotech",
     accent: "tertiary",
-    relatedProjects: ["MammoAI", "Sportify AI", "Stock Prediction", "AutoAI Suite"],
+    relatedProjects: ["PartIQ", "MammoAI", "Sportify AI", "Stock Prediction"],
     nodes: [
       { name: "TensorFlow / Keras", level: "Strong" },
       { name: "Scikit-learn / XGBoost", level: "Strong" },
@@ -125,7 +125,7 @@ export const skillGroups = [
     group: "QA & DevOps",
     icon: "fact_check",
     accent: "primary",
-    relatedProjects: ["PreGen AI LMS", "CalorieLens", "Geidea UAT"],
+    relatedProjects: ["PreGen", "CalorieLens", "Geidea UAT"],
     nodes: [
       { name: "Postman / API Testing", level: "Strong" },
       { name: "UAT & Regression Testing", level: "Strong" },
@@ -138,10 +138,40 @@ export const skillGroups = [
 
 export const experiences = [
   {
+    role: "Technical Co-Founder",
+    company: "Enara",
+    companyUrl: "https://enara.app/",
+    period: "Aug 2026 – Present",
+    status: "Active",
+    tier: "featured",
+    bullets: [
+      "Own product direction and roadmap planning, translating business requirements and user needs into technical priorities.",
+      "Lead architecture and major technical decisions across AI and conventional software systems.",
+      "Lead end-to-end product development, balancing engineering decisions with product goals, scalability, UX, and delivery speed."
+    ],
+    tags: ["Product Strategy", "Architecture", "AI Systems", "Full-Stack"]
+  },
+  {
+    role: "Founder",
+    company: "Gapsmania",
+    companyUrl: "https://www.gapsmania-sol.com/",
+    period: "Feb 2026 – Present",
+    status: "Active",
+    tier: "featured",
+    bullets: [
+      "Identify product opportunities — gaps in existing workflows — and design technology products around real problems.",
+      "Own product strategy, architecture, and rapid experimentation across several products spanning different verticals.",
+      "Move concepts from idea through design, architecture, and implementation across AI and software products."
+    ],
+    tags: ["Founder", "Product Strategy", "AI Products", "Rapid Prototyping"]
+  },
+  {
     role: "Full-Stack AI Engineer",
     company: "PreGen",
+    companyUrl: "https://pregeneg.com/",
     period: "Oct 2025 – Present",
     status: "Active",
+    tier: "featured",
     bullets: [
       "Delivered a MERN + Python AI platform reducing manual content creation by approximately 70%.",
       "Built scalable APIs supporting AI workflows and real-time processing.",
@@ -155,6 +185,7 @@ export const experiences = [
     company: "Freelance",
     period: "Jul 2024 – Present",
     status: "Active",
+    tier: "earlier",
     bullets: [
       "Designed prompt pipelines improving accuracy and reducing hallucinations across AI workflows.",
       "Built LLM systems for financial analysis, structured extraction, and automated content generation.",
@@ -167,6 +198,7 @@ export const experiences = [
     company: "Geidea for Technologies",
     period: "Aug 2025 – Nov 2025",
     status: "Completed",
+    tier: "earlier",
     bullets: [
       "Conducted UAT for financial and payment platforms.",
       "Validated business requirements against system behavior and identified functional gaps.",
@@ -180,6 +212,7 @@ export const experiences = [
     company: "ATOS",
     period: "Jul 2024 – Oct 2024",
     status: "Completed",
+    tier: "earlier",
     bullets: [
       "Engineered a Document Management System using MERN and PERN stacks.",
       "Developed and optimized RESTful APIs for secure document handling.",
@@ -193,6 +226,7 @@ export const experiences = [
     company: "Relief and Emergency Foundation",
     period: "May 2024 – Aug 2024",
     status: "Completed",
+    tier: "earlier",
     bullets: [
       "Implemented microservices architecture for WordPress and MERN platforms.",
       "Designed modular backend services using Node.js.",
@@ -205,6 +239,7 @@ export const experiences = [
     company: "Code Alpha",
     period: "Feb 2024 – May 2024",
     status: "Completed",
+    tier: "earlier",
     bullets: [
       "Developed ML models including recommender systems and stock market forecasting.",
       "Performed data preprocessing, feature engineering, and model evaluation.",
@@ -217,6 +252,7 @@ export const experiences = [
     company: "Prodigy Info Tech",
     period: "Jan 2024 – Feb 2024",
     status: "Completed",
+    tier: "earlier",
     bullets: [
       "Built responsive landing pages and interactive web applications.",
       "Developed a stopwatch web app with precise timing logic using vanilla JS."
@@ -242,7 +278,7 @@ export const services = [
     description:
       "I build AI-powered web apps, chatbots, automation dashboards, and LLM workflows from idea to a working product.",
     stack: ["FastAPI", "LLM APIs", "RAG", "React", "Prompt Engineering"],
-    relatedProject: "PreGen AI LMS"
+    relatedProject: "PreGen"
   },
   {
     title: "Flutter Mobile Apps",
@@ -269,7 +305,7 @@ export const services = [
     description:
       "Document ingestion, embeddings, vector search, retrieval, prompt design, and structured answer generation.",
     stack: ["RAG", "Embeddings", "LLM APIs", "FastAPI", "Structured Outputs"],
-    relatedProject: "PreGen AI LMS"
+    relatedProject: "PreGen"
   },
   {
     title: "Firebase / Supabase Integration",
@@ -293,17 +329,17 @@ export const services = [
 
 export const aboutContent = {
   intro:
-    "I'm Mohamed Boghdady, a Full-Stack AI Engineer based in Cairo, Egypt. I build production-grade AI systems combining LLM pipelines with scalable full-stack and mobile architectures.",
+    "I'm Mohamed Boghdady, a Technical Founder and Full-Stack AI Engineer based in Cairo, Egypt. I build production-grade AI systems combining LLM pipelines, computer vision, and scalable full-stack architectures — and increasingly lead product direction as a founder, not just an individual contributor.",
   focus:
-    "My work sits at the intersection of LLM product systems, Flutter mobile development, and full-stack MERN/FastAPI engineering. I care about clean UI, reliable integrations, real QA, and delivery that actually works end-to-end.",
+    "My work sits at the intersection of product strategy, LLM systems, computer vision, and full-stack MERN/FastAPI engineering. I care about clean UI, reliable integrations, real QA, and delivery that actually works end-to-end — from architecture decisions down to shipped code.",
   approach: [
-    "I start with the product flow before writing code — understanding what the user actually needs.",
+    "I start with the product flow before writing code — understanding what the user and business actually need.",
     "I build with architecture in mind: reusable components, clean state, and scalable backend shapes.",
     "I run real QA: Postman tests, browser checks, form validation, and error state handling.",
     "I document clearly so handoffs, iterations, and future changes stay manageable."
   ],
   differentiation:
-    "I combine AI engineering depth with practical full-stack execution. I don't just prototype ideas — I build systems that work end-to-end with auth, state, error handling, Docker deployment, and CI/CD readiness.",
+    "I combine product and architecture thinking with hands-on full-stack and AI execution. I don't just prototype ideas — I turn business problems into shipped systems, with auth, state, error handling, Docker deployment, and CI/CD readiness built in.",
   currentInterests: [
     "Building production LLM products with structured outputs and retrieval",
     "Mobile AI apps with Flutter and real camera/scan flows",

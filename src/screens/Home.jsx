@@ -2,18 +2,40 @@ import { Link } from "react-router-dom";
 import { identity } from "../data/portfolioData";
 import { mainProjects } from "../data/projectsData";
 import { Button, GlassCard, Icon, SectionHeader, Tag, accentClasses } from "../components/UI";
+import useDocumentMeta from "../hooks/useDocumentMeta";
 
 const proofCards = [
-  { icon: "psychology", label: "AI Product Systems", desc: "LLM APIs, RAG, prompt engineering", accent: "tertiary" },
-  { icon: "phone_iphone", label: "Flutter Mobile Apps", desc: "BLoC, Firebase, camera flows", accent: "primary" },
-  { icon: "dns", label: "FastAPI Backends", desc: "REST APIs, structured outputs", accent: "secondary" },
-  { icon: "cloud_done", label: "Firebase / Firestore", desc: "Auth, rules, real-time data", accent: "primary" },
-  { icon: "fact_check", label: "QA & Production Readiness", desc: "Postman, browser QA, release checks", accent: "secondary" }
+  { icon: "hub", label: "Product & Architecture", desc: "Roadmap, system design, technical direction", accent: "primary" },
+  { icon: "psychology", label: "AI Product Systems", desc: "LLMs, computer vision, RAG, prompt engineering", accent: "tertiary" },
+  { icon: "dns", label: "Full-Stack Platforms", desc: "React, Node.js, FastAPI, structured APIs", accent: "secondary" },
+  { icon: "phone_iphone", label: "Mobile Products", desc: "Flutter, BLoC, Firebase, camera flows", accent: "primary" },
+  { icon: "fact_check", label: "QA & Production Readiness", desc: "Docker, CI/CD, release checks", accent: "secondary" }
 ];
 
-const featuredSlugs = ["calorielens", "pregen-ai-lms", "ai-cyber-defense-lab"];
+const featuredSlugs = ["partiq", "hunterflow", "calorielens"];
 
 export default function Home() {
+  useDocumentMeta({
+    title: "Mohamed Boghdaddy — Technical Founder & Full Stack AI Engineer",
+    titleIsFull: true,
+    description:
+      "Mohamed Boghdaddy is a Technical Founder and Full Stack AI Engineer building AI products across computer vision, career intelligence, and commerce.",
+    path: "/",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      mainEntity: {
+        "@type": "Person",
+        name: "Mohamed Boghdaddy",
+        alternateName: "Mohamed El Boghdaddy",
+        jobTitle: "Technical Founder / Full Stack AI Engineer",
+        url: "https://boghdaddy-personal-portfolio.vercel.app/",
+        image: "https://boghdaddy-personal-portfolio.vercel.app/logo512.png",
+        sameAs: [identity.githubUrl, identity.linkedinUrl]
+      }
+    }
+  });
+
   const featuredProjects = featuredSlugs
     .map((slug) => mainProjects.find((p) => p.slug === slug))
     .filter(Boolean);
@@ -44,17 +66,17 @@ export default function Home() {
                 {identity.name}
               </h2>
               <h1 className="font-display text-5xl font-semibold leading-tight tracking-tight text-on-background lg:text-7xl">
-                I build <span className="italic text-primary">AI-powered</span> products from idea to production.
+                I design, build, and ship <span className="italic text-primary">AI-powered</span> products from architecture to production.
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-relaxed text-on-surface-variant">
-                Full-Stack AI Engineer building web and mobile products with React, Flutter, FastAPI, Firebase, LLM APIs, and RAG workflows. I care about clean UI, working integrations, and real QA before shipping.
+                Technical Founder and Full-Stack AI Engineer working across product direction, architecture, and hands-on delivery — LLMs, computer vision, and full-stack platforms across education, insurance, sales, healthcare, and ecommerce.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <Button to="/projects" icon="grid_view">View Projects</Button>
-              <Button href={identity.cvUrl} icon="description" variant="secondary" download="Mohamed-Boghdady-CV.pdf">
-                Download CV
+              <Button to="/projects" icon="grid_view">View Products</Button>
+              <Button href={identity.githubUrl} icon="code" variant="secondary" target="_blank" rel="noopener noreferrer">
+                GitHub
               </Button>
               <Button to="/contact" icon="alternate_email" variant="ghost">Contact Me</Button>
             </div>
@@ -128,9 +150,9 @@ export default function Home() {
       {/* Featured Projects */}
       <section className="page-shell">
         <SectionHeader
-          eyebrow="Featured Work"
-          title="Strongest Projects"
-          description="Three builds that demonstrate AI, mobile, and full-stack depth."
+          eyebrow="Featured Products"
+          title="Selected Products"
+          description="Flagship builds spanning computer vision, career intelligence, and mobile AI — from architecture to production."
           icon="star"
         />
         <div className="grid grid-cols-1 gap-md md:grid-cols-3">
@@ -156,8 +178,11 @@ export default function Home() {
                 </div>
                 <div className="flex flex-1 flex-col p-md">
                   <p className={`label-caps mb-xs ${ac.text}`}>{project.category}</p>
-                  <h3 className="mb-sm font-display text-xl font-semibold">{project.title}</h3>
-                  <p className="mb-sm flex-1 text-sm leading-relaxed text-on-surface-variant">{project.description}</p>
+                  <h3 className="font-display text-xl font-semibold">{project.title}</h3>
+                  {project.descriptor && (
+                    <p className="mb-sm font-mono text-xs uppercase tracking-wide text-on-surface-variant">{project.descriptor}</p>
+                  )}
+                  <p className="mb-sm mt-xs flex-1 text-sm leading-relaxed text-on-surface-variant">{project.description}</p>
                   <div className="mb-md flex flex-wrap gap-xs">
                     {(project.tech || []).slice(0, 3).map((tag) => <Tag key={tag} accent={project.accent}>{tag}</Tag>)}
                   </div>

@@ -1,7 +1,15 @@
 import { aboutContent, identity } from "../data/portfolioData";
 import { Button, GlassCard, Icon, SectionHeader } from "../components/UI";
+import useDocumentMeta from "../hooks/useDocumentMeta";
 
 export default function About() {
+  useDocumentMeta({
+    title: "About — Technical Founder & Full Stack AI Engineer",
+    description:
+      "Background, approach, and education of Mohamed Boghdaddy, a Technical Founder and Full Stack AI Engineer based in Cairo, Egypt.",
+    path: "/about"
+  });
+
   return (
     <main className="page-shell">
       <SectionHeader
@@ -60,6 +68,9 @@ export default function About() {
           </GlassCard>
 
           <div className="flex flex-col gap-sm">
+            <Button to="/contact" icon="alternate_email" className="w-full">
+              Contact Me
+            </Button>
             <Button href={identity.cvUrl} icon="description" variant="secondary" download="Mohamed-Boghdady-CV.pdf" className="w-full">
               Download CV
             </Button>

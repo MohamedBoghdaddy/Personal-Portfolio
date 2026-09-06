@@ -1,7 +1,15 @@
 import { services } from "../data/portfolioData";
 import { Button, GlassCard, Icon, SectionHeader, Tag, accentClasses } from "../components/UI";
+import useDocumentMeta from "../hooks/useDocumentMeta";
 
 export default function Services() {
+  useDocumentMeta({
+    title: "Services — AI Product & Full-Stack Engineering",
+    description:
+      "AI MVP development, full-stack web apps, Flutter mobile apps, and RAG/LLM systems built by Mohamed Boghdaddy, Technical Founder & Full Stack AI Engineer.",
+    path: "/services"
+  });
+
   return (
     <main className="page-shell">
       <SectionHeader

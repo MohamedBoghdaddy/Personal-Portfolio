@@ -29,6 +29,7 @@ export default function App() {
         {/* Legacy URL redirects — keeps old bookmarks/links working */}
         <Route path="/builds" element={<Navigate to="/projects" replace />} />
         <Route path="/skill-tree" element={<Navigate to="/skills" replace />} />
+        <Route path="/projects/huntflow" element={<Navigate to="/projects/hunterflow" replace />} />
         <Route path="/case-studies/:slug" element={<CaseStudyRedirect />} />
         <Route path="/missions" element={<Navigate to="/projects" replace />} />
         <Route path="/proof" element={<Navigate to="/projects" replace />} />

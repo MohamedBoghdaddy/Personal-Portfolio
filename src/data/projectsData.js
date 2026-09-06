@@ -40,9 +40,99 @@ const defaultCaseStudy = {
 
 export const mainProjects = [
   {
+    slug: "partiq",
+    title: "PartIQ",
+    category: "INSURANCE TECH / B2B",
+    descriptor: "Vehicle Intelligence",
+    tier: "flagship",
+    filterTags: ["AI / LLM", "Full-Stack"],
+    role: "Computer Vision / Full-Stack Engineer",
+    status: "Active Build",
+    description:
+      "AI-powered vehicle inspection and decision-support infrastructure combining computer vision, damage detection, and repair-versus-replace intelligence for insurance and vehicle-assessment workflows.",
+    image: null,
+    tech: ["Computer Vision", "YOLO", "Python", "FastAPI", "AI Infrastructure"],
+    githubUrl: "",
+    liveUrl: "",
+    accent: "primary",
+    featured: true,
+    priority: 1,
+    caseStudy: {
+      duration: "Iterative build",
+      status: "Active build",
+      summary:
+        "Build a computer-vision inspection pipeline that detects vehicle damage, identifies affected parts, and supports repair-versus-replace and pricing decisions for insurance and vehicle-assessment workflows.",
+      problemSpace: [
+        "Manual vehicle inspection is slow and inconsistent across assessors.",
+        "Damage detection needs to generalize across parts, angles, and severity levels.",
+        "Repair-versus-replace and pricing decisions need structured, explainable outputs rather than a single opaque score."
+      ],
+      architecture: [
+        {
+          title: "Vision Layer",
+          detail: "YOLO-based detection and segmentation for vehicle parts and damage regions."
+        },
+        {
+          title: "Decision Core",
+          detail: "Repair-versus-replace logic and pricing/assessment rules applied to detected damage."
+        },
+        {
+          title: "Inspection API",
+          detail: "FastAPI service exposing structured inspection results for downstream workflows."
+        }
+      ],
+      features: [
+        "YOLO-based vehicle damage detection.",
+        "Vehicle part identification and damage-region segmentation.",
+        "Repair-versus-replace decision support.",
+        "Pricing and vehicle-assessment workflow logic.",
+        "Trained on a large labeled dataset of vehicle damage images.",
+        "Backed by an automated test suite covering the detection and assessment pipeline."
+      ],
+      outcomes: [
+        "A working end-to-end computer-vision inspection pipeline, from image to structured assessment.",
+        "A validated detection model with a documented baseline for future iteration.",
+        "A test-covered foundation for expanding into broader vehicle-intelligence workflows."
+      ],
+      role: [
+        "Trained and evaluated the YOLO-based damage-detection model.",
+        "Designed the repair-versus-replace and pricing decision logic.",
+        "Built the FastAPI service layer and the test suite backing the pipeline."
+      ],
+      challenges: [
+        {
+          title: "Turning raw detections into a trustworthy assessment",
+          resolution:
+            "Structured outputs around parts, damage regions, and severity, and paired the model with an automated test suite so assessment logic stays verifiable as the model evolves."
+        }
+      ]
+    }
+  },
+  {
+    slug: "kiwi",
+    title: "Kiwi",
+    category: "INTELLIGENT COMMERCE / B2C + B2B",
+    descriptor: "Pet Commerce Intelligence",
+    tier: "infrastructure",
+    filterTags: ["Full-Stack"],
+    role: "Full-Stack Engineer",
+    status: "Early-Stage Build",
+    description:
+      "Intelligent ecommerce platform for pet products — product discovery, categorization, and customer workflows built for a pharmacy-oriented pet retail experience.",
+    image: null,
+    tech: ["React", "Node.js", "MongoDB", "Ecommerce"],
+    githubUrl: "",
+    liveUrl: "",
+    accent: "primary",
+    featured: true,
+    priority: 5,
+    caseStudy: null
+  },
+  {
     slug: "calorielens",
     title: "CalorieLens",
     category: "Mobile AI / Health Tech",
+    tier: "engineering",
     filterTags: ["Mobile", "AI / LLM"],
     role: "Flutter + AI Product Engineer",
     status: "Active Build",
@@ -115,7 +205,9 @@ export const mainProjects = [
   {
     slug: "pregen-ai-lms",
     title: "PreGen AI LMS",
-    category: "AI Education Platform",
+    category: "EDUCATION TECH / B2B",
+    descriptor: "Learning Intelligence",
+    tier: "flagship",
     filterTags: ["AI / LLM", "Full-Stack"],
     role: "Full-Stack AI Engineer",
     status: "Active / QA-Tested",
@@ -132,7 +224,7 @@ export const mainProjects = [
       "Docker",
       "CI/CD",
     ],
-    githubUrl: "https://github.com/MohamedBoghdaddy/PreGen",
+    githubUrl: "https://github.com/PreGen-Ai",
     liveUrl: "https://pregeneg.com/",
     accent: "tertiary",
     featured: true,
@@ -197,6 +289,7 @@ export const mainProjects = [
     slug: "ai-cyber-defense-lab",
     title: "AI Cyber Defense Lab",
     category: "Cybersecurity AI",
+    tier: "engineering",
     filterTags: ["AI / LLM", "Cybersecurity", "Full-Stack"],
     role: "AI / Full-Stack Builder",
     status: "Prototype",
@@ -260,6 +353,7 @@ export const mainProjects = [
     slug: "foundit",
     title: "FoundIt",
     category: "Mobile App / AI Matching",
+    tier: "engineering",
     filterTags: ["Mobile", "AI / LLM"],
     role: "Flutter Developer",
     status: "MVP / Prototype",
@@ -282,6 +376,7 @@ export const mainProjects = [
     slug: "swarm-negotiation-mpso",
     title: "Swarm Negotiation MPSO",
     category: "AI Optimization",
+    tier: "engineering",
     filterTags: ["AI / LLM", "Full-Stack"],
     role: "AI Systems Builder",
     status: "Research Build",
@@ -311,6 +406,7 @@ export const mainProjects = [
     slug: "financial-ai-advisor",
     title: "Financial AI Advisor",
     category: "FinTech AI",
+    tier: "engineering",
     filterTags: ["Finance", "AI / LLM"],
     role: "AI Product Builder",
     status: "MVP",
@@ -329,6 +425,7 @@ export const mainProjects = [
     slug: "bugpilot",
     title: "BugPilot",
     category: "AI Developer Tooling",
+    tier: "engineering",
     filterTags: ["AI / LLM", "Full-Stack"],
     role: "AI Tool Builder",
     status: "Prototype",
@@ -348,31 +445,10 @@ export const mainProjects = [
     },
   },
   {
-    slug: "intellekt",
-    title: "Intellekt",
-    category: "Web Scraping / Data Extraction",
-    filterTags: ["AI / LLM", "Full-Stack"],
-    role: "AI/Data Platform Builder",
-    status: "Prototype",
-    description:
-      "Scraping platform capable of extracting data from websites and exporting structured results. Focuses on automation and clean data output pipelines.",
-    image: "/images/projects/Intellekt1.png",
-    tech: ["Web Scraping", "Automation", "Structured Data", "Python", "React"],
-    githubUrl: "",
-    liveUrl: "",
-    accent: "tertiary",
-    featured: false,
-    priority: 8,
-    caseStudy: {
-      ...defaultCaseStudy,
-      duration: "Prototype",
-      status: "Prototype",
-    },
-  },
-  {
     slug: "worldpulse-daily",
     title: "WorldPulse Daily",
     category: "Automation / Content",
+    tier: "engineering",
     filterTags: ["Automation"],
     role: "Automation Builder",
     status: "Active Workflow",
@@ -391,6 +467,7 @@ export const mainProjects = [
     slug: "tabeeb",
     title: "Tabeeb",
     category: "Healthcare Mobile",
+    tier: "engineering",
     filterTags: ["Mobile", "Healthcare"],
     role: "Flutter Developer",
     status: "Hackathon MVP",
@@ -406,20 +483,22 @@ export const mainProjects = [
     caseStudy: null,
   },
   {
-    slug: "huntflow",
-    title: "HuntFlow",
-    category: "Full-Stack Web App",
+    slug: "hunterflow",
+    title: "HunterFlow",
+    category: "CAREER INTELLIGENCE",
+    descriptor: "Career Intelligence",
+    tier: "applied",
     filterTags: ["Full-Stack", "AI / LLM"],
     role: "Full-Stack Engineer",
     status: "MVP",
     description:
-      "All-in-one job hunt companion: aggregate jobs, analyze your CV with AI, track applications, and apply faster using a clean pipeline dashboard.",
+      "AI-powered career intelligence for discovering, evaluating, and managing professional opportunities — job aggregation, AI CV analysis, and application tracking in one pipeline.",
     image: "/images/projects/Huntflow.png",
     tech: ["React", "Node.js", "MongoDB", "AI CV Analysis", "REST APIs"],
     githubUrl: "https://github.com/MohamedBoghdaddy/HuntFlow",
     liveUrl: "",
     accent: "secondary",
-    featured: false,
+    featured: true,
     priority: 11,
     caseStudy: null,
   },
@@ -427,6 +506,7 @@ export const mainProjects = [
     slug: "mammoai",
     title: "MammoAI",
     category: "Healthcare AI",
+    tier: "engineering",
     filterTags: ["Healthcare", "AI / LLM"],
     role: "ML Engineer",
     status: "Research Build",
@@ -480,24 +560,6 @@ export const earlierBuilds = [
     accent: "primary",
     featured: false,
     priority: 21,
-    caseStudy: null,
-    earlierBuild: true
-  },
-  {
-    slug: "hkiiapply",
-    title: "HKIIAPPLY",
-    category: "AI Job Search Platform",
-    filterTags: ["Full-Stack", "AI / LLM"],
-    role: "Full-Stack Developer",
-    status: "Live",
-    description: "AI-powered platform that automates job applications, provides AI-driven guidance, and streamlines the job search process.",
-    image: "/images/projects/hkiiapply.png",
-    tech: ["React", "Node.js", "MongoDB", "AI APIs", "REST APIs"],
-    githubUrl: "https://github.com/MohamedBoghdaddy/hkiiapply",
-    liveUrl: "https://boghhki.netlify.app/",
-    accent: "tertiary",
-    featured: false,
-    priority: 22,
     caseStudy: null,
     earlierBuild: true
   },

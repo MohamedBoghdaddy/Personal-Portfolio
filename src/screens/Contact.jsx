@@ -3,12 +3,32 @@ import emailjs from "emailjs-com";
 import { useForm } from "react-hook-form";
 import { contactTopics, identity } from "../data/portfolioData";
 import { Button, GlassCard, Icon, ProgressBar, SectionHeader } from "../components/UI";
+import useDocumentMeta from "../hooks/useDocumentMeta";
 
-const emailServiceId = "service_42p3sju";
+const emailServiceId = "service_qm8alrw"; // "Gmail personal portfolio" — connected as mohamedhammad3.142@gmail.com
 const emailTemplateId = "template_t64w4wp";
 const emailPublicKey = "PV9slaOWlMSALkZ3v";
 
+const RATE_LIMIT_KEY = "contact_last_submit_at";
+const RATE_LIMIT_MS = 60 * 1000; // one submission per minute per browser
+
+const opportunityTypes = [
+  "Job Opportunity",
+  "AI / Software Project",
+  "Technical Partnership",
+  "Startup / Product Collaboration",
+  "Consulting",
+  "Other"
+];
+
 export default function Contact() {
+  useDocumentMeta({
+    title: "Contact — Let's Build Something",
+    description:
+      "Reach Mohamed Boghdaddy for job opportunities, AI/software projects, technical partnerships, or consulting.",
+    path: "/contact"
+  });
+
   const [activeTab, setActiveTab] = useState("quick");
   const [messageStatus, setMessageStatus] = useState(null);
   const {
@@ -22,11 +42,14 @@ export default function Contact() {
       firstName: "",
       lastName: "",
       email: "",
+      company: "",
+      opportunityType: "",
       topic: contactTopics[0],
       projectType: "AI MVP / Product Build",
       timeline: "",
       message: "",
-      terms: false
+      terms: false,
+      website: "" // honeypot — real users never see or fill this field
     }
   });
 
@@ -39,27 +62,67 @@ export default function Contact() {
 
   const onSubmit = async (data) => {
     setMessageStatus(null);
+
+    // Honeypot: bots fill every field, real visitors never see this one.
+    if (data.website) {
+      setMessageStatus({ type: "success", text: "Message sent successfully. I'll get back to you soon." });
+      reset();
+      return;
+    }
+
+    // Lightweight client-side rate limit to deter accidental double-submits and spam bursts.
+    try {
+      const lastSubmit = Number(window.localStorage.getItem(RATE_LIMIT_KEY) || 0);
+      if (Date.now() - lastSubmit < RATE_LIMIT_MS) {
+        setMessageStatus({
+          type: "error",
+          text: `Please wait a moment before sending another message, or email me directly at ${identity.email}.`
+        });
+        return;
+      }
+    } catch {
+      // localStorage unavailable (private browsing, etc.) — proceed without rate limiting.
+    }
+
+    const fullName = `${data.firstName} ${data.lastName}`.trim().slice(0, 120);
+    const subject = `Portfolio Contact — ${data.topic}`;
+
     try {
       const response = await emailjs.send(
         emailServiceId,
         emailTemplateId,
         {
           ...data,
-          fullName: `${data.firstName} ${data.lastName}`.trim(),
-          subject: data.topic,
-          source: "BOGHDADDY OS portfolio"
+          fullName,
+          subject,
+          company: data.company?.trim() || "Not provided",
+          opportunityType: data.opportunityType || "Not specified",
+          message: data.message.trim().slice(0, 800),
+          source: "boghdaddy-personal-portfolio.vercel.app",
+          reply_to: data.email
         },
         emailPublicKey
       );
 
       if (response.status === 200) {
-        setMessageStatus({ type: "success", text: "Message sent successfully through EmailJS." });
+        try {
+          window.localStorage.setItem(RATE_LIMIT_KEY, String(Date.now()));
+        } catch {
+          // ignore storage errors
+        }
+        setMessageStatus({ type: "success", text: "Message sent successfully. I'll get back to you soon." });
         reset();
       } else {
-        setMessageStatus({ type: "error", text: "EmailJS did not confirm delivery. Please use direct email." });
+        setMessageStatus({
+          type: "error",
+          text: `Something went wrong while sending your message. Please try again or email me directly at ${identity.email}.`
+        });
       }
     } catch (error) {
-      setMessageStatus({ type: "error", text: "Message could not be sent. Please use direct email." });
+      setMessageStatus({
+        type: "error",
+        text: `Something went wrong while sending your message. Please try again or email me directly at ${identity.email}.`
+      });
     }
   };
 
@@ -67,8 +130,8 @@ export default function Contact() {
     <main className="page-shell">
       <SectionHeader
         eyebrow="Get in Touch"
-        title={<>Let's <span className="text-primary">Work Together</span></>}
-        description="Open for AI product projects, full-stack builds, Flutter mobile apps, and technical collaborations."
+        title={<>Let's Build Something <span className="text-primary">Useful</span></>}
+        description="Whether you're hiring, building an AI product, exploring a technical partnership, or solving a difficult software problem, I'd like to hear about it."
         icon="alternate_email"
       />
 
@@ -161,7 +224,13 @@ export default function Contact() {
               ))}
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-md p-md">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-md p-md" noValidate>
+              {/* Honeypot field — hidden from real visitors via CSS, bots fill every input they find. */}
+              <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                <label htmlFor="website">Leave this field empty</label>
+                <input id="website" type="text" tabIndex={-1} autoComplete="off" {...register("website")} />
+              </div>
+
               <div className="grid grid-cols-1 gap-md md:grid-cols-2">
                 <Field label="First Name" error={errors.firstName?.message}>
                   <input
@@ -200,11 +269,24 @@ export default function Contact() {
               </Field>
 
               {activeTab === "quick" ? (
-                <Field label="Subject / Project Type" error={errors.topic?.message}>
-                  <select className="field-input" {...register("topic", { required: "Please select a topic" })}>
-                    {contactTopics.map((topic) => <option key={topic}>{topic}</option>)}
-                  </select>
-                </Field>
+                <>
+                  <Field label="Subject / Project Type" error={errors.topic?.message}>
+                    <select className="field-input" {...register("topic", { required: "Please select a topic" })}>
+                      {contactTopics.map((topic) => <option key={topic}>{topic}</option>)}
+                    </select>
+                  </Field>
+                  <div className="grid grid-cols-1 gap-md md:grid-cols-2">
+                    <Field label="Company (optional)">
+                      <input className="field-input" placeholder="Your company" type="text" maxLength={120} {...register("company")} />
+                    </Field>
+                    <Field label="Opportunity Type (optional)">
+                      <select className="field-input" {...register("opportunityType")}>
+                        <option value="">Select if applicable</option>
+                        {opportunityTypes.map((type) => <option key={type}>{type}</option>)}
+                      </select>
+                    </Field>
+                  </div>
+                </>
               ) : (
                 <div className="grid grid-cols-1 gap-md md:grid-cols-2">
                   <Field label="Project Type">
@@ -236,15 +318,27 @@ export default function Contact() {
 
               <label className="flex items-start gap-xs font-mono text-xs text-on-surface-variant">
                 <input className="mt-1 accent-primary" type="checkbox" {...register("terms", { required: "Please confirm this is a real message" })} />
-                <span>I confirm this is a real message and understand the form sends through EmailJS.</span>
+                <span>I confirm this is a genuine message, not spam or automated.</span>
               </label>
               {errors.terms && <p className="font-mono text-xs text-error">{errors.terms.message}</p>}
 
               {messageStatus && (
-                <div className={`border p-sm font-mono text-sm ${messageStatus.type === "success" ? "border-primary/30 bg-primary/10 text-primary" : "border-error/30 bg-error/10 text-error"}`}>
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className={`border p-sm font-mono text-sm ${messageStatus.type === "success" ? "border-primary/30 bg-primary/10 text-primary" : "border-error/30 bg-error/10 text-error"}`}
+                >
                   {messageStatus.text}
                 </div>
               )}
+
+              <p className="text-center font-mono text-xs text-outline">
+                You can also reach me directly at{" "}
+                <a href={`mailto:${identity.email}`} className="text-primary underline underline-offset-2">
+                  {identity.email}
+                </a>
+                .
+              </p>
 
               <button
                 className="focus-ring group relative flex w-full items-center justify-center gap-sm overflow-hidden bg-primary py-md font-display text-xl font-semibold uppercase tracking-widest text-on-primary transition hover:scale-[1.01] active:scale-95 md:text-2xl"

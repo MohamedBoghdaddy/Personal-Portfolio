@@ -1,5 +1,6 @@
 import { skillGroups } from "../data/portfolioData";
 import { GlassCard, Icon, SectionHeader, Tag, accentClasses } from "../components/UI";
+import useDocumentMeta from "../hooks/useDocumentMeta";
 
 const levelColors = {
   Advanced: "text-primary border-primary",
@@ -9,6 +10,13 @@ const levelColors = {
 };
 
 export default function SkillTree() {
+  useDocumentMeta({
+    title: "Technical Capabilities — AI, Computer Vision & Full-Stack",
+    description:
+      "AI systems, computer vision, full-stack engineering, data infrastructure, and DevOps capabilities behind Mohamed Boghdaddy's products.",
+    path: "/skills"
+  });
+
   return (
     <main className="page-shell">
       <SectionHeader
